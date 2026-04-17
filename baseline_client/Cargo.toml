@@ -1,0 +1,15 @@
+[package]
+name = "baseline_client"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "baseline_client"
+path = "src/main.rs"
+
+[dependencies]
+chrono = { version = "0.4", features = ["serde"] }
+serde = { workspace = true }
+serde_json = "1"
+tokio = { version = "1", features = ["rt-multi-thread", "macros"] }
+reqwest = { version = "0.12", features = ["json"] }
