@@ -1,0 +1,7 @@
+[workspace]
+members = ["procedures/oracle_read"]
+resolver = "2"
+
+[workspace.dependencies]
+zela-std = { git = "https://github.com/Zela-io/zela-std.git", rev = "e5465e0e60ae6b690664408dbdd885fcdb867eab" }
+serde = { version = "1.0", features = ["derive"] }
