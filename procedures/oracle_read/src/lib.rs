@@ -12,7 +12,7 @@ const FEEDS: &[(&str, &str)] = &[
     ("BNB/USD",  "4CkQJBxhU8EZ2UjhigbtdaPbpTe6mqf811fipYBFbSYN"),
     ("JUP/USD",  "g6eRCbboSwK4tSWngn773RCMexr1APQr4uA9bGZBYfo"),
     ("BONK/USD", "8ihFLu5FimgTQ1Unh4dVyEHUGodJ5gJQCrQf4KUVB9bN"),
-    ("W/USD",    "8gTpR6DjS66SeyUvy3TXMBZpJQ3ZMMcifTGp3zhwS5gS"),
+    ("PYTH/USD", "nrYkQQQur7z8rYTST3G9GqATviK5SxTDkrqd21MW6Ue"),
     ("JTO/USD",  "D8UUgr8a3aR3yUeHLu7v8FWK7E8Y5sSU7qrYBXUJXBQ5"),
 ];
 
