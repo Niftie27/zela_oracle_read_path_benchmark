@@ -234,9 +234,9 @@ Recommendation: publish both.
 ## Data locations
 
 - **In-repo orchestrator code:** `orchestrator/orchestrate.py` (committed)
-- **This dataset (not in repo):** `~/zela_datasets/dataset_2026_04_21_late_morning/`
+- **This dataset (gitignored, in workspace):** `zela_datasets/dataset_2026_04_21_late_morning/`
 - **Future datasets (when collected):** `data/run_YYYYMMDD_HHMMSS/` inside
   repo (gitignored), rename and move to
-  `~/zela_datasets/dataset_YYYY_MM_DD_timeofday/` after collection.
+  `zela_datasets/dataset_YYYY_MM_DD_timeofday/` after collection.
   Naming convention: `dataset_YYYY_MM_DD_timeofday` where `timeofday`
   is `morning`, `late_morning`, `evening`, or `night`.
