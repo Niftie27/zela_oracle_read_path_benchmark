@@ -21,3 +21,6 @@ prompts/
 data/
 __pycache__/
 *.pyc
+zela_datasets/
+.codex/
+*.code-workspace
