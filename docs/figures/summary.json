@@ -1,0 +1,222 @@
+{
+  "datasets": {
+    "dataset_2026_04_21_late_morning": {
+      "run_count": 100,
+      "error_count": 0,
+      "zela": {
+        "min_us": 904.0,
+        "p50_us": 2073.5,
+        "p95_us": 223267.6,
+        "p99_us": 249535.5,
+        "max_us": 341750.0,
+        "mean_us": 57856.5,
+        "n": 100
+      },
+      "baseline": {
+        "min_us": 391273.0,
+        "p50_us": 484163.5,
+        "p95_us": 614601.9,
+        "p99_us": 660103.2,
+        "max_us": 699528.0,
+        "mean_us": 497428.2,
+        "n": 100
+      },
+      "slot_consistency": {
+        "zela_1slot_pct": 88.0,
+        "zela_2slot_pct": 12.0,
+        "zela_3plus_slot_pct": 0.0,
+        "baseline_1slot_pct": 7.0,
+        "baseline_2slot_pct": 88.0,
+        "baseline_3plus_slot_pct": 5.0
+      },
+      "bimodality": {
+        "fast_mode_pct": 72.0,
+        "intermediate_pct": 6.0,
+        "slow_mode_pct": 22.0
+      },
+      "ratios": {
+        "median_ratio": 233.5,
+        "p95_ratio": 2.8
+      }
+    },
+    "dataset_2026_04_21_afternoon": {
+      "run_count": 97,
+      "error_count": 3,
+      "zela": {
+        "min_us": 907.0,
+        "p50_us": 2185.0,
+        "p95_us": 220436.8,
+        "p99_us": 244495.1,
+        "max_us": 249513.0,
+        "mean_us": 33275.5,
+        "n": 97
+      },
+      "baseline": {
+        "min_us": 405648.0,
+        "p50_us": 514364.5,
+        "p95_us": 727462.0,
+        "p99_us": 843700.9,
+        "max_us": 1034265.0,
+        "mean_us": 538294.4,
+        "n": 100
+      },
+      "slot_consistency": {
+        "zela_1slot_pct": 89.7,
+        "zela_2slot_pct": 10.3,
+        "zela_3plus_slot_pct": 0.0,
+        "baseline_1slot_pct": 6.0,
+        "baseline_2slot_pct": 80.0,
+        "baseline_3plus_slot_pct": 14.0
+      },
+      "bimodality": {
+        "fast_mode_pct": 81.4,
+        "intermediate_pct": 9.3,
+        "slow_mode_pct": 9.3
+      },
+      "ratios": {
+        "median_ratio": 235.4,
+        "p95_ratio": 3.3
+      }
+    },
+    "dataset_2026_04_21_evening": {
+      "run_count": 100,
+      "error_count": 0,
+      "zela": {
+        "min_us": 1068.0,
+        "p50_us": 2117.0,
+        "p95_us": 325497.3,
+        "p99_us": 477891.7,
+        "max_us": 510235.0,
+        "mean_us": 48660.0,
+        "n": 100
+      },
+      "baseline": {
+        "min_us": 389392.0,
+        "p50_us": 525627.5,
+        "p95_us": 675060.8,
+        "p99_us": 790297.6,
+        "max_us": 957961.0,
+        "mean_us": 537833.8,
+        "n": 100
+      },
+      "slot_consistency": {
+        "zela_1slot_pct": 92.0,
+        "zela_2slot_pct": 8.0,
+        "zela_3plus_slot_pct": 0.0,
+        "baseline_1slot_pct": 7.0,
+        "baseline_2slot_pct": 78.0,
+        "baseline_3plus_slot_pct": 15.0
+      },
+      "bimodality": {
+        "fast_mode_pct": 77.0,
+        "intermediate_pct": 12.0,
+        "slow_mode_pct": 11.0
+      },
+      "ratios": {
+        "median_ratio": 248.3,
+        "p95_ratio": 2.1
+      }
+    },
+    "combined": {
+      "run_count": 297,
+      "error_count": 3,
+      "zela": {
+        "min_us": 904.0,
+        "p50_us": 2114.0,
+        "p95_us": 243456.4,
+        "p99_us": 430014.1,
+        "max_us": 510235.0,
+        "mean_us": 46731.9,
+        "n": 297
+      },
+      "baseline": {
+        "min_us": 389392.0,
+        "p50_us": 503960.0,
+        "p95_us": 667666.9,
+        "p99_us": 799028.8,
+        "max_us": 1034265.0,
+        "mean_us": 524518.8,
+        "n": 300
+      },
+      "slot_consistency": {
+        "zela_1slot_pct": 89.9,
+        "zela_2slot_pct": 10.1,
+        "zela_3plus_slot_pct": 0.0,
+        "baseline_1slot_pct": 6.7,
+        "baseline_2slot_pct": 82.0,
+        "baseline_3plus_slot_pct": 11.3
+      },
+      "bimodality": {
+        "fast_mode_pct": 76.8,
+        "intermediate_pct": 9.1,
+        "slow_mode_pct": 14.1
+      },
+      "ratios": {
+        "median_ratio": 238.4,
+        "p95_ratio": 2.7
+      }
+    }
+  },
+  "per_feed": {
+    "SOL/USD": {
+      "zela_p50_us": 542.0,
+      "zela_p95_us": 33144.6,
+      "baseline_p50_us": 100408.0,
+      "baseline_p95_us": 154617.7
+    },
+    "BTC/USD": {
+      "zela_p50_us": 234.0,
+      "zela_p95_us": 27238.8,
+      "baseline_p50_us": 44313.5,
+      "baseline_p95_us": 59211.5
+    },
+    "ETH/USD": {
+      "zela_p50_us": 173.0,
+      "zela_p95_us": 25628.0,
+      "baseline_p50_us": 44360.0,
+      "baseline_p95_us": 60900.8
+    },
+    "USDC/USD": {
+      "zela_p50_us": 163.0,
+      "zela_p95_us": 28340.6,
+      "baseline_p50_us": 44392.0,
+      "baseline_p95_us": 61630.2
+    },
+    "USDT/USD": {
+      "zela_p50_us": 159.0,
+      "zela_p95_us": 26427.4,
+      "baseline_p50_us": 44190.5,
+      "baseline_p95_us": 59828.9
+    },
+    "BNB/USD": {
+      "zela_p50_us": 154.0,
+      "zela_p95_us": 24672.0,
+      "baseline_p50_us": 44126.0,
+      "baseline_p95_us": 60673.3
+    },
+    "JUP/USD": {
+      "zela_p50_us": 155.0,
+      "zela_p95_us": 22950.6,
+      "baseline_p50_us": 44952.0,
+      "baseline_p95_us": 58900.8
+    },
+    "BONK/USD": {
+      "zela_p50_us": 154.0,
+      "zela_p95_us": 23702.0,
+      "baseline_p50_us": 43367.0,
+      "baseline_p95_us": 64150.4
+    },
+    "PYTH/USD": {
+      "zela_p50_us": 154.0,
+      "zela_p95_us": 23687.2,
+      "baseline_p50_us": 42854.5,
+      "baseline_p95_us": 59033.2
+    },
+    "JTO/USD": {
+      "zela_p50_us": 151.0,
+      "zela_p95_us": 25033.8,
+      "baseline_p50_us": 43922.5,
+      "baseline_p95_us": 57645.4
+    }
+  }
+}
