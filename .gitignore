@@ -19,3 +19,5 @@ Thumbs.db
 *.log
 prompts/
 data/
+__pycache__/
+*.pyc
