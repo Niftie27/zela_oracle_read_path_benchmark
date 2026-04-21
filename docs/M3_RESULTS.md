@@ -1,7 +1,7 @@
 # M3 Results — Orchestrator + First Benchmark Dataset
 
 **Status:** Complete. First validated 100-run dataset collected.
-**Dataset:** `dataset_2026_04_21_afternoon` (April 21, 2026, afternoon collection window)
+**Dataset:** `dataset_2026_04_21_late_morning` (April 21, 2026, late morning collection window)
 **Procedure revision:** `56df99e1e31be5ac2e9e3c08d2cae261d0757490`
 **Orchestrator commit:** `0ce1459`
 
@@ -52,7 +52,7 @@ Python 3 script. External dep: `requests`. Runs from workspace root.
 
 ---
 
-## Dataset: dataset_2026_04_21_afternoon (100 runs)
+## Dataset: dataset_2026_04_21_late_morning (100 runs)
 
 ### Aggregate latency summary
 
@@ -183,7 +183,7 @@ choice of 100-run minimum target and argues for at least a second
 ### 4. One collection window is not enough
 
 All 100 runs in this dataset were collected from a single operator
-machine (Prague) in a single time window (afternoon, April 21).
+machine (Prague) in a single time window (late morning, April 21).
 Bimodality could be:
 - Time-of-day load dependent (would disappear in a different window)
 - Operator-side network dependent (would disappear from a different
@@ -234,9 +234,9 @@ Recommendation: publish both.
 ## Data locations
 
 - **In-repo orchestrator code:** `orchestrator/orchestrate.py` (committed)
-- **This dataset (not in repo):** `~/zela_datasets/dataset_2026_04_21_afternoon/`
+- **This dataset (not in repo):** `~/zela_datasets/dataset_2026_04_21_late_morning/`
 - **Future datasets (when collected):** `data/run_YYYYMMDD_HHMMSS/` inside
   repo (gitignored), rename and move to
   `~/zela_datasets/dataset_YYYY_MM_DD_timeofday/` after collection.
   Naming convention: `dataset_YYYY_MM_DD_timeofday` where `timeofday`
-  is `morning`, `afternoon`, `evening`, or `night`.
+  is `morning`, `late_morning`, `evening`, or `night`.
