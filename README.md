@@ -17,6 +17,10 @@ failed and were filtered, yielding 497 Zela / 500 baseline paired runs.
 - **Slot consistency: Zela holds all 10 feeds in one Solana slot in 91%
   of runs; Baseline does so in 7%.**
 
+Each subplot is a histogram of aggregate batch latency for one
+collection window. X-axis is latency per batch in milliseconds;
+Y-axis is the number of runs that fell into each latency bin.
+
 ![Latency distribution](docs/figures/latency_distribution.png)
 
 ---
@@ -127,6 +131,11 @@ fast-mode median while baseline stays near its usual distribution.
 
 ### Bimodality (the key finding)
 
+The CDF shows what fraction of runs (Y) completed at or below a given
+latency (X). Lower and leftward is faster.
+
+![CDF](docs/figures/cdf.png)
+
 Zela's latency distribution is bimodal. The CDF shows a characteristic
 plateau between approximately 80% and 89% of runs — the gap between
 Zela's "fast mode" (median around 2 ms) and "slow mode" (median around
@@ -134,8 +143,6 @@ Zela's "fast mode" (median around 2 ms) and "slow mode" (median around
 fast mode (< 5 ms), about 12% sit in the slow mode (> 200 ms), and
 about 9% sit in between. Baseline shows no such plateau; its
 distribution is unimodal and tight around 500 ms.
-
-![CDF](docs/figures/cdf.png)
 
 **The frequency of slow-mode events varies with time of day**, and this
 is a stronger statement than "bimodality exists":
@@ -172,6 +179,12 @@ typically complete well inside a single ~400 ms slot. A remote RPC
 client reaching Helius from Prague crosses at least one slot boundary
 in about 93% of runs in the observed data.
 
+Each pair of bars is one collection window, with Zela on the left and
+Baseline on the right. Y-axis shows the percentage of runs where all
+10 feed reads returned within a single Solana slot (a slot is ~400 ms).
+Higher is better; it means the batch produced a consistent cross-asset
+snapshot.
+
 ![Slot consistency](docs/figures/slot_consistency.png)
 
 This matters for workflows that need a consistent multi-asset price
@@ -207,9 +220,12 @@ connections would only see warm-call latency. The per-feed p95 values
 are dominated by the slow-mode events discussed earlier: they measure
 the ceiling during slow-mode, not a steady-state tail.
 
-![Per-feed](docs/figures/per_feed_latency.png)
-
 ### Time of day
+
+Box plots show the distribution of aggregate batch latency per
+collection window. The horizontal line in each box is the median;
+box edges are p25/p75; whiskers extend to typical range; circles are
+outliers (mostly slow-mode events on the Zela side).
 
 ![Time of day](docs/figures/time_of_day.png)
 

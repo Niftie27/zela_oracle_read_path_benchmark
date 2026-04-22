@@ -9,6 +9,15 @@ import pandas as pd
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+from matplotlib.ticker import FuncFormatter
+
+
+def _plain_log(x, _pos):
+    """Format log-scale tick labels as plain integers (1, 10, 100) instead of 10^N."""
+    return f"{int(x)}" if x >= 1 else f"{x:g}"
+
+
+PLAIN_LOG = FuncFormatter(_plain_log)
 
 FEEDS_COLS = {
     "run_id", "timestamp_ms", "side", "symbol", "pubkey",
@@ -166,14 +175,15 @@ def compute_per_feed(all_feeds):
 def fig_latency_distribution(datasets):
     # Facet grid: one row per dataset, two columns (Zela log-scale, Baseline linear).
     n = len(datasets)
-    fig, axes = plt.subplots(n, 2, figsize=(12, 2.4 * n + 1.5), squeeze=False)
+    fig, axes = plt.subplots(n, 2, figsize=(12, 2.4 * n + 1.5), squeeze=False, sharey="col")
 
     # Shared x-axis ranges within each column so rows are visually comparable.
+    # All latency values displayed in milliseconds (raw data in summary.json stays µs).
     all_z = pd.concat([ds["aggs"][ds["aggs"]["side"] == "zela"]["wall_clock_total_us"]
-                       for ds in datasets]).dropna()
+                       for ds in datasets]).dropna() / 1000.0
     all_b = pd.concat([ds["aggs"][ds["aggs"]["side"] == "baseline"]["wall_clock_total_us"]
-                       for ds in datasets]).dropna()
-    z_bins = np.geomspace(max(1, all_z.min()), all_z.max(), 40) if len(all_z) > 1 else 20
+                       for ds in datasets]).dropna() / 1000.0
+    z_bins = np.geomspace(max(0.001, all_z.min()), all_z.max(), 40) if len(all_z) > 1 else 20
     b_bins = np.linspace(all_b.min(), all_b.max(), 40) if len(all_b) > 1 else 20
     z_xlim = (all_z.min() * 0.9, all_z.max() * 1.1) if len(all_z) else None
     b_xlim = (all_b.min() * 0.95, all_b.max() * 1.05) if len(all_b) else None
@@ -183,31 +193,36 @@ def fig_latency_distribution(datasets):
         ax_b = axes[i, 1]
         color = DS_COLS[i % len(DS_COLS)]
         aggs = ds["aggs"]
-        z = aggs[aggs["side"] == "zela"]["wall_clock_total_us"].dropna()
-        b = aggs[aggs["side"] == "baseline"]["wall_clock_total_us"].dropna()
+        z = aggs[aggs["side"] == "zela"]["wall_clock_total_us"].dropna() / 1000.0
+        b = aggs[aggs["side"] == "baseline"]["wall_clock_total_us"].dropna() / 1000.0
         if len(z) > 0:
             ax_z.hist(z, bins=z_bins, color=color, alpha=0.85, edgecolor="white", linewidth=0.3)
         if len(b) > 0:
             ax_b.hist(b, bins=b_bins, color=color, alpha=0.85, edgecolor="white", linewidth=0.3)
 
         ax_z.set_xscale("log")
+        ax_z.xaxis.set_major_formatter(PLAIN_LOG)
         if z_xlim:
             ax_z.set_xlim(z_xlim)
         if b_xlim:
             ax_b.set_xlim(b_xlim)
-        ax_z.set_ylabel(short_ds(ds["name"]), fontsize=11, rotation=0, ha="right",
-                        va="center", labelpad=8)
+        ax_z.set_ylabel("Runs", fontsize=9)
+        ax_z.annotate(
+            short_ds(ds["name"]),
+            xy=(-0.22, 0.5), xycoords="axes fraction",
+            ha="right", va="center", fontsize=11, fontweight="bold",
+        )
         ax_b.tick_params(labelleft=False)
 
         if i == 0:
             ax_z.set_title("Zela", fontsize=12)
-            ax_b.set_title("Baseline", fontsize=12)
+            ax_b.set_title("Baseline (Helius)", fontsize=12)
         if i < n - 1:
             ax_z.tick_params(labelbottom=False)
             ax_b.tick_params(labelbottom=False)
 
-    axes[n - 1, 0].set_xlabel("Latency (µs, log scale)", fontsize=11)
-    axes[n - 1, 1].set_xlabel("Latency (µs)", fontsize=11)
+    axes[n - 1, 0].set_xlabel("Latency per batch (ms)", fontsize=11)
+    axes[n - 1, 1].set_xlabel("Latency per batch (ms)", fontsize=11)
     fig.suptitle(f"Aggregate Latency Distribution Across {n} Datasets (100 runs each)", fontsize=13)
     fig.tight_layout(rect=(0, 0, 1, 0.98))
     fig.savefig(FIGURES_DIR / "latency_distribution.png", dpi=150, bbox_inches="tight")
@@ -215,36 +230,26 @@ def fig_latency_distribution(datasets):
 
 
 def fig_slot_consistency(datasets):
-    # Grouped stacked bar chart: two bars per dataset (Zela, Baseline), stacked by slot count.
+    # Grouped bars (non-stacked): single-slot rate for Zela and Baseline per window.
     ds_labels = [short_ds(ds["name"]) for ds in datasets]
     x = np.arange(len(datasets))
-    width = 0.35
-    side_colors = {
-        "zela":     {"1": "#1f77b4", "2": "#6baed6", "3+": "#c6dbef"},
-        "baseline": {"1": "#ff7f0e", "2": "#fdae6b", "3+": "#fee6ce"},
-    }
+    width = 0.38
+
+    def one_slot_pct(df):
+        t = len(df)
+        return float((df["unique_slots_count"] == 1).sum()) / t * 100 if t else 0.0
+
+    z_vals = [one_slot_pct(ds["aggs"][ds["aggs"]["side"] == "zela"]) for ds in datasets]
+    b_vals = [one_slot_pct(ds["aggs"][ds["aggs"]["side"] == "baseline"]) for ds in datasets]
+
     fig, ax = plt.subplots(figsize=(10, 6))
-    for side, offset in [("zela", -width / 2), ("baseline", width / 2)]:
-        s1, s2, s3 = [], [], []
-        for ds in datasets:
-            df = ds["aggs"][ds["aggs"]["side"] == side]
-            t = len(df)
-            v1 = float((df["unique_slots_count"] == 1).sum()) / t * 100 if t else 0
-            v2 = float((df["unique_slots_count"] == 2).sum()) / t * 100 if t else 0
-            s1.append(v1); s2.append(v2); s3.append(max(0.0, 100 - v1 - v2))
-        xpos = x + offset
-        sc = side_colors[side]
-        label = side.capitalize()
-        ax.bar(xpos, s1, width=width, color=sc["1"],  label=f"{label} – 1 slot")
-        ax.bar(xpos, s2, width=width, color=sc["2"],  label=f"{label} – 2 slots",
-               bottom=s1)
-        ax.bar(xpos, s3, width=width, color=sc["3+"], label=f"{label} – 3+ slots",
-               bottom=[a + b for a, b in zip(s1, s2)])
+    ax.bar(x - width / 2, z_vals, width=width, color=Z_COL, label="Zela")
+    ax.bar(x + width / 2, b_vals, width=width, color=B_COL, label="Baseline (Helius)")
     ax.set_xticks(x)
     ax.set_xticklabels(ds_labels, rotation=45, ha="right", fontsize=10)
-    ax.set_ylabel("% of runs", fontsize=11)
-    ax.set_ylim(0, 105)
-    ax.legend(fontsize=9, loc="center left", bbox_to_anchor=(1.02, 0.5))
+    ax.set_ylabel("% of runs in a single slot", fontsize=11)
+    ax.set_ylim(0, 100)
+    ax.legend(fontsize=10, loc="center right")
     ax.set_title("Slot Consistency: Fraction of Runs Returning Within a Single Slot", fontsize=13)
     fig.tight_layout()
     fig.savefig(FIGURES_DIR / "slot_consistency.png", dpi=150, bbox_inches="tight")
@@ -257,18 +262,19 @@ def fig_per_feed_latency(per_feed):
     for ax, side, col, log_scale in [
         (ax_z, "zela", Z_COL, True), (ax_b, "baseline", B_COL, False),
     ]:
-        p50s = np.array([per_feed[s][f"{side}_p50_us"] for s in FEED_ORDER])
-        p95s = np.array([per_feed[s][f"{side}_p95_us"] for s in FEED_ORDER])
+        p50s = np.array([per_feed[s][f"{side}_p50_us"] for s in FEED_ORDER]) / 1000.0
+        p95s = np.array([per_feed[s][f"{side}_p95_us"] for s in FEED_ORDER]) / 1000.0
         err_up = np.maximum(0, p95s - p50s)
         ax.errorbar(x, p50s, yerr=[np.zeros(len(FEED_ORDER)), err_up],
                     fmt="o", color=col, capsize=4, label="p50, error bar to p95")
         ax.set_xticks(x)
         ax.set_xticklabels(FEED_ORDER, rotation=30, ha="right", fontsize=9)
-        ax.set_ylabel("µs", fontsize=11)
+        ax.set_ylabel("ms", fontsize=11)
         ax.set_title(f"{side.capitalize()} per-feed latency", fontsize=11)
         ax.legend(fontsize=9)
         if log_scale:
             ax.set_yscale("log")
+            ax.yaxis.set_major_formatter(PLAIN_LOG)
     fig.suptitle("Per-Feed Latency: Median and p95", fontsize=13)
     fig.tight_layout()
     fig.savefig(FIGURES_DIR / "per_feed_latency.png", dpi=150, bbox_inches="tight")
@@ -279,18 +285,21 @@ def fig_time_of_day(datasets):
     ds_labels = [short_ds(ds["name"]) for ds in datasets]
     fig, (ax_z, ax_b) = plt.subplots(1, 2, figsize=(10, 6))
     for ax, side, col, title in [
-        (ax_z, "zela", Z_COL, "Zela"), (ax_b, "baseline", B_COL, "Baseline"),
+        (ax_z, "zela", Z_COL, "Zela"), (ax_b, "baseline", B_COL, "Baseline (Helius)"),
     ]:
         data = [
-            ds["aggs"][ds["aggs"]["side"] == side]["wall_clock_total_us"].dropna().values
+            ds["aggs"][ds["aggs"]["side"] == side]["wall_clock_total_us"].dropna().values / 1000.0
             for ds in datasets
         ]
         ax.boxplot(data, patch_artist=True,
                    boxprops=dict(facecolor=col, alpha=0.5),
                    medianprops=dict(color="black", linewidth=2))
         ax.set_xticklabels(ds_labels, rotation=45, ha="right", fontsize=9)
-        ax.set_ylabel("wall_clock_total_us (µs)", fontsize=11)
+        ax.set_ylabel("Aggregate batch latency (ms)", fontsize=11)
         ax.set_title(title, fontsize=11)
+    ax_z.set_yscale("log")
+    ax_z.yaxis.set_major_formatter(PLAIN_LOG)
+    ax_z.set_ylabel("Aggregate batch latency (ms)", fontsize=11)
     fig.suptitle("Aggregate Latency by Collection Window", fontsize=13)
     fig.tight_layout()
     fig.savefig(FIGURES_DIR / "time_of_day.png", dpi=150, bbox_inches="tight")
@@ -299,9 +308,9 @@ def fig_time_of_day(datasets):
 
 def fig_cdf(combined_aggs):
     fig, ax = plt.subplots(figsize=(10, 6))
-    for side, col, label in [("zela", Z_COL, "Zela"), ("baseline", B_COL, "Baseline")]:
+    for side, col, label in [("zela", Z_COL, "Zela"), ("baseline", B_COL, "Baseline (Helius)")]:
         vals = combined_aggs[combined_aggs["side"] == side]["wall_clock_total_us"].dropna()
-        vals = vals.sort_values().values
+        vals = vals.sort_values().values / 1000.0  # convert to ms
         if not len(vals):
             continue
         cdf = np.arange(1, len(vals) + 1) / len(vals)
@@ -309,9 +318,10 @@ def fig_cdf(combined_aggs):
         for q, ls in [(50, "--"), (95, ":")]:
             vq = pct(vals, q)
             ax.axvline(vq, color=col, linestyle=ls, alpha=0.7,
-                       label=f"{label} p{q}={vq / 1000:.1f}ms")
+                       label=f"{label} p{q}={vq:.1f}ms")
     ax.set_xscale("log")
-    ax.set_xlabel("Latency (µs, log scale)", fontsize=11)
+    ax.xaxis.set_major_formatter(PLAIN_LOG)
+    ax.set_xlabel("Latency per batch (ms)", fontsize=11)
     ax.set_ylabel("Fraction of runs ≤ x", fontsize=11)
     ax.set_title("Cumulative Distribution of Aggregate Latency (All Datasets Combined)", fontsize=13)
     ax.legend(fontsize=9)
