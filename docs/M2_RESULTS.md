@@ -240,10 +240,10 @@ Wording discipline:
 
 ### For M5 (publication / outreach)
 
-- Email to David: short, with specific number ("median 211× speedup over
-  100 paired runs from Prague"), link to repo, ask for feedback on
-  methodology before broader publication.
-- Optional LinkedIn / X post: only after David has had first look. Frame
+- Targeted outreach to relevant technical contacts. Short, direct message
+  with specific numbers, link to repo, ask for feedback on methodology
+  before broader publication.
+- Optional LinkedIn / X post: only after private feedback round. Frame
   as "I ran this benchmark, here are the numbers, here are the caveats."
   Not "Zela beats RPC." Honest framing wins more than hype framing.
 

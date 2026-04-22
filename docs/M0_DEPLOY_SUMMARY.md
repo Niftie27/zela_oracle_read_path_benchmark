@@ -404,4 +404,4 @@ pro porovnání proti Zela path.
 
 **M4:** Analýza (medián, p95) + README s limity a výsledky.
 
-**M5 (volitelně):** Publikace artefaktu, email Davidovi.
+**M5 (volitelně):** Publikace artefaktu, targeted outreach.
