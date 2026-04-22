@@ -164,25 +164,52 @@ def compute_per_feed(all_feeds):
 # ── Figures ───────────────────────────────────────────────────────────────────
 
 def fig_latency_distribution(datasets):
-    fig, (ax_z, ax_b) = plt.subplots(1, 2, figsize=(10, 6))
+    # Facet grid: one row per dataset, two columns (Zela log-scale, Baseline linear).
+    n = len(datasets)
+    fig, axes = plt.subplots(n, 2, figsize=(12, 2.4 * n + 1.5), squeeze=False)
+
+    # Shared x-axis ranges within each column so rows are visually comparable.
+    all_z = pd.concat([ds["aggs"][ds["aggs"]["side"] == "zela"]["wall_clock_total_us"]
+                       for ds in datasets]).dropna()
+    all_b = pd.concat([ds["aggs"][ds["aggs"]["side"] == "baseline"]["wall_clock_total_us"]
+                       for ds in datasets]).dropna()
+    z_bins = np.geomspace(max(1, all_z.min()), all_z.max(), 40) if len(all_z) > 1 else 20
+    b_bins = np.linspace(all_b.min(), all_b.max(), 40) if len(all_b) > 1 else 20
+    z_xlim = (all_z.min() * 0.9, all_z.max() * 1.1) if len(all_z) else None
+    b_xlim = (all_b.min() * 0.95, all_b.max() * 1.05) if len(all_b) else None
+
     for i, ds in enumerate(datasets):
+        ax_z = axes[i, 0]
+        ax_b = axes[i, 1]
+        color = DS_COLS[i % len(DS_COLS)]
         aggs = ds["aggs"]
-        kw = dict(alpha=0.55, color=DS_COLS[i % len(DS_COLS)], label=short_ds(ds["name"]))
         z = aggs[aggs["side"] == "zela"]["wall_clock_total_us"].dropna()
         b = aggs[aggs["side"] == "baseline"]["wall_clock_total_us"].dropna()
-        if len(z) > 1:
-            ax_z.hist(z, bins=np.geomspace(max(1, z.min()), z.max(), 30), **kw)
-        if len(b) > 1:
-            ax_b.hist(b, bins=30, **kw)
-    ax_z.set_xscale("log")
-    ax_z.set_xlabel("Latency (µs, log scale)", fontsize=11)
-    ax_b.set_xlabel("Latency (µs)", fontsize=11)
-    for ax, title in [(ax_z, "Zela"), (ax_b, "Baseline")]:
-        ax.set_ylabel("Runs", fontsize=11)
-        ax.set_title(title, fontsize=11)
-        ax.legend(fontsize=9)
-    fig.suptitle(f"Aggregate Latency Distribution Across {len(datasets)} Datasets (100 runs each)", fontsize=13)
-    fig.tight_layout()
+        if len(z) > 0:
+            ax_z.hist(z, bins=z_bins, color=color, alpha=0.85, edgecolor="white", linewidth=0.3)
+        if len(b) > 0:
+            ax_b.hist(b, bins=b_bins, color=color, alpha=0.85, edgecolor="white", linewidth=0.3)
+
+        ax_z.set_xscale("log")
+        if z_xlim:
+            ax_z.set_xlim(z_xlim)
+        if b_xlim:
+            ax_b.set_xlim(b_xlim)
+        ax_z.set_ylabel(short_ds(ds["name"]), fontsize=11, rotation=0, ha="right",
+                        va="center", labelpad=8)
+        ax_b.tick_params(labelleft=False)
+
+        if i == 0:
+            ax_z.set_title("Zela", fontsize=12)
+            ax_b.set_title("Baseline", fontsize=12)
+        if i < n - 1:
+            ax_z.tick_params(labelbottom=False)
+            ax_b.tick_params(labelbottom=False)
+
+    axes[n - 1, 0].set_xlabel("Latency (µs, log scale)", fontsize=11)
+    axes[n - 1, 1].set_xlabel("Latency (µs)", fontsize=11)
+    fig.suptitle(f"Aggregate Latency Distribution Across {n} Datasets (100 runs each)", fontsize=13)
+    fig.tight_layout(rect=(0, 0, 1, 0.98))
     fig.savefig(FIGURES_DIR / "latency_distribution.png", dpi=150, bbox_inches="tight")
     plt.close(fig)
 
