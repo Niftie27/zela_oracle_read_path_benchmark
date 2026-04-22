@@ -117,106 +117,184 @@
         "p95_ratio": 2.1
       }
     },
-    "combined": {
-      "run_count": 297,
-      "error_count": 3,
+    "dataset_2026_04_21_night": {
+      "run_count": 100,
+      "error_count": 0,
       "zela": {
-        "min_us": 904.0,
-        "p50_us": 2114.0,
-        "p95_us": 243456.4,
-        "p99_us": 430014.1,
-        "max_us": 510235.0,
-        "mean_us": 46731.9,
-        "n": 297
+        "min_us": 1110.0,
+        "p50_us": 2125.0,
+        "p95_us": 12876.0,
+        "p99_us": 192032.0,
+        "max_us": 284398.0,
+        "mean_us": 7959.2,
+        "n": 100
       },
       "baseline": {
-        "min_us": 389392.0,
-        "p50_us": 503960.0,
-        "p95_us": 667666.9,
-        "p99_us": 799028.8,
-        "max_us": 1034265.0,
-        "mean_us": 524518.8,
-        "n": 300
+        "min_us": 387333.0,
+        "p50_us": 429187.0,
+        "p95_us": 516159.6,
+        "p99_us": 544467.5,
+        "max_us": 637180.0,
+        "mean_us": 439306.0,
+        "n": 100
       },
       "slot_consistency": {
-        "zela_1slot_pct": 89.9,
-        "zela_2slot_pct": 10.1,
+        "zela_1slot_pct": 97.0,
+        "zela_2slot_pct": 3.0,
         "zela_3plus_slot_pct": 0.0,
-        "baseline_1slot_pct": 6.7,
-        "baseline_2slot_pct": 82.0,
-        "baseline_3plus_slot_pct": 11.3
+        "baseline_1slot_pct": 11.0,
+        "baseline_2slot_pct": 86.0,
+        "baseline_3plus_slot_pct": 3.0
       },
       "bimodality": {
-        "fast_mode_pct": 76.8,
-        "intermediate_pct": 9.1,
-        "slow_mode_pct": 14.1
+        "fast_mode_pct": 84.0,
+        "intermediate_pct": 15.0,
+        "slow_mode_pct": 1.0
       },
       "ratios": {
-        "median_ratio": 238.4,
-        "p95_ratio": 2.7
+        "median_ratio": 202.0,
+        "p95_ratio": 40.1
+      }
+    },
+    "dataset_2026_04_22_morning": {
+      "run_count": 100,
+      "error_count": 0,
+      "zela": {
+        "min_us": 822.0,
+        "p50_us": 1989.5,
+        "p95_us": 365051.4,
+        "p99_us": 408383.1,
+        "max_us": 414235.0,
+        "mean_us": 44251.1,
+        "n": 100
+      },
+      "baseline": {
+        "min_us": 393082.0,
+        "p50_us": 486165.5,
+        "p95_us": 646060.4,
+        "p99_us": 712840.9,
+        "max_us": 1135162.0,
+        "mean_us": 511243.7,
+        "n": 100
+      },
+      "slot_consistency": {
+        "zela_1slot_pct": 89.0,
+        "zela_2slot_pct": 11.0,
+        "zela_3plus_slot_pct": 0.0,
+        "baseline_1slot_pct": 6.0,
+        "baseline_2slot_pct": 87.0,
+        "baseline_3plus_slot_pct": 7.0
+      },
+      "bimodality": {
+        "fast_mode_pct": 85.0,
+        "intermediate_pct": 1.0,
+        "slow_mode_pct": 14.0
+      },
+      "ratios": {
+        "median_ratio": 244.4,
+        "p95_ratio": 1.8
+      }
+    },
+    "combined": {
+      "run_count": 497,
+      "error_count": 3,
+      "zela": {
+        "min_us": 822.0,
+        "p50_us": 2102.0,
+        "p95_us": 233358.4,
+        "p99_us": 408560.4,
+        "max_us": 510235.0,
+        "mean_us": 38431.4,
+        "n": 497
+      },
+      "baseline": {
+        "min_us": 387333.0,
+        "p50_us": 486193.5,
+        "p95_us": 647711.5,
+        "p99_us": 788703.9,
+        "max_us": 1135162.0,
+        "mean_us": 504821.2,
+        "n": 500
+      },
+      "slot_consistency": {
+        "zela_1slot_pct": 91.1,
+        "zela_2slot_pct": 8.9,
+        "zela_3plus_slot_pct": 0.0,
+        "baseline_1slot_pct": 7.4,
+        "baseline_2slot_pct": 83.8,
+        "baseline_3plus_slot_pct": 8.8
+      },
+      "bimodality": {
+        "fast_mode_pct": 79.9,
+        "intermediate_pct": 8.7,
+        "slow_mode_pct": 11.5
+      },
+      "ratios": {
+        "median_ratio": 231.3,
+        "p95_ratio": 2.8
       }
     }
   },
   "per_feed": {
     "SOL/USD": {
-      "zela_p50_us": 542.0,
-      "zela_p95_us": 33144.6,
-      "baseline_p50_us": 100408.0,
-      "baseline_p95_us": 154617.7
+      "zela_p50_us": 538.0,
+      "zela_p95_us": 35294.2,
+      "baseline_p50_us": 95938.5,
+      "baseline_p95_us": 147568.4
     },
     "BTC/USD": {
-      "zela_p50_us": 234.0,
-      "zela_p95_us": 27238.8,
-      "baseline_p50_us": 44313.5,
-      "baseline_p95_us": 59211.5
+      "zela_p50_us": 230.0,
+      "zela_p95_us": 23839.6,
+      "baseline_p50_us": 42544.5,
+      "baseline_p95_us": 60866.4
     },
     "ETH/USD": {
-      "zela_p50_us": 173.0,
-      "zela_p95_us": 25628.0,
-      "baseline_p50_us": 44360.0,
-      "baseline_p95_us": 60900.8
+      "zela_p50_us": 174.0,
+      "zela_p95_us": 23980.4,
+      "baseline_p50_us": 42489.0,
+      "baseline_p95_us": 58967.2
     },
     "USDC/USD": {
-      "zela_p50_us": 163.0,
-      "zela_p95_us": 28340.6,
-      "baseline_p50_us": 44392.0,
-      "baseline_p95_us": 61630.2
+      "zela_p50_us": 161.0,
+      "zela_p95_us": 25372.6,
+      "baseline_p50_us": 42318.5,
+      "baseline_p95_us": 61454.9
     },
     "USDT/USD": {
-      "zela_p50_us": 159.0,
-      "zela_p95_us": 26427.4,
-      "baseline_p50_us": 44190.5,
-      "baseline_p95_us": 59828.9
+      "zela_p50_us": 157.0,
+      "zela_p95_us": 23966.4,
+      "baseline_p50_us": 42573.5,
+      "baseline_p95_us": 58829.7
     },
     "BNB/USD": {
       "zela_p50_us": 154.0,
-      "zela_p95_us": 24672.0,
-      "baseline_p50_us": 44126.0,
-      "baseline_p95_us": 60673.3
+      "zela_p95_us": 22374.8,
+      "baseline_p50_us": 42430.5,
+      "baseline_p95_us": 59293.8
     },
     "JUP/USD": {
-      "zela_p50_us": 155.0,
-      "zela_p95_us": 22950.6,
-      "baseline_p50_us": 44952.0,
-      "baseline_p95_us": 58900.8
+      "zela_p50_us": 154.0,
+      "zela_p95_us": 22043.6,
+      "baseline_p50_us": 43193.5,
+      "baseline_p95_us": 58757.1
     },
     "BONK/USD": {
-      "zela_p50_us": 154.0,
-      "zela_p95_us": 23702.0,
-      "baseline_p50_us": 43367.0,
-      "baseline_p95_us": 64150.4
+      "zela_p50_us": 151.0,
+      "zela_p95_us": 22599.6,
+      "baseline_p50_us": 41938.5,
+      "baseline_p95_us": 58855.3
     },
     "PYTH/USD": {
-      "zela_p50_us": 154.0,
-      "zela_p95_us": 23687.2,
-      "baseline_p50_us": 42854.5,
-      "baseline_p95_us": 59033.2
+      "zela_p50_us": 151.0,
+      "zela_p95_us": 22456.8,
+      "baseline_p50_us": 41521.0,
+      "baseline_p95_us": 58051.3
     },
     "JTO/USD": {
-      "zela_p50_us": 151.0,
-      "zela_p95_us": 25033.8,
-      "baseline_p50_us": 43922.5,
-      "baseline_p95_us": 57645.4
+      "zela_p50_us": 149.0,
+      "zela_p95_us": 24238.4,
+      "baseline_p50_us": 41730.5,
+      "baseline_p95_us": 56391.6
     }
   }
 }
