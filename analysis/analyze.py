@@ -26,7 +26,14 @@ FEED_ORDER = [
 ]
 Z_COL = "#1f77b4"
 B_COL = "#ff7f0e"
-DS_COLS = ["#1f77b4", "#ff7f0e", "#2ca02c"]
+DS_COLS = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd",
+           "#8c564b", "#e377c2", "#7f7f7f"]
+
+
+def short_ds(name: str) -> str:
+    """Strip dataset_YYYY_MM_DD_ prefix for readable axis labels."""
+    parts = name.split("_")
+    return "_".join(parts[4:]) if len(parts) > 4 and parts[0] == "dataset" else name
 
 FIGURES_DIR = Path(__file__).resolve().parent.parent / "docs" / "figures"
 
@@ -160,7 +167,7 @@ def fig_latency_distribution(datasets):
     fig, (ax_z, ax_b) = plt.subplots(1, 2, figsize=(10, 6))
     for i, ds in enumerate(datasets):
         aggs = ds["aggs"]
-        kw = dict(alpha=0.55, color=DS_COLS[i % len(DS_COLS)], label=ds["name"])
+        kw = dict(alpha=0.55, color=DS_COLS[i % len(DS_COLS)], label=short_ds(ds["name"]))
         z = aggs[aggs["side"] == "zela"]["wall_clock_total_us"].dropna()
         b = aggs[aggs["side"] == "baseline"]["wall_clock_total_us"].dropna()
         if len(z) > 1:
@@ -174,7 +181,7 @@ def fig_latency_distribution(datasets):
         ax.set_ylabel("Runs", fontsize=11)
         ax.set_title(title, fontsize=11)
         ax.legend(fontsize=9)
-    fig.suptitle("Aggregate Latency Distribution Across 3 Datasets (100 runs each)", fontsize=13)
+    fig.suptitle(f"Aggregate Latency Distribution Across {len(datasets)} Datasets (100 runs each)", fontsize=13)
     fig.tight_layout()
     fig.savefig(FIGURES_DIR / "latency_distribution.png", dpi=150, bbox_inches="tight")
     plt.close(fig)
@@ -182,7 +189,7 @@ def fig_latency_distribution(datasets):
 
 def fig_slot_consistency(datasets):
     # Grouped stacked bar chart: two bars per dataset (Zela, Baseline), stacked by slot count.
-    ds_names = [ds["name"] for ds in datasets]
+    ds_labels = [short_ds(ds["name"]) for ds in datasets]
     x = np.arange(len(datasets))
     width = 0.35
     side_colors = {
@@ -207,10 +214,10 @@ def fig_slot_consistency(datasets):
         ax.bar(xpos, s3, width=width, color=sc["3+"], label=f"{label} – 3+ slots",
                bottom=[a + b for a, b in zip(s1, s2)])
     ax.set_xticks(x)
-    ax.set_xticklabels(ds_names, fontsize=10)
+    ax.set_xticklabels(ds_labels, rotation=45, ha="right", fontsize=10)
     ax.set_ylabel("% of runs", fontsize=11)
     ax.set_ylim(0, 105)
-    ax.legend(fontsize=9, ncol=2)
+    ax.legend(fontsize=9, loc="center left", bbox_to_anchor=(1.02, 0.5))
     ax.set_title("Slot Consistency: Fraction of Runs Returning Within a Single Slot", fontsize=13)
     fig.tight_layout()
     fig.savefig(FIGURES_DIR / "slot_consistency.png", dpi=150, bbox_inches="tight")
@@ -242,7 +249,7 @@ def fig_per_feed_latency(per_feed):
 
 
 def fig_time_of_day(datasets):
-    ds_names = [ds["name"] for ds in datasets]
+    ds_labels = [short_ds(ds["name"]) for ds in datasets]
     fig, (ax_z, ax_b) = plt.subplots(1, 2, figsize=(10, 6))
     for ax, side, col, title in [
         (ax_z, "zela", Z_COL, "Zela"), (ax_b, "baseline", B_COL, "Baseline"),
@@ -254,7 +261,7 @@ def fig_time_of_day(datasets):
         ax.boxplot(data, patch_artist=True,
                    boxprops=dict(facecolor=col, alpha=0.5),
                    medianprops=dict(color="black", linewidth=2))
-        ax.set_xticklabels(ds_names, rotation=15, ha="right", fontsize=9)
+        ax.set_xticklabels(ds_labels, rotation=45, ha="right", fontsize=9)
         ax.set_ylabel("wall_clock_total_us (µs)", fontsize=11)
         ax.set_title(title, fontsize=11)
     fig.suptitle("Aggregate Latency by Collection Window", fontsize=13)
