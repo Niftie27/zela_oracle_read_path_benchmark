@@ -268,26 +268,85 @@ on top of a ~500 ms floor).
 
 ## Limitations
 
-- **Single client location.** The baseline was run from one developer
-  machine in Prague. A client colocated with Helius (or with any RPC
-  node) would see a much smaller gap.
-- **Single baseline endpoint.** Helius free tier. Other providers
-  (Triton, QuickNode, self-hosted) may show different latency and
-  different tail behavior.
+- **Asymmetric measurement.** Zela latency is measured server-side —
+  wall-clock inside the WASM procedure running in the Zela executor.
+  It does not include the HTTP round-trip between the Prague client
+  and the executor in US. Baseline latency is measured end-to-end from
+  the client and includes the full transatlantic round-trip (~100–150 ms).
+  The headline ratio therefore conflates architectural advantage with
+  geographic distance and should not be read as a pure architecture
+  comparison.
+
+- **Sequential RPC primitive on both sides.** Both paths issue ten
+  sequential `getAccountInfo` calls to keep the RPC primitive identical
+  across paths. A production client reading ten Pyth accounts would
+  more likely use `getMultipleAccounts`, a single batched RPC call.
+  That would collapse the baseline path to one transatlantic
+  round-trip instead of ten. The current comparison therefore measures
+  Zela against a non-batched baseline, not against an optimized
+  production client.
+
+- **Single client location.** All measurements are from one developer
+  machine in Prague. A client colocated with an RPC provider in US
+  East would see a substantially smaller gap on both paths.
+
+- **Single baseline endpoint.** Helius free tier only. Other providers
+  may show different latency and different tail behavior.
+
 - **Five 100-run datasets across two days.** Not representative of
-  long-term infrastructure behavior. No claim about week-over-week or
-  month-over-month variation.
+  long-term infrastructure behavior.
+
 - **No commitment level specified.** The RPC node default applies to
-  both paths. A workflow requiring `finalized` data would see different
-  numbers.
+  both paths.
+
 - **Ten specific Pyth legacy push oracle feeds.** Workflows reading
-  different accounts, different counts, or pull oracles (`PriceUpdateV2`)
-  may see different patterns.
+  different accounts or pull oracles (`PriceUpdateV2`) may see
+  different patterns.
+
 - **Slow-mode hypothesis not confirmed.** The connection-pool-reset
   explanation fits the numbers but was not verified against Zela
   infrastructure internals.
+
 - **Read-only benchmark.** No conclusions about transaction submission,
   block confirmation, or full transaction lifecycle.
+
+---
+
+## Open questions and future work
+
+The current artifact raised more questions than it answered. The
+following are the planned next steps to address the limitations above
+and sharpen the comparison.
+
+- **Measure Zela end-to-end from the client.** Add wall-clock
+  measurement around the HTTP call to the Zela executor in the
+  orchestrator, alongside the existing server-side number. This
+  separates architectural benefit from server-side processing
+  and yields a figure directly comparable to the baseline.
+
+- **Add a batched-baseline variant using `getMultipleAccounts`.** Run
+  it as a second baseline line alongside the current sequential
+  `getAccountInfo` baseline. This measures Zela against an optimized
+  production-style client rather than against a non-batched one.
+
+- **Extend coverage to additional RPC providers.** QuickNode, Triton,
+  Alchemy, and a self-hosted Solana RPC node are candidates. The goal
+  is to separate provider-specific behavior from the general shape of
+  the baseline path.
+
+- **Run from a colocated client (US East).** Measure what a
+  well-positioned production client sees, to isolate Zela's
+  architectural benefit from transatlantic network distance.
+
+- **Investigate the slow-mode cause.** The connection-pool-reset
+  hypothesis needs confirmation or refutation from Zela infrastructure
+  internals or from controlled experiments (e.g. varying the number of
+  sequential reads per procedure invocation).
+
+- **Continuous data collection.** A cron job on the Prague client
+  collects new datasets at five fixed times per day. Longer time
+  series will tighten the time-of-day bimodality pattern and detect
+  day-over-day drift.
 
 ---
 
