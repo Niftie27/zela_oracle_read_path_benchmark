@@ -25,7 +25,6 @@ pub struct FeedResult {
     account_found: bool,
     account_data_len: usize,
     context_slot: u64,
-    wall_clock_elapsed_us: i64,
 }
 
 #[derive(Serialize)]
@@ -54,9 +53,9 @@ struct AccValue {
 }
 
 #[derive(Deserialize)]
-struct AccInfo {
+struct MultipleAccounts {
     context: Ctx,
-    value: Option<AccValue>,
+    value: Vec<Option<AccValue>>,
 }
 
 fn io_err(e: impl std::fmt::Display) -> RpcError<JsonValue> {
@@ -73,35 +72,57 @@ impl CustomProcedure for OracleRead {
     type SuccessData = Output;
     type ErrorData = JsonValue;
 
-    async fn run(_: ()) -> Result<Output, RpcError<JsonValue>> {
+    async fn run(_: ()) -> Result<Output, RpcError<Self::ErrorData>> {
+        let pubkeys: Vec<&str> = FEEDS.iter().map(|(_, pk)| *pk).collect();
+
         let batch_start = Utc::now();
+        let batch: MultipleAccounts = call_rpc(
+            "getMultipleAccounts",
+            json!([pubkeys, {"encoding": "base64", "commitment": "confirmed"}]),
+        )
+        .map_err(io_err)
+        .flatten()?;
+        let batch_end = Utc::now();
 
-        let mut feeds = Vec::with_capacity(FEEDS.len());
-        for (symbol, pubkey) in FEEDS {
-            let t0 = Utc::now();
-            let acc: AccInfo = call_rpc("getAccountInfo", json!([pubkey, {"encoding": "base64"}]))
-                .map_err(io_err)
-                .flatten()?;
-            let elapsed_us = (Utc::now() - t0).num_microseconds().unwrap_or(0);
-
-            let data_len = acc.value.as_ref()
-                .and_then(|v| v.data.as_array())
-                .and_then(|a| a.first())
-                .and_then(|s| s.as_str())
-                .map(b64_decoded_len)
-                .unwrap_or(0);
-
-            feeds.push(FeedResult {
-                symbol: symbol.to_string(),
-                pubkey: pubkey.to_string(),
-                account_found: acc.value.is_some(),
-                account_data_len: data_len,
-                context_slot: acc.context.slot,
-                wall_clock_elapsed_us: elapsed_us,
+        if batch.value.len() != FEEDS.len() {
+            return Err(RpcError {
+                code: -32000,
+                message: format!(
+                    "getMultipleAccounts returned {} entries, expected {}",
+                    batch.value.len(),
+                    FEEDS.len(),
+                ),
+                data: None,
             });
         }
 
-        let batch_end = Utc::now();
+        let context_slot = batch.context.slot;
+        let feeds: Vec<FeedResult> = FEEDS
+            .iter()
+            .zip(batch.value.into_iter())
+            .map(|((symbol, pubkey), maybe_acc)| {
+                let (account_found, account_data_len) = match maybe_acc {
+                    None => (false, 0usize),
+                    Some(acc) => {
+                        let len = acc
+                            .data
+                            .as_array()
+                            .and_then(|a| a.first())
+                            .and_then(|s| s.as_str())
+                            .map(b64_decoded_len)
+                            .unwrap_or(0);
+                        (true, len)
+                    }
+                };
+                FeedResult {
+                    symbol: symbol.to_string(),
+                    pubkey: pubkey.to_string(),
+                    account_found,
+                    account_data_len,
+                    context_slot,
+                }
+            })
+            .collect();
 
         let genesis_hash: String = call_rpc("getGenesisHash", json!([]))
             .map_err(io_err)
