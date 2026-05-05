@@ -1,0 +1,56 @@
+{
+  "datasets": {
+    "dataset_2026_05_04_2200": {
+      "run_count": 95,
+      "error_count": 0,
+      "cold_start_filtered": 10,
+      "zela": {
+        "server": {
+          "min_us": 592.0,
+          "p50_us": 934.0,
+          "p95_us": 36754.7,
+          "p99_us": 218329.9,
+          "max_us": 261333.0,
+          "mean_us": 11478.7,
+          "n": 95
+        },
+        "client": {
+          "min_us": 15760.0,
+          "p50_us": 17893.0,
+          "p95_us": 460332.7,
+          "p99_us": 568299.4,
+          "max_us": 640216.0,
+          "mean_us": 125611.2,
+          "n": 95
+        }
+      },
+      "baseline": {
+        "client": {
+          "min_us": 70489.0,
+          "p50_us": 103456.0,
+          "p95_us": 155459.8,
+          "p99_us": 196767.5,
+          "max_us": 199094.0,
+          "mean_us": 111554.4,
+          "n": 95
+        }
+      },
+      "ratios": {
+        "server_ratio": 110.8,
+        "client_ratio": 5.8
+      },
+      "unique_slots_count": {
+        "value": 1,
+        "note": "Structurally 1 in batch mode (server-side getMultipleAccounts guarantee, validated against feeds.csv). See legacy_sequential for sequential measurement (Zela 91% / Baseline 13% one-slot consistency)."
+      }
+    }
+  },
+  "commitment": {
+    "batch_mode": "confirmed",
+    "legacy_sequential": "not specified in source (server default applied). Verified in pre-batch-v2 source: procedures/oracle_read/src/lib.rs and baseline_client/src/main.rs called getAccountInfo without a commitment field. Solana RPC server default for unspecified commitment is 'finalized'; Helius may differ."
+  },
+  "asymmetries": {
+    "zela_client_includes_genesis_hash": "Zela client_wall_clock_us measures one HTTP round-trip that encloses both getMultipleAccounts and getGenesisHash inside the procedure. Baseline client_wall_clock_us measures only the getMultipleAccounts HTTP call. Estimated overhead: ~1-2ms on Zela side (server-local genesis hash query).",
+    "baseline_no_connection_reuse_across_runs": "baseline_client is a fresh subprocess per run, so each run pays TCP+TLS handshake cost (~30-50ms typical from Prague to Helius). Zela orchestrator uses requests.Session() with persistent connection, so warm-state runs avoid handshake. This systematically favors Zela in client_ratio. To eliminate, baseline would need to be refactored to a long-running daemon. Out of scope for v2."
+  }
+}

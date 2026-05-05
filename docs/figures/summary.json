@@ -1,44 +1,5 @@
 {
   "datasets": {
-    "dataset_2026_04_21_late_morning": {
-      "run_count": 100,
-      "error_count": 0,
-      "zela": {
-        "min_us": 904.0,
-        "p50_us": 2073.5,
-        "p95_us": 223267.6,
-        "p99_us": 249535.5,
-        "max_us": 341750.0,
-        "mean_us": 57856.5,
-        "n": 100
-      },
-      "baseline": {
-        "min_us": 391273.0,
-        "p50_us": 484163.5,
-        "p95_us": 614601.9,
-        "p99_us": 660103.2,
-        "max_us": 699528.0,
-        "mean_us": 497428.2,
-        "n": 100
-      },
-      "slot_consistency": {
-        "zela_1slot_pct": 88.0,
-        "zela_2slot_pct": 12.0,
-        "zela_3plus_slot_pct": 0.0,
-        "baseline_1slot_pct": 7.0,
-        "baseline_2slot_pct": 88.0,
-        "baseline_3plus_slot_pct": 5.0
-      },
-      "bimodality": {
-        "fast_mode_pct": 72.0,
-        "intermediate_pct": 6.0,
-        "slow_mode_pct": 22.0
-      },
-      "ratios": {
-        "median_ratio": 233.5,
-        "p95_ratio": 2.8
-      }
-    },
     "dataset_2026_04_21_afternoon": {
       "run_count": 97,
       "error_count": 3,
@@ -115,6 +76,45 @@
       "ratios": {
         "median_ratio": 248.3,
         "p95_ratio": 2.1
+      }
+    },
+    "dataset_2026_04_21_late_morning": {
+      "run_count": 100,
+      "error_count": 0,
+      "zela": {
+        "min_us": 904.0,
+        "p50_us": 2073.5,
+        "p95_us": 223267.6,
+        "p99_us": 249535.5,
+        "max_us": 341750.0,
+        "mean_us": 57856.5,
+        "n": 100
+      },
+      "baseline": {
+        "min_us": 391273.0,
+        "p50_us": 484163.5,
+        "p95_us": 614601.9,
+        "p99_us": 660103.2,
+        "max_us": 699528.0,
+        "mean_us": 497428.2,
+        "n": 100
+      },
+      "slot_consistency": {
+        "zela_1slot_pct": 88.0,
+        "zela_2slot_pct": 12.0,
+        "zela_3plus_slot_pct": 0.0,
+        "baseline_1slot_pct": 7.0,
+        "baseline_2slot_pct": 88.0,
+        "baseline_3plus_slot_pct": 5.0
+      },
+      "bimodality": {
+        "fast_mode_pct": 72.0,
+        "intermediate_pct": 6.0,
+        "slow_mode_pct": 22.0
+      },
+      "ratios": {
+        "median_ratio": 233.5,
+        "p95_ratio": 2.8
       }
     },
     "dataset_2026_04_21_night": {
@@ -195,106 +195,1237 @@
         "p95_ratio": 1.8
       }
     },
-    "combined": {
-      "run_count": 497,
-      "error_count": 3,
+    "dataset_2026_04_23_2200": {
+      "run_count": 100,
+      "error_count": 0,
       "zela": {
-        "min_us": 822.0,
-        "p50_us": 2102.0,
-        "p95_us": 233358.4,
-        "p99_us": 408560.4,
-        "max_us": 510235.0,
-        "mean_us": 38431.4,
-        "n": 497
+        "min_us": 995.0,
+        "p50_us": 2153.0,
+        "p95_us": 195744.1,
+        "p99_us": 205005.4,
+        "max_us": 219498.0,
+        "mean_us": 36106.3,
+        "n": 100
       },
       "baseline": {
-        "min_us": 387333.0,
-        "p50_us": 486193.5,
-        "p95_us": 647711.5,
-        "p99_us": 788703.9,
-        "max_us": 1135162.0,
-        "mean_us": 504821.2,
-        "n": 500
+        "min_us": 357200.0,
+        "p50_us": 430042.5,
+        "p95_us": 519400.5,
+        "p99_us": 611625.1,
+        "max_us": 1144754.0,
+        "mean_us": 449654.7,
+        "n": 100
       },
       "slot_consistency": {
-        "zela_1slot_pct": 91.1,
-        "zela_2slot_pct": 8.9,
+        "zela_1slot_pct": 92.0,
+        "zela_2slot_pct": 8.0,
         "zela_3plus_slot_pct": 0.0,
-        "baseline_1slot_pct": 7.4,
-        "baseline_2slot_pct": 83.8,
-        "baseline_3plus_slot_pct": 8.8
+        "baseline_1slot_pct": 15.0,
+        "baseline_2slot_pct": 85.0,
+        "baseline_3plus_slot_pct": 0.0
       },
       "bimodality": {
-        "fast_mode_pct": 79.9,
-        "intermediate_pct": 8.7,
-        "slow_mode_pct": 11.5
+        "fast_mode_pct": 78.0,
+        "intermediate_pct": 19.0,
+        "slow_mode_pct": 3.0
       },
       "ratios": {
-        "median_ratio": 231.3,
+        "median_ratio": 199.7,
+        "p95_ratio": 2.7
+      }
+    },
+    "dataset_2026_04_24_0200": {
+      "run_count": 100,
+      "error_count": 0,
+      "zela": {
+        "min_us": 922.0,
+        "p50_us": 2147.5,
+        "p95_us": 211443.5,
+        "p99_us": 326106.0,
+        "max_us": 680720.0,
+        "mean_us": 44268.4,
+        "n": 100
+      },
+      "baseline": {
+        "min_us": 342229.0,
+        "p50_us": 398416.5,
+        "p95_us": 455002.8,
+        "p99_us": 478195.5,
+        "max_us": 569131.0,
+        "mean_us": 403121.1,
+        "n": 100
+      },
+      "slot_consistency": {
+        "zela_1slot_pct": 91.0,
+        "zela_2slot_pct": 9.0,
+        "zela_3plus_slot_pct": 0.0,
+        "baseline_1slot_pct": 26.0,
+        "baseline_2slot_pct": 73.0,
+        "baseline_3plus_slot_pct": 1.0
+      },
+      "bimodality": {
+        "fast_mode_pct": 81.0,
+        "intermediate_pct": 9.0,
+        "slow_mode_pct": 10.0
+      },
+      "ratios": {
+        "median_ratio": 185.5,
+        "p95_ratio": 2.2
+      }
+    },
+    "dataset_2026_04_24_0800": {
+      "run_count": 100,
+      "error_count": 0,
+      "zela": {
+        "min_us": 826.0,
+        "p50_us": 2127.5,
+        "p95_us": 194820.4,
+        "p99_us": 229495.6,
+        "max_us": 251832.0,
+        "mean_us": 39277.5,
+        "n": 100
+      },
+      "baseline": {
+        "min_us": 342948.0,
+        "p50_us": 424717.0,
+        "p95_us": 504289.6,
+        "p99_us": 523285.0,
+        "max_us": 532685.0,
+        "mean_us": 431081.5,
+        "n": 100
+      },
+      "slot_consistency": {
+        "zela_1slot_pct": 93.0,
+        "zela_2slot_pct": 7.0,
+        "zela_3plus_slot_pct": 0.0,
+        "baseline_1slot_pct": 13.0,
+        "baseline_2slot_pct": 86.0,
+        "baseline_3plus_slot_pct": 1.0
+      },
+      "bimodality": {
+        "fast_mode_pct": 79.0,
+        "intermediate_pct": 16.0,
+        "slow_mode_pct": 5.0
+      },
+      "ratios": {
+        "median_ratio": 199.6,
+        "p95_ratio": 2.6
+      }
+    },
+    "dataset_2026_04_24_1300": {
+      "run_count": 100,
+      "error_count": 0,
+      "zela": {
+        "min_us": 1061.0,
+        "p50_us": 2147.0,
+        "p95_us": 198049.9,
+        "p99_us": 229660.4,
+        "max_us": 239006.0,
+        "mean_us": 39431.2,
+        "n": 100
+      },
+      "baseline": {
+        "min_us": 397125.0,
+        "p50_us": 446827.5,
+        "p95_us": 544987.3,
+        "p99_us": 592720.8,
+        "max_us": 605278.0,
+        "mean_us": 460144.1,
+        "n": 100
+      },
+      "slot_consistency": {
+        "zela_1slot_pct": 93.0,
+        "zela_2slot_pct": 7.0,
+        "zela_3plus_slot_pct": 0.0,
+        "baseline_1slot_pct": 14.0,
+        "baseline_2slot_pct": 83.0,
+        "baseline_3plus_slot_pct": 3.0
+      },
+      "bimodality": {
+        "fast_mode_pct": 79.0,
+        "intermediate_pct": 18.0,
+        "slow_mode_pct": 3.0
+      },
+      "ratios": {
+        "median_ratio": 208.1,
         "p95_ratio": 2.8
+      }
+    },
+    "dataset_2026_04_24_1700": {
+      "run_count": 100,
+      "error_count": 0,
+      "zela": {
+        "min_us": 901.0,
+        "p50_us": 2082.5,
+        "p95_us": 304124.1,
+        "p99_us": 1027470.0,
+        "max_us": 1064297.0,
+        "mean_us": 44663.5,
+        "n": 100
+      },
+      "baseline": {
+        "min_us": 405257.0,
+        "p50_us": 468433.0,
+        "p95_us": 581186.9,
+        "p99_us": 623825.7,
+        "max_us": 770609.0,
+        "mean_us": 477733.1,
+        "n": 100
+      },
+      "slot_consistency": {
+        "zela_1slot_pct": 95.0,
+        "zela_2slot_pct": 3.0,
+        "zela_3plus_slot_pct": 2.0,
+        "baseline_1slot_pct": 12.0,
+        "baseline_2slot_pct": 84.0,
+        "baseline_3plus_slot_pct": 4.0
+      },
+      "bimodality": {
+        "fast_mode_pct": 82.0,
+        "intermediate_pct": 9.0,
+        "slow_mode_pct": 9.0
+      },
+      "ratios": {
+        "median_ratio": 224.9,
+        "p95_ratio": 1.9
+      }
+    },
+    "dataset_2026_04_24_2200": {
+      "run_count": 100,
+      "error_count": 0,
+      "zela": {
+        "min_us": 894.0,
+        "p50_us": 2108.5,
+        "p95_us": 218668.6,
+        "p99_us": 231471.7,
+        "max_us": 233421.0,
+        "mean_us": 34555.3,
+        "n": 100
+      },
+      "baseline": {
+        "min_us": 383428.0,
+        "p50_us": 448267.0,
+        "p95_us": 549741.2,
+        "p99_us": 618311.2,
+        "max_us": 626743.0,
+        "mean_us": 461778.7,
+        "n": 100
+      },
+      "slot_consistency": {
+        "zela_1slot_pct": 93.0,
+        "zela_2slot_pct": 7.0,
+        "zela_3plus_slot_pct": 0.0,
+        "baseline_1slot_pct": 11.0,
+        "baseline_2slot_pct": 87.0,
+        "baseline_3plus_slot_pct": 2.0
+      },
+      "bimodality": {
+        "fast_mode_pct": 81.0,
+        "intermediate_pct": 10.0,
+        "slow_mode_pct": 9.0
+      },
+      "ratios": {
+        "median_ratio": 212.6,
+        "p95_ratio": 2.5
+      }
+    },
+    "dataset_2026_04_25_0200": {
+      "run_count": 100,
+      "error_count": 0,
+      "zela": {
+        "min_us": 936.0,
+        "p50_us": 2084.0,
+        "p95_us": 205695.2,
+        "p99_us": 246224.4,
+        "max_us": 255070.0,
+        "mean_us": 34284.3,
+        "n": 100
+      },
+      "baseline": {
+        "min_us": 353272.0,
+        "p50_us": 410730.5,
+        "p95_us": 464219.9,
+        "p99_us": 481079.4,
+        "max_us": 634078.0,
+        "mean_us": 414039.8,
+        "n": 100
+      },
+      "slot_consistency": {
+        "zela_1slot_pct": 88.0,
+        "zela_2slot_pct": 12.0,
+        "zela_3plus_slot_pct": 0.0,
+        "baseline_1slot_pct": 22.0,
+        "baseline_2slot_pct": 75.0,
+        "baseline_3plus_slot_pct": 3.0
+      },
+      "bimodality": {
+        "fast_mode_pct": 82.0,
+        "intermediate_pct": 10.0,
+        "slow_mode_pct": 8.0
+      },
+      "ratios": {
+        "median_ratio": 197.1,
+        "p95_ratio": 2.3
+      }
+    },
+    "dataset_2026_04_25_0800": {
+      "run_count": 100,
+      "error_count": 0,
+      "zela": {
+        "min_us": 960.0,
+        "p50_us": 2219.5,
+        "p95_us": 214701.1,
+        "p99_us": 229518.1,
+        "max_us": 231603.0,
+        "mean_us": 62225.2,
+        "n": 100
+      },
+      "baseline": {
+        "min_us": 349287.0,
+        "p50_us": 413840.5,
+        "p95_us": 502567.7,
+        "p99_us": 553699.5,
+        "max_us": 579783.0,
+        "mean_us": 424473.3,
+        "n": 100
+      },
+      "slot_consistency": {
+        "zela_1slot_pct": 83.0,
+        "zela_2slot_pct": 17.0,
+        "zela_3plus_slot_pct": 0.0,
+        "baseline_1slot_pct": 16.0,
+        "baseline_2slot_pct": 83.0,
+        "baseline_3plus_slot_pct": 1.0
+      },
+      "bimodality": {
+        "fast_mode_pct": 68.0,
+        "intermediate_pct": 16.0,
+        "slow_mode_pct": 16.0
+      },
+      "ratios": {
+        "median_ratio": 186.5,
+        "p95_ratio": 2.3
+      }
+    },
+    "dataset_2026_04_25_1300": {
+      "run_count": 100,
+      "error_count": 0,
+      "zela": {
+        "min_us": 1051.0,
+        "p50_us": 2242.0,
+        "p95_us": 184018.1,
+        "p99_us": 189157.2,
+        "max_us": 192940.0,
+        "mean_us": 41912.3,
+        "n": 100
+      },
+      "baseline": {
+        "min_us": 380619.0,
+        "p50_us": 429825.0,
+        "p95_us": 496459.0,
+        "p99_us": 529603.9,
+        "max_us": 550779.0,
+        "mean_us": 437569.8,
+        "n": 100
+      },
+      "slot_consistency": {
+        "zela_1slot_pct": 92.0,
+        "zela_2slot_pct": 8.0,
+        "zela_3plus_slot_pct": 0.0,
+        "baseline_1slot_pct": 13.0,
+        "baseline_2slot_pct": 86.0,
+        "baseline_3plus_slot_pct": 1.0
+      },
+      "bimodality": {
+        "fast_mode_pct": 77.0,
+        "intermediate_pct": 23.0,
+        "slow_mode_pct": 0.0
+      },
+      "ratios": {
+        "median_ratio": 191.7,
+        "p95_ratio": 2.7
+      }
+    },
+    "dataset_2026_04_25_1700": {
+      "run_count": 100,
+      "error_count": 0,
+      "zela": {
+        "min_us": 917.0,
+        "p50_us": 2165.0,
+        "p95_us": 207806.5,
+        "p99_us": 298740.1,
+        "max_us": 398340.0,
+        "mean_us": 40181.2,
+        "n": 100
+      },
+      "baseline": {
+        "min_us": 375360.0,
+        "p50_us": 429124.0,
+        "p95_us": 508423.3,
+        "p99_us": 543588.0,
+        "max_us": 626944.0,
+        "mean_us": 440782.0,
+        "n": 100
+      },
+      "slot_consistency": {
+        "zela_1slot_pct": 89.0,
+        "zela_2slot_pct": 11.0,
+        "zela_3plus_slot_pct": 0.0,
+        "baseline_1slot_pct": 10.0,
+        "baseline_2slot_pct": 89.0,
+        "baseline_3plus_slot_pct": 1.0
+      },
+      "bimodality": {
+        "fast_mode_pct": 80.0,
+        "intermediate_pct": 11.0,
+        "slow_mode_pct": 9.0
+      },
+      "ratios": {
+        "median_ratio": 198.2,
+        "p95_ratio": 2.4
+      }
+    },
+    "dataset_2026_04_25_2200": {
+      "run_count": 100,
+      "error_count": 0,
+      "zela": {
+        "min_us": 1042.0,
+        "p50_us": 2160.0,
+        "p95_us": 229758.9,
+        "p99_us": 291811.2,
+        "max_us": 336282.0,
+        "mean_us": 44970.2,
+        "n": 100
+      },
+      "baseline": {
+        "min_us": 404183.0,
+        "p50_us": 464417.5,
+        "p95_us": 601625.2,
+        "p99_us": 654331.5,
+        "max_us": 775160.0,
+        "mean_us": 484451.7,
+        "n": 100
+      },
+      "slot_consistency": {
+        "zela_1slot_pct": 90.0,
+        "zela_2slot_pct": 10.0,
+        "zela_3plus_slot_pct": 0.0,
+        "baseline_1slot_pct": 9.0,
+        "baseline_2slot_pct": 85.0,
+        "baseline_3plus_slot_pct": 6.0
+      },
+      "bimodality": {
+        "fast_mode_pct": 80.0,
+        "intermediate_pct": 8.0,
+        "slow_mode_pct": 12.0
+      },
+      "ratios": {
+        "median_ratio": 215.0,
+        "p95_ratio": 2.6
+      }
+    },
+    "dataset_2026_04_26_0200": {
+      "run_count": 100,
+      "error_count": 0,
+      "zela": {
+        "min_us": 845.0,
+        "p50_us": 2151.0,
+        "p95_us": 204344.0,
+        "p99_us": 280469.5,
+        "max_us": 428519.0,
+        "mean_us": 39743.5,
+        "n": 100
+      },
+      "baseline": {
+        "min_us": 339718.0,
+        "p50_us": 404259.5,
+        "p95_us": 457742.6,
+        "p99_us": 466115.7,
+        "max_us": 467764.0,
+        "mean_us": 409500.7,
+        "n": 100
+      },
+      "slot_consistency": {
+        "zela_1slot_pct": 92.0,
+        "zela_2slot_pct": 8.0,
+        "zela_3plus_slot_pct": 0.0,
+        "baseline_1slot_pct": 18.0,
+        "baseline_2slot_pct": 82.0,
+        "baseline_3plus_slot_pct": 0.0
+      },
+      "bimodality": {
+        "fast_mode_pct": 82.0,
+        "intermediate_pct": 11.0,
+        "slow_mode_pct": 7.0
+      },
+      "ratios": {
+        "median_ratio": 187.9,
+        "p95_ratio": 2.2
+      }
+    },
+    "dataset_2026_04_26_0800": {
+      "run_count": 100,
+      "error_count": 0,
+      "zela": {
+        "min_us": 928.0,
+        "p50_us": 2124.0,
+        "p95_us": 240526.5,
+        "p99_us": 285889.9,
+        "max_us": 294592.0,
+        "mean_us": 56211.1,
+        "n": 100
+      },
+      "baseline": {
+        "min_us": 363781.0,
+        "p50_us": 414291.5,
+        "p95_us": 484848.1,
+        "p99_us": 541651.0,
+        "max_us": 641939.0,
+        "mean_us": 424555.0,
+        "n": 100
+      },
+      "slot_consistency": {
+        "zela_1slot_pct": 88.0,
+        "zela_2slot_pct": 12.0,
+        "zela_3plus_slot_pct": 0.0,
+        "baseline_1slot_pct": 19.0,
+        "baseline_2slot_pct": 79.0,
+        "baseline_3plus_slot_pct": 2.0
+      },
+      "bimodality": {
+        "fast_mode_pct": 77.0,
+        "intermediate_pct": 0.0,
+        "slow_mode_pct": 23.0
+      },
+      "ratios": {
+        "median_ratio": 195.1,
+        "p95_ratio": 2.0
+      }
+    },
+    "dataset_2026_04_26_1300": {
+      "run_count": 100,
+      "error_count": 0,
+      "zela": {
+        "min_us": 865.0,
+        "p50_us": 2172.0,
+        "p95_us": 183608.7,
+        "p99_us": 224305.8,
+        "max_us": 227655.0,
+        "mean_us": 47197.0,
+        "n": 100
+      },
+      "baseline": {
+        "min_us": 362982.0,
+        "p50_us": 427321.5,
+        "p95_us": 506744.7,
+        "p99_us": 720247.9,
+        "max_us": 807756.0,
+        "mean_us": 441526.3,
+        "n": 100
+      },
+      "slot_consistency": {
+        "zela_1slot_pct": 89.0,
+        "zela_2slot_pct": 11.0,
+        "zela_3plus_slot_pct": 0.0,
+        "baseline_1slot_pct": 12.0,
+        "baseline_2slot_pct": 86.0,
+        "baseline_3plus_slot_pct": 2.0
+      },
+      "bimodality": {
+        "fast_mode_pct": 73.0,
+        "intermediate_pct": 25.0,
+        "slow_mode_pct": 2.0
+      },
+      "ratios": {
+        "median_ratio": 196.7,
+        "p95_ratio": 2.8
+      }
+    },
+    "dataset_2026_04_26_1700": {
+      "run_count": 100,
+      "error_count": 0,
+      "zela": {
+        "min_us": 935.0,
+        "p50_us": 2127.5,
+        "p95_us": 228402.0,
+        "p99_us": 273282.4,
+        "max_us": 305297.0,
+        "mean_us": 42574.0,
+        "n": 100
+      },
+      "baseline": {
+        "min_us": 380098.0,
+        "p50_us": 430501.5,
+        "p95_us": 533593.5,
+        "p99_us": 547212.7,
+        "max_us": 598662.0,
+        "mean_us": 444467.2,
+        "n": 100
+      },
+      "slot_consistency": {
+        "zela_1slot_pct": 91.0,
+        "zela_2slot_pct": 9.0,
+        "zela_3plus_slot_pct": 0.0,
+        "baseline_1slot_pct": 12.0,
+        "baseline_2slot_pct": 86.0,
+        "baseline_3plus_slot_pct": 2.0
+      },
+      "bimodality": {
+        "fast_mode_pct": 79.0,
+        "intermediate_pct": 13.0,
+        "slow_mode_pct": 8.0
+      },
+      "ratios": {
+        "median_ratio": 202.4,
+        "p95_ratio": 2.3
+      }
+    },
+    "dataset_2026_04_26_2200": {
+      "run_count": 100,
+      "error_count": 0,
+      "zela": {
+        "min_us": 775.0,
+        "p50_us": 2146.0,
+        "p95_us": 189127.3,
+        "p99_us": 232396.2,
+        "max_us": 257954.0,
+        "mean_us": 37272.1,
+        "n": 100
+      },
+      "baseline": {
+        "min_us": 381538.0,
+        "p50_us": 446758.5,
+        "p95_us": 541171.3,
+        "p99_us": 576432.3,
+        "max_us": 602791.0,
+        "mean_us": 456646.3,
+        "n": 100
+      },
+      "slot_consistency": {
+        "zela_1slot_pct": 94.0,
+        "zela_2slot_pct": 6.0,
+        "zela_3plus_slot_pct": 0.0,
+        "baseline_1slot_pct": 13.0,
+        "baseline_2slot_pct": 85.0,
+        "baseline_3plus_slot_pct": 2.0
+      },
+      "bimodality": {
+        "fast_mode_pct": 80.0,
+        "intermediate_pct": 15.0,
+        "slow_mode_pct": 5.0
+      },
+      "ratios": {
+        "median_ratio": 208.2,
+        "p95_ratio": 2.9
+      }
+    },
+    "dataset_2026_04_27_0200": {
+      "run_count": 100,
+      "error_count": 0,
+      "zela": {
+        "min_us": 1030.0,
+        "p50_us": 2151.5,
+        "p95_us": 214640.3,
+        "p99_us": 256591.8,
+        "max_us": 289831.0,
+        "mean_us": 56110.1,
+        "n": 100
+      },
+      "baseline": {
+        "min_us": 356909.0,
+        "p50_us": 394891.0,
+        "p95_us": 450608.3,
+        "p99_us": 465150.6,
+        "max_us": 513715.0,
+        "mean_us": 404826.0,
+        "n": 100
+      },
+      "slot_consistency": {
+        "zela_1slot_pct": 87.0,
+        "zela_2slot_pct": 13.0,
+        "zela_3plus_slot_pct": 0.0,
+        "baseline_1slot_pct": 18.0,
+        "baseline_2slot_pct": 82.0,
+        "baseline_3plus_slot_pct": 0.0
+      },
+      "bimodality": {
+        "fast_mode_pct": 71.0,
+        "intermediate_pct": 18.0,
+        "slow_mode_pct": 11.0
+      },
+      "ratios": {
+        "median_ratio": 183.5,
+        "p95_ratio": 2.1
+      }
+    },
+    "dataset_2026_04_27_0800": {
+      "run_count": 100,
+      "error_count": 0,
+      "zela": {
+        "min_us": 830.0,
+        "p50_us": 2157.5,
+        "p95_us": 198177.6,
+        "p99_us": 292881.3,
+        "max_us": 331721.0,
+        "mean_us": 48657.5,
+        "n": 100
+      },
+      "baseline": {
+        "min_us": 380976.0,
+        "p50_us": 441719.5,
+        "p95_us": 509627.8,
+        "p99_us": 529611.3,
+        "max_us": 566371.0,
+        "mean_us": 447000.9,
+        "n": 100
+      },
+      "slot_consistency": {
+        "zela_1slot_pct": 91.0,
+        "zela_2slot_pct": 9.0,
+        "zela_3plus_slot_pct": 0.0,
+        "baseline_1slot_pct": 12.0,
+        "baseline_2slot_pct": 87.0,
+        "baseline_3plus_slot_pct": 1.0
+      },
+      "bimodality": {
+        "fast_mode_pct": 73.0,
+        "intermediate_pct": 22.0,
+        "slow_mode_pct": 5.0
+      },
+      "ratios": {
+        "median_ratio": 204.7,
+        "p95_ratio": 2.6
+      }
+    },
+    "dataset_2026_04_27_1300": {
+      "run_count": 100,
+      "error_count": 0,
+      "zela": {
+        "min_us": 913.0,
+        "p50_us": 2160.0,
+        "p95_us": 387007.0,
+        "p99_us": 451311.8,
+        "max_us": 469998.0,
+        "mean_us": 57557.3,
+        "n": 100
+      },
+      "baseline": {
+        "min_us": 376280.0,
+        "p50_us": 441989.0,
+        "p95_us": 536428.7,
+        "p99_us": 564216.9,
+        "max_us": 582821.0,
+        "mean_us": 452281.6,
+        "n": 100
+      },
+      "slot_consistency": {
+        "zela_1slot_pct": 92.0,
+        "zela_2slot_pct": 8.0,
+        "zela_3plus_slot_pct": 0.0,
+        "baseline_1slot_pct": 11.0,
+        "baseline_2slot_pct": 86.0,
+        "baseline_3plus_slot_pct": 3.0
+      },
+      "bimodality": {
+        "fast_mode_pct": 77.0,
+        "intermediate_pct": 15.0,
+        "slow_mode_pct": 8.0
+      },
+      "ratios": {
+        "median_ratio": 204.6,
+        "p95_ratio": 1.4
+      }
+    },
+    "dataset_2026_04_27_1700": {
+      "run_count": 100,
+      "error_count": 0,
+      "zela": {
+        "min_us": 955.0,
+        "p50_us": 2123.5,
+        "p95_us": 340867.1,
+        "p99_us": 384112.7,
+        "max_us": 921553.0,
+        "mean_us": 51670.7,
+        "n": 100
+      },
+      "baseline": {
+        "min_us": 394253.0,
+        "p50_us": 462662.5,
+        "p95_us": 586757.2,
+        "p99_us": 725828.2,
+        "max_us": 1023050.0,
+        "mean_us": 485845.7,
+        "n": 100
+      },
+      "slot_consistency": {
+        "zela_1slot_pct": 90.0,
+        "zela_2slot_pct": 9.0,
+        "zela_3plus_slot_pct": 1.0,
+        "baseline_1slot_pct": 13.0,
+        "baseline_2slot_pct": 83.0,
+        "baseline_3plus_slot_pct": 4.0
+      },
+      "bimodality": {
+        "fast_mode_pct": 83.0,
+        "intermediate_pct": 3.0,
+        "slow_mode_pct": 14.0
+      },
+      "ratios": {
+        "median_ratio": 217.9,
+        "p95_ratio": 1.7
+      }
+    },
+    "dataset_2026_04_27_2200": {
+      "run_count": 100,
+      "error_count": 0,
+      "zela": {
+        "min_us": 1276.0,
+        "p50_us": 2382.0,
+        "p95_us": 272339.0,
+        "p99_us": 350557.6,
+        "max_us": 653655.0,
+        "mean_us": 25054.3,
+        "n": 100
+      },
+      "baseline": {
+        "min_us": 382450.0,
+        "p50_us": 451190.5,
+        "p95_us": 620390.0,
+        "p99_us": 730554.1,
+        "max_us": 760063.0,
+        "mean_us": 474459.9,
+        "n": 100
+      },
+      "slot_consistency": {
+        "zela_1slot_pct": 97.0,
+        "zela_2slot_pct": 3.0,
+        "zela_3plus_slot_pct": 0.0,
+        "baseline_1slot_pct": 11.0,
+        "baseline_2slot_pct": 83.0,
+        "baseline_3plus_slot_pct": 6.0
+      },
+      "bimodality": {
+        "fast_mode_pct": 79.0,
+        "intermediate_pct": 15.0,
+        "slow_mode_pct": 6.0
+      },
+      "ratios": {
+        "median_ratio": 189.4,
+        "p95_ratio": 2.3
+      }
+    },
+    "dataset_2026_04_28_0200": {
+      "run_count": 100,
+      "error_count": 0,
+      "zela": {
+        "min_us": 1153.0,
+        "p50_us": 2331.5,
+        "p95_us": 253801.5,
+        "p99_us": 471613.5,
+        "max_us": 587887.0,
+        "mean_us": 38900.0,
+        "n": 100
+      },
+      "baseline": {
+        "min_us": 351483.0,
+        "p50_us": 409675.5,
+        "p95_us": 475463.6,
+        "p99_us": 496943.8,
+        "max_us": 588698.0,
+        "mean_us": 417010.4,
+        "n": 100
+      },
+      "slot_consistency": {
+        "zela_1slot_pct": 96.0,
+        "zela_2slot_pct": 4.0,
+        "zela_3plus_slot_pct": 0.0,
+        "baseline_1slot_pct": 18.0,
+        "baseline_2slot_pct": 82.0,
+        "baseline_3plus_slot_pct": 0.0
+      },
+      "bimodality": {
+        "fast_mode_pct": 79.0,
+        "intermediate_pct": 9.0,
+        "slow_mode_pct": 12.0
+      },
+      "ratios": {
+        "median_ratio": 175.7,
+        "p95_ratio": 1.9
+      }
+    },
+    "dataset_2026_04_28_0800": {
+      "run_count": 100,
+      "error_count": 0,
+      "zela": {
+        "min_us": 1422.0,
+        "p50_us": 2403.5,
+        "p95_us": 26543.9,
+        "p99_us": 457561.3,
+        "max_us": 534910.0,
+        "mean_us": 18964.0,
+        "n": 100
+      },
+      "baseline": {
+        "min_us": 372027.0,
+        "p50_us": 430270.0,
+        "p95_us": 532396.4,
+        "p99_us": 690633.6,
+        "max_us": 757715.0,
+        "mean_us": 444897.6,
+        "n": 100
+      },
+      "slot_consistency": {
+        "zela_1slot_pct": 96.0,
+        "zela_2slot_pct": 4.0,
+        "zela_3plus_slot_pct": 0.0,
+        "baseline_1slot_pct": 14.0,
+        "baseline_2slot_pct": 83.0,
+        "baseline_3plus_slot_pct": 3.0
+      },
+      "bimodality": {
+        "fast_mode_pct": 81.0,
+        "intermediate_pct": 15.0,
+        "slow_mode_pct": 4.0
+      },
+      "ratios": {
+        "median_ratio": 179.0,
+        "p95_ratio": 20.1
+      }
+    },
+    "dataset_2026_04_28_1300": {
+      "run_count": 100,
+      "error_count": 0,
+      "zela": {
+        "min_us": 1075.0,
+        "p50_us": 2400.0,
+        "p95_us": 256347.4,
+        "p99_us": 442718.6,
+        "max_us": 615930.0,
+        "mean_us": 41466.2,
+        "n": 100
+      },
+      "baseline": {
+        "min_us": 400035.0,
+        "p50_us": 458276.5,
+        "p95_us": 574131.4,
+        "p99_us": 744947.1,
+        "max_us": 760107.0,
+        "mean_us": 472595.6,
+        "n": 100
+      },
+      "slot_consistency": {
+        "zela_1slot_pct": 92.0,
+        "zela_2slot_pct": 8.0,
+        "zela_3plus_slot_pct": 0.0,
+        "baseline_1slot_pct": 10.0,
+        "baseline_2slot_pct": 89.0,
+        "baseline_3plus_slot_pct": 1.0
+      },
+      "bimodality": {
+        "fast_mode_pct": 85.0,
+        "intermediate_pct": 2.0,
+        "slow_mode_pct": 13.0
+      },
+      "ratios": {
+        "median_ratio": 190.9,
+        "p95_ratio": 2.2
+      }
+    },
+    "dataset_2026_04_28_1700": {
+      "run_count": 100,
+      "error_count": 0,
+      "zela": {
+        "min_us": 836.0,
+        "p50_us": 3111.0,
+        "p95_us": 248185.0,
+        "p99_us": 506002.5,
+        "max_us": 551695.0,
+        "mean_us": 48428.8,
+        "n": 100
+      },
+      "baseline": {
+        "min_us": 383090.0,
+        "p50_us": 454616.0,
+        "p95_us": 561683.0,
+        "p99_us": 694849.7,
+        "max_us": 2386828.0,
+        "mean_us": 487063.5,
+        "n": 100
+      },
+      "slot_consistency": {
+        "zela_1slot_pct": 88.0,
+        "zela_2slot_pct": 12.0,
+        "zela_3plus_slot_pct": 0.0,
+        "baseline_1slot_pct": 13.0,
+        "baseline_2slot_pct": 78.0,
+        "baseline_3plus_slot_pct": 9.0
+      },
+      "bimodality": {
+        "fast_mode_pct": 66.0,
+        "intermediate_pct": 21.0,
+        "slow_mode_pct": 13.0
+      },
+      "ratios": {
+        "median_ratio": 146.1,
+        "p95_ratio": 2.3
+      }
+    },
+    "dataset_2026_04_28_2200": {
+      "run_count": 100,
+      "error_count": 0,
+      "zela": {
+        "min_us": 1143.0,
+        "p50_us": 2363.5,
+        "p95_us": 449911.3,
+        "p99_us": 571189.8,
+        "max_us": 609283.0,
+        "mean_us": 55922.0,
+        "n": 100
+      },
+      "baseline": {
+        "min_us": 396928.0,
+        "p50_us": 483516.0,
+        "p95_us": 648481.9,
+        "p99_us": 740967.3,
+        "max_us": 918601.0,
+        "mean_us": 507547.3,
+        "n": 100
+      },
+      "slot_consistency": {
+        "zela_1slot_pct": 87.0,
+        "zela_2slot_pct": 10.0,
+        "zela_3plus_slot_pct": 3.0,
+        "baseline_1slot_pct": 6.0,
+        "baseline_2slot_pct": 86.0,
+        "baseline_3plus_slot_pct": 8.0
+      },
+      "bimodality": {
+        "fast_mode_pct": 84.0,
+        "intermediate_pct": 4.0,
+        "slow_mode_pct": 12.0
+      },
+      "ratios": {
+        "median_ratio": 204.6,
+        "p95_ratio": 1.4
+      }
+    },
+    "dataset_2026_04_29_0200": {
+      "run_count": 100,
+      "error_count": 0,
+      "zela": {
+        "min_us": 1204.0,
+        "p50_us": 2455.0,
+        "p95_us": 260671.6,
+        "p99_us": 644113.7,
+        "max_us": 652696.0,
+        "mean_us": 59701.9,
+        "n": 100
+      },
+      "baseline": {
+        "min_us": 353863.0,
+        "p50_us": 390733.0,
+        "p95_us": 446473.4,
+        "p99_us": 462264.9,
+        "max_us": 492352.0,
+        "mean_us": 396959.2,
+        "n": 100
+      },
+      "slot_consistency": {
+        "zela_1slot_pct": 95.0,
+        "zela_2slot_pct": 5.0,
+        "zela_3plus_slot_pct": 0.0,
+        "baseline_1slot_pct": 28.0,
+        "baseline_2slot_pct": 72.0,
+        "baseline_3plus_slot_pct": 0.0
+      },
+      "bimodality": {
+        "fast_mode_pct": 78.0,
+        "intermediate_pct": 11.0,
+        "slow_mode_pct": 11.0
+      },
+      "ratios": {
+        "median_ratio": 159.2,
+        "p95_ratio": 1.7
+      }
+    },
+    "dataset_2026_05_03_0200": {
+      "run_count": 100,
+      "error_count": 0,
+      "zela": {
+        "min_us": 1361.0,
+        "p50_us": 2478.5,
+        "p95_us": 391793.2,
+        "p99_us": 400700.6,
+        "max_us": 432931.0,
+        "mean_us": 42261.6,
+        "n": 100
+      },
+      "baseline": {
+        "min_us": 370752.0,
+        "p50_us": 463187.0,
+        "p95_us": 533899.8,
+        "p99_us": 563760.3,
+        "max_us": 647150.0,
+        "mean_us": 464205.1,
+        "n": 100
+      },
+      "slot_consistency": {
+        "zela_1slot_pct": 89.0,
+        "zela_2slot_pct": 11.0,
+        "zela_3plus_slot_pct": 0.0,
+        "baseline_1slot_pct": 14.0,
+        "baseline_2slot_pct": 81.0,
+        "baseline_3plus_slot_pct": 5.0
+      },
+      "bimodality": {
+        "fast_mode_pct": 80.0,
+        "intermediate_pct": 12.0,
+        "slow_mode_pct": 8.0
+      },
+      "ratios": {
+        "median_ratio": 186.9,
+        "p95_ratio": 1.4
+      }
+    },
+    "dataset_2026_05_04_1300": {
+      "run_count": 100,
+      "error_count": 0,
+      "zela": {
+        "min_us": 1122.0,
+        "p50_us": 2458.0,
+        "p95_us": 193117.0,
+        "p99_us": 326721.8,
+        "max_us": 332145.0,
+        "mean_us": 30320.2,
+        "n": 100
+      },
+      "baseline": {
+        "min_us": 383660.0,
+        "p50_us": 440462.5,
+        "p95_us": 551636.0,
+        "p99_us": 661046.9,
+        "max_us": 684601.0,
+        "mean_us": 456367.3,
+        "n": 100
+      },
+      "slot_consistency": {
+        "zela_1slot_pct": 95.0,
+        "zela_2slot_pct": 5.0,
+        "zela_3plus_slot_pct": 0.0,
+        "baseline_1slot_pct": 14.0,
+        "baseline_2slot_pct": 84.0,
+        "baseline_3plus_slot_pct": 2.0
+      },
+      "bimodality": {
+        "fast_mode_pct": 82.0,
+        "intermediate_pct": 15.0,
+        "slow_mode_pct": 3.0
+      },
+      "ratios": {
+        "median_ratio": 179.2,
+        "p95_ratio": 2.9
+      }
+    },
+    "combined": {
+      "run_count": 3397,
+      "error_count": 3,
+      "zela": {
+        "min_us": 775.0,
+        "p50_us": 2224.0,
+        "p95_us": 230444.8,
+        "p99_us": 424492.8,
+        "max_us": 1064297.0,
+        "mean_us": 42711.0,
+        "n": 3397
+      },
+      "baseline": {
+        "min_us": 339718.0,
+        "p50_us": 442020.5,
+        "p95_us": 570041.6,
+        "p99_us": 677774.8,
+        "max_us": 2386828.0,
+        "mean_us": 455785.0,
+        "n": 3400
+      },
+      "slot_consistency": {
+        "zela_1slot_pct": 91.3,
+        "zela_2slot_pct": 8.5,
+        "zela_3plus_slot_pct": 0.2,
+        "baseline_1slot_pct": 13.4,
+        "baseline_2slot_pct": 83.2,
+        "baseline_3plus_slot_pct": 3.4
+      },
+      "bimodality": {
+        "fast_mode_pct": 78.7,
+        "intermediate_pct": 12.3,
+        "slow_mode_pct": 9.0
+      },
+      "ratios": {
+        "median_ratio": 198.8,
+        "p95_ratio": 2.5
       }
     }
   },
   "per_feed": {
     "SOL/USD": {
-      "zela_p50_us": 538.0,
-      "zela_p95_us": 35294.2,
-      "baseline_p50_us": 95938.5,
-      "baseline_p95_us": 147568.4
+      "zela_p50_us": 584.0,
+      "zela_p95_us": 33826.2,
+      "baseline_p50_us": 93107.5,
+      "baseline_p95_us": 135989.3
     },
     "BTC/USD": {
-      "zela_p50_us": 230.0,
-      "zela_p95_us": 23839.6,
-      "baseline_p50_us": 42544.5,
-      "baseline_p95_us": 60866.4
+      "zela_p50_us": 244.0,
+      "zela_p95_us": 21989.6,
+      "baseline_p50_us": 38738.5,
+      "baseline_p95_us": 52906.4
     },
     "ETH/USD": {
-      "zela_p50_us": 174.0,
-      "zela_p95_us": 23980.4,
-      "baseline_p50_us": 42489.0,
-      "baseline_p95_us": 58967.2
+      "zela_p50_us": 185.0,
+      "zela_p95_us": 21842.6,
+      "baseline_p50_us": 38629.0,
+      "baseline_p95_us": 52136.1
     },
     "USDC/USD": {
-      "zela_p50_us": 161.0,
-      "zela_p95_us": 25372.6,
-      "baseline_p50_us": 42318.5,
-      "baseline_p95_us": 61454.9
+      "zela_p50_us": 168.0,
+      "zela_p95_us": 22372.4,
+      "baseline_p50_us": 38529.5,
+      "baseline_p95_us": 52594.3
     },
     "USDT/USD": {
-      "zela_p50_us": 157.0,
-      "zela_p95_us": 23966.4,
-      "baseline_p50_us": 42573.5,
-      "baseline_p95_us": 58829.7
+      "zela_p50_us": 164.0,
+      "zela_p95_us": 22363.4,
+      "baseline_p50_us": 38412.5,
+      "baseline_p95_us": 52223.1
     },
     "BNB/USD": {
-      "zela_p50_us": 154.0,
-      "zela_p95_us": 22374.8,
-      "baseline_p50_us": 42430.5,
-      "baseline_p95_us": 59293.8
+      "zela_p50_us": 162.0,
+      "zela_p95_us": 22144.4,
+      "baseline_p50_us": 38460.5,
+      "baseline_p95_us": 52837.2
     },
     "JUP/USD": {
-      "zela_p50_us": 154.0,
-      "zela_p95_us": 22043.6,
-      "baseline_p50_us": 43193.5,
-      "baseline_p95_us": 58757.1
+      "zela_p50_us": 160.0,
+      "zela_p95_us": 22357.8,
+      "baseline_p50_us": 39095.0,
+      "baseline_p95_us": 53484.4
     },
     "BONK/USD": {
-      "zela_p50_us": 151.0,
-      "zela_p95_us": 22599.6,
-      "baseline_p50_us": 41938.5,
-      "baseline_p95_us": 58855.3
+      "zela_p50_us": 160.0,
+      "zela_p95_us": 21833.6,
+      "baseline_p50_us": 37501.0,
+      "baseline_p95_us": 51160.2
     },
     "PYTH/USD": {
-      "zela_p50_us": 151.0,
-      "zela_p95_us": 22456.8,
-      "baseline_p50_us": 41521.0,
-      "baseline_p95_us": 58051.3
+      "zela_p50_us": 157.0,
+      "zela_p95_us": 21683.8,
+      "baseline_p50_us": 37277.5,
+      "baseline_p95_us": 51043.8
     },
     "JTO/USD": {
-      "zela_p50_us": 149.0,
-      "zela_p95_us": 24238.4,
-      "baseline_p50_us": 41730.5,
-      "baseline_p95_us": 56391.6
+      "zela_p50_us": 157.0,
+      "zela_p95_us": 21773.4,
+      "baseline_p50_us": 37631.5,
+      "baseline_p95_us": 51576.9
     }
   }
 }
