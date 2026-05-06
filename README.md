@@ -3,7 +3,7 @@
 A benchmark measuring the latency and slot-consistency of reading 10 Pyth
 legacy push oracle accounts on Solana mainnet via two paths: (a) a Zela
 WASM procedure running in Zela's leader-proximate executor, and (b) a
-Rust client running on a remote developer machine in Prague reading the
+Rust client running on a remote client machine in Prague reading the
 same 10 accounts via a Helius free-tier RPC endpoint. 500 runs per side
 across five collection windows on April 21–22, 2026. Three Zela runs
 failed and were filtered, yielding 497 Zela / 500 baseline paired runs.
@@ -56,7 +56,7 @@ aggregate timing brackets the full 10-call loop.
 **Baseline path.** Rust binary at
 [`baseline_client`](baseline_client) using raw JSON-RPC via `reqwest`,
 connecting to `https://mainnet.helius-rpc.com` (Helius free tier) from
-a Prague developer machine. Same 10 accounts in the same order. Per-feed
+a Prague client machine. Same 10 accounts in the same order. Per-feed
 timing wraps each HTTP call; aggregate timing brackets the loop.
 
 Both sides issue `getAccountInfo` without specifying a commitment
@@ -286,7 +286,7 @@ on top of a ~500 ms floor).
   Zela against a non-batched baseline, not against an optimized
   production client.
 
-- **Single client location.** All measurements are from one developer
+- **Single client location.** All measurements are from one client
   machine in Prague. A client colocated with an RPC provider in US
   East would see a substantially smaller gap on both paths.
 
@@ -457,8 +457,8 @@ docs/                      — Milestone writeups and figures
 
 ## Context
 
-Zela is an execution platform from RockawayX that runs WASM procedures
-in Solana leader-proximate executors. Procedure source in this
+Zela is an execution platform that runs WASM procedures in Solana
+leader-proximate executors. Procedure source in this
 repository uses the public
 [`zela-std`](https://github.com/Zela-io/zela-std) crate, which exposes
 the `CustomProcedure` trait, the `call_rpc` host binding, and the

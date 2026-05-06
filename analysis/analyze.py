@@ -1,5 +1,13 @@
 #!/usr/bin/env python3
-"""M4a: statistical analysis and figures for Zela oracle read path benchmark."""
+"""Statistical analysis and figures for the Zela oracle read path benchmark.
+
+Two schemas:
+  --mode sequential : the original 10×getAccountInfo loop output (legacy)
+  --mode batch      : the new getMultipleAccounts output with split
+                      server_wall_clock_us / client_wall_clock_us, cold_start,
+                      and commitment columns
+"""
+import argparse
 import json
 import sys
 from pathlib import Path
@@ -19,16 +27,29 @@ def _plain_log(x, _pos):
 
 PLAIN_LOG = FuncFormatter(_plain_log)
 
-FEEDS_COLS = {
+SEQ_FEEDS_COLS = {
     "run_id", "timestamp_ms", "side", "symbol", "pubkey",
     "account_found", "account_data_len", "context_slot",
     "wall_clock_elapsed_us", "error",
 }
-AGGS_COLS = {
+SEQ_AGGS_COLS = {
     "run_id", "timestamp_ms", "side", "feed_count",
     "wall_clock_start_ms", "wall_clock_end_ms",
     "wall_clock_total_us", "unique_slots_count", "error",
 }
+BATCH_FEEDS_COLS = {
+    "run_id", "timestamp_ms", "side", "symbol", "pubkey",
+    "account_found", "account_data_len", "context_slot",
+    "cold_start", "commitment", "error",
+}
+BATCH_AGGS_COLS = {
+    "run_id", "timestamp_ms", "side", "feed_count",
+    "wall_clock_start_ms", "wall_clock_end_ms",
+    "server_wall_clock_us", "client_wall_clock_us",
+    "unique_slots_count", "cold_start", "commitment", "error",
+}
+BATCH_FEEDS_FORBIDDEN = {"wall_clock_elapsed_us"}
+BATCH_AGGS_FORBIDDEN = {"wall_clock_total_us"}
 FEED_ORDER = [
     "SOL/USD", "BTC/USD", "ETH/USD", "USDC/USD", "USDT/USD",
     "BNB/USD", "JUP/USD", "BONK/USD", "PYTH/USD", "JTO/USD",
@@ -67,6 +88,8 @@ def agg_stats(s):
     }
 
 
+# ── Sequential mode (legacy, must stay bit-identical with pre-refactor output) ──
+
 def load_dataset(path_str):
     path = Path(path_str)
     name = path.name
@@ -75,7 +98,7 @@ def load_dataset(path_str):
     feeds = pd.read_csv(path / "feeds.csv")
     aggs = pd.read_csv(path / "aggregates.csv")
     for df, fname, schema in [
-        (feeds, "feeds.csv", FEEDS_COLS), (aggs, "aggregates.csv", AGGS_COLS),
+        (feeds, "feeds.csv", SEQ_FEEDS_COLS), (aggs, "aggregates.csv", SEQ_AGGS_COLS),
     ]:
         missing = schema - set(df.columns)
         if missing:
@@ -340,7 +363,7 @@ def print_summary(stats_by_name):
     sc = combined.get("slot_consistency", {})
     ratios = combined.get("ratios", {})
     bm = combined.get("bimodality", {})
-    print("\n=== M4a Analysis Summary ===")
+    print("\n=== Sequential Analysis Summary ===")
     print(f"Runs analyzed (combined):          {combined.get('run_count')}")
     print(f"Zela p50 / p95:                    {z.get('p50_us', 0) / 1000:.2f}ms / {z.get('p95_us', 0) / 1000:.2f}ms")
     print(f"Baseline p50 / p95:                {b.get('p50_us', 0) / 1000:.2f}ms / {b.get('p95_us', 0) / 1000:.2f}ms")
@@ -349,18 +372,14 @@ def print_summary(stats_by_name):
     print(f"Zela slot consistency (1 slot):    {sc.get('zela_1slot_pct')}%")
     print(f"Baseline slot consistency (1 slot):{sc.get('baseline_1slot_pct')}%")
     print(f"Zela bimodality: fast(<5ms)={bm.get('fast_mode_pct')}%  slow(>200ms)={bm.get('slow_mode_pct')}%")
-    print("============================\n")
+    print("===================================\n")
 
 
-def main():
-    if len(sys.argv) < 2:
-        print("Usage: python analyze.py <dataset_dir> [<dataset_dir> ...]", file=sys.stderr)
-        sys.exit(1)
-
+def run_sequential(paths):
     FIGURES_DIR.mkdir(parents=True, exist_ok=True)
 
     datasets = []
-    for path in sys.argv[1:]:
+    for path in paths:
         try:
             ds = load_dataset(path)
             datasets.append(ds)
@@ -414,6 +433,300 @@ def main():
         print(f"  wrote docs/figures/{name}.png", file=sys.stderr)
 
     print_summary(stats_by_name)
+
+
+# ── Batch mode ────────────────────────────────────────────────────────────────
+
+def _resolve_dataset_path(path: Path) -> Path:
+    """If path/feeds.csv is missing, look for a single run_* subdir."""
+    if (path / "feeds.csv").exists():
+        return path
+    candidates = sorted(
+        p for p in path.glob("run_*")
+        if (p / "feeds.csv").exists() and (p / "aggregates.csv").exists()
+    )
+    if len(candidates) == 1:
+        return candidates[0]
+    if len(candidates) > 1:
+        raise FileNotFoundError(
+            f"Multiple run subdirectories in {path}: "
+            f"{[c.name for c in candidates]}. Specify one explicitly."
+        )
+    raise FileNotFoundError(f"Missing CSVs in {path}")
+
+
+def _validate_batch_slot_consistency(feeds_df, dataset_name):
+    """Returns 1 if all runs have one unique slot, otherwise returns actual max."""
+    group_cols = ["run_id", "side"]
+    if "_ds" in feeds_df.columns:
+        group_cols = ["_ds"] + group_cols
+    by_run = feeds_df.groupby(group_cols)["context_slot"].nunique()
+    bad = by_run[by_run > 1]
+    if len(bad):
+        print(
+            f"WARNING: {dataset_name} has {len(bad)} (run,side) pairs with "
+            f">1 unique slot in batch mode. This violates getMultipleAccounts "
+            f"server-side guarantee. Max unique slots: {bad.max()}",
+            file=sys.stderr,
+        )
+        return int(bad.max())
+    return 1
+
+
+def load_dataset_batch(path_str):
+    path = _resolve_dataset_path(Path(path_str))
+    name = path.name
+    if not (path / "feeds.csv").exists() or not (path / "aggregates.csv").exists():
+        raise FileNotFoundError(f"Missing CSVs in {path}")
+    feeds = pd.read_csv(path / "feeds.csv")
+    aggs = pd.read_csv(path / "aggregates.csv")
+    for df, fname, forbidden in [
+        (feeds, "feeds.csv", BATCH_FEEDS_FORBIDDEN),
+        (aggs, "aggregates.csv", BATCH_AGGS_FORBIDDEN),
+    ]:
+        extra = forbidden & set(df.columns)
+        if extra:
+            raise ValueError(
+                f"{name}/{fname} contains forbidden columns in batch mode: {extra}. "
+                f"This data may be from sequential mode — use --mode sequential."
+            )
+    for df, fname, schema in [
+        (feeds, "feeds.csv", BATCH_FEEDS_COLS), (aggs, "aggregates.csv", BATCH_AGGS_COLS),
+    ]:
+        missing = schema - set(df.columns)
+        if missing:
+            raise ValueError(f"{name}/{fname} missing columns: {missing}")
+    ferr = (feeds["error"].astype(str).str.lower() == "true").sum()
+    aerr = (aggs["error"].astype(str).str.lower() == "true").sum()
+    if ferr or aerr:
+        print(
+            f"Filtered {ferr} error rows from {name}/feeds.csv, "
+            f"{aerr} from aggregates.csv",
+            file=sys.stderr,
+        )
+    feeds = feeds[feeds["error"].astype(str).str.lower() == "false"].copy()
+    aggs = aggs[aggs["error"].astype(str).str.lower() == "false"].copy()
+
+    cold_count_aggs = (aggs["cold_start"].astype(str).str.lower() == "true").sum()
+    cold_count_feeds = (feeds["cold_start"].astype(str).str.lower() == "true").sum()
+    if cold_count_aggs or cold_count_feeds:
+        print(
+            f"Filtered {cold_count_aggs} cold_start agg rows and "
+            f"{cold_count_feeds} cold_start feed rows from {name}",
+            file=sys.stderr,
+        )
+    feeds = feeds[feeds["cold_start"].astype(str).str.lower() != "true"].copy()
+    aggs = aggs[aggs["cold_start"].astype(str).str.lower() != "true"].copy()
+
+    for col in ["server_wall_clock_us", "client_wall_clock_us",
+                "unique_slots_count", "run_id"]:
+        aggs[col] = pd.to_numeric(aggs[col], errors="coerce")
+    feeds["run_id"] = pd.to_numeric(feeds["run_id"], errors="coerce")
+    feeds["context_slot"] = pd.to_numeric(feeds["context_slot"], errors="coerce")
+
+    commitments = sorted(set(aggs["commitment"].dropna().astype(str)))
+    return {
+        "name": name,
+        "path": path,
+        "feeds": feeds,
+        "aggs": aggs,
+        "error_count": int(aerr),
+        "cold_start_count": int(cold_count_aggs),
+        "commitments": commitments,
+    }
+
+
+def compute_stats_batch(ds):
+    aggs = ds["aggs"]
+    if aggs.empty:
+        print(f"Warning: {ds['name']} empty after filtering", file=sys.stderr)
+        return None
+    z_df = aggs[aggs["side"] == "zela"]
+    b_df = aggs[aggs["side"] == "baseline"]
+    pair_cols = ["run_id"]
+    if "_ds" in aggs.columns:
+        pair_cols = ["_ds"] + pair_cols
+    paired = pd.merge(
+        z_df[pair_cols + ["server_wall_clock_us", "client_wall_clock_us"]].rename(
+            columns={
+                "server_wall_clock_us": "z_server",
+                "client_wall_clock_us": "z_client",
+            }
+        ),
+        b_df[pair_cols + ["client_wall_clock_us"]].rename(
+            columns={"client_wall_clock_us": "b_client"}
+        ),
+        on=pair_cols,
+        how="inner",
+    )
+    dropped_unpaired = min(len(z_df), len(b_df)) - len(paired)
+    if dropped_unpaired > 0:
+        print(
+            f"WARNING: {ds['name']} dropped {dropped_unpaired} unpaired batch runs "
+            f"after inner join on {pair_cols}",
+            file=sys.stderr,
+        )
+    z_server = paired["z_server"].dropna()
+    z_client = paired["z_client"].dropna()
+    b_client = paired["b_client"].dropna()
+    unique_slot_value = _validate_batch_slot_consistency(ds["feeds"], ds["name"])
+
+    server_ratio = (
+        round(pct(b_client, 50) / pct(z_server, 50), 1)
+        if len(z_server) and len(b_client) else None
+    )
+    client_ratio = (
+        round(pct(b_client, 50) / pct(z_client, 50), 1)
+        if len(z_client) and len(b_client) else None
+    )
+    if unique_slot_value == 1:
+        slot_note = (
+            "Structurally 1 in batch mode (server-side getMultipleAccounts "
+            "guarantee, validated against feeds.csv). See legacy_sequential "
+            "for sequential measurement (Zela 91% / Baseline 13% one-slot "
+            "consistency)."
+        )
+    else:
+        slot_note = (
+            "Value reflects actual max unique context_slot count per (run, "
+            "side) pair in feeds.csv. Expected 1 for getMultipleAccounts "
+            "server-side guarantee; value > 1 indicates data quality anomaly "
+            "(possibly transitional dataset where orchestrator was updated "
+            "before procedure WASM was redeployed). See legacy_sequential "
+            "for sequential measurement reference."
+        )
+
+    return {
+        "run_count": len(paired),
+        "error_count": ds.get("error_count", 0),
+        "cold_start_filtered": ds.get("cold_start_count", 0),
+        "zela": {
+            "server": agg_stats(z_server),
+            "client": agg_stats(z_client),
+        },
+        "baseline": {
+            "client": agg_stats(b_client),
+        },
+        "ratios": {
+            "server_ratio": server_ratio,
+            "client_ratio": client_ratio,
+        },
+        "unique_slots_count": {
+            "value": unique_slot_value,
+            "note": slot_note,
+        },
+    }
+
+
+def run_batch(paths):
+    datasets = []
+    for path in paths:
+        try:
+            ds = load_dataset_batch(path)
+            datasets.append(ds)
+            print(f"Loaded {ds['name']}: {len(ds['aggs'])} agg rows (after cold_start filter)",
+                  file=sys.stderr)
+        except Exception as e:
+            print(f"Error loading {path}: {e}", file=sys.stderr)
+            sys.exit(1)
+
+    if not datasets:
+        print("No datasets loaded.", file=sys.stderr)
+        sys.exit(1)
+
+    stats_by_name = {}
+    for ds in datasets:
+        s = compute_stats_batch(ds)
+        if s:
+            stats_by_name[ds["name"]] = s
+
+    if len(datasets) > 1:
+        tagged_aggs = []
+        tagged_feeds = []
+        for ds in datasets:
+            a = ds["aggs"].copy()
+            a["_ds"] = ds["name"]
+            tagged_aggs.append(a)
+            f = ds["feeds"].copy()
+            f["_ds"] = ds["name"]
+            tagged_feeds.append(f)
+        combined_aggs = pd.concat(tagged_aggs, ignore_index=True)
+        combined_feeds = pd.concat(tagged_feeds, ignore_index=True)
+        combined_stats = compute_stats_batch({
+            "name": "combined",
+            "aggs": combined_aggs,
+            "feeds": combined_feeds,
+            "error_count": sum(ds.get("error_count", 0) for ds in datasets),
+            "cold_start_count": sum(ds.get("cold_start_count", 0) for ds in datasets),
+        })
+        if combined_stats:
+            stats_by_name["combined"] = combined_stats
+
+    all_commitments = sorted({c for ds in datasets for c in ds["commitments"]})
+    payload = {
+        "datasets": stats_by_name,
+        "commitment": {
+            "batch_mode": all_commitments[0] if len(all_commitments) == 1 else all_commitments,
+            "legacy_sequential": (
+                "not specified in source (server default applied). "
+                "Verified in pre-batch-v2 source: procedures/oracle_read/src/lib.rs "
+                "and baseline_client/src/main.rs called getAccountInfo without a "
+                "commitment field. Solana RPC server default for unspecified commitment "
+                "is 'finalized'; Helius may differ."
+            ),
+        },
+        "asymmetries": {
+            "zela_client_includes_genesis_hash": (
+                "Zela client_wall_clock_us measures one HTTP round-trip that "
+                "encloses both getMultipleAccounts and getGenesisHash inside the "
+                "procedure. Baseline client_wall_clock_us measures only the "
+                "getMultipleAccounts HTTP call. Estimated overhead: ~1-2ms on Zela "
+                "side (server-local genesis hash query)."
+            ),
+            "baseline_no_connection_reuse_across_runs": (
+                "baseline_client is a fresh subprocess per run, so each run pays "
+                "TCP+TLS handshake cost (~30-50ms typical from Prague to Helius). "
+                "Zela orchestrator uses requests.Session() with persistent "
+                "connection, so warm-state runs avoid handshake. This systematically "
+                "favors Zela in client_ratio. To eliminate, baseline would need to "
+                "be refactored to a long-running daemon. Out of scope for v2."
+            ),
+        },
+    }
+
+    # Write summary.json into the first dataset's directory so the legacy
+    # docs/figures/summary.json (sequential) is not overwritten.
+    out_path = datasets[0]["path"] / "summary.json"
+    with open(out_path, "w") as f:
+        json.dump(payload, f, indent=2)
+    print(f"Wrote {out_path}", file=sys.stderr)
+
+    primary = stats_by_name.get("combined") or next(iter(stats_by_name.values()))
+    z_server_p50 = primary["zela"]["server"].get("p50_us", 0) / 1000
+    z_client_p50 = primary["zela"]["client"].get("p50_us", 0) / 1000
+    b_client_p50 = primary["baseline"]["client"].get("p50_us", 0) / 1000
+    print("\n=== Batch Analysis Summary ===")
+    print(f"Cold-start side-rows filtered:  {primary.get('cold_start_filtered')}  "
+          f"(= 5 Zela + 5 baseline aggregate rows)")
+    print(f"Zela server p50:           {z_server_p50:.2f} ms")
+    print(f"Zela client p50:           {z_client_p50:.2f} ms")
+    print(f"Baseline client p50:       {b_client_p50:.2f} ms")
+    print(f"server_ratio:              {primary['ratios']['server_ratio']}x")
+    print(f"client_ratio:              {primary['ratios']['client_ratio']}x")
+    print(f"unique_slots_count.value:  {primary['unique_slots_count']['value']}")
+    print("==============================\n")
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--mode", choices=["sequential", "batch"], default="batch")
+    ap.add_argument("paths", nargs="+", help="dataset directories")
+    args = ap.parse_args()
+
+    if args.mode == "sequential":
+        run_sequential(args.paths)
+    else:
+        run_batch(args.paths)
 
 
 if __name__ == "__main__":

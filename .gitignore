@@ -1,10 +1,14 @@
 # Secrets
 .env
 .env.local
+.env.*.local
+*.key
+*.pem
 
 # Rust build artifacts
 /target/
 **/target/
+target/
 
 # IDE
 .vscode/
@@ -21,5 +25,8 @@ prompts/
 data/
 __pycache__/
 *.pyc
+.agents
+.agents/
+.codex
 .codex/
 *.code-workspace

@@ -172,7 +172,7 @@ This was more iteration than initially planned but necessary. The reader-perspec
 
 ### Distribution
 
-- Targeted outreach to technical contacts at RockawayX and adjacent Solana infrastructure teams
+- Targeted outreach to technical contacts at adjacent Solana infrastructure teams
 - Short, direct. Specific numbers (231× median, 2.8× p95, 91% vs 7% single-slot)
 - Link to repo
 - Honest framing: "research artifact, not product claim"

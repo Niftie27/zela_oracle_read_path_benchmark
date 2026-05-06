@@ -125,7 +125,7 @@ runs — not a one-off. This is the headline number, but it deserves the
 following caveats in M4 README:
 
 - "Standard RPC" here is **Helius from Prague**, which is a typical
-  developer-experience scenario, not an optimized colo setup.
+  remote-client scenario, not an optimized colo setup.
 - A market-maker running their own well-located RPC node would see a
   much smaller gap — but they would also be paying full ops cost for it,
   which is part of Zela's value proposition (`Less infrastructure`).
@@ -233,7 +233,7 @@ Required README sections:
 
 Wording discipline:
 - "Sequential read latency" not "execution latency"
-- "From a remote developer client" not "vs standard RPC" (too vague)
+- "From a remote client" not "vs standard RPC" (too vague)
 - "211× faster in median over 100 runs" not "blazing fast"
 - No "shred-level," no "MEV-resistant," no "eliminates adverse selection"
   in headline claims
