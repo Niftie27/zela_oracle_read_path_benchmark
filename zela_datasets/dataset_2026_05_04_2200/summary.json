@@ -43,6 +43,1458 @@
         "value": 1,
         "note": "Structurally 1 in batch mode (server-side getMultipleAccounts guarantee, validated against feeds.csv). See legacy_sequential for sequential measurement (Zela 91% / Baseline 13% one-slot consistency)."
       }
+    },
+    "dataset_2026_05_06_1655": {
+      "run_count": 95,
+      "error_count": 0,
+      "cold_start_filtered": 10,
+      "zela": {
+        "server": {
+          "min_us": 633.0,
+          "p50_us": 962.0,
+          "p95_us": 45531.7,
+          "p99_us": 95316.2,
+          "max_us": 111769.0,
+          "mean_us": 6355.8,
+          "n": 95
+        },
+        "client": {
+          "min_us": 16161.0,
+          "p50_us": 18744.0,
+          "p95_us": 460749.8,
+          "p99_us": 477113.1,
+          "max_us": 549652.0,
+          "mean_us": 149155.7,
+          "n": 95
+        }
+      },
+      "baseline": {
+        "client": {
+          "min_us": 77684.0,
+          "p50_us": 100199.0,
+          "p95_us": 173870.6,
+          "p99_us": 202500.0,
+          "max_us": 222757.0,
+          "mean_us": 109838.6,
+          "n": 95
+        }
+      },
+      "ratios": {
+        "server_ratio": 104.2,
+        "client_ratio": 5.3
+      },
+      "unique_slots_count": {
+        "value": 1,
+        "note": "Structurally 1 in batch mode (server-side getMultipleAccounts guarantee, validated against feeds.csv). See legacy_sequential for sequential measurement (Zela 91% / Baseline 13% one-slot consistency)."
+      }
+    },
+    "dataset_2026_05_06_1700": {
+      "run_count": 95,
+      "error_count": 0,
+      "cold_start_filtered": 10,
+      "zela": {
+        "server": {
+          "min_us": 590.0,
+          "p50_us": 926.0,
+          "p95_us": 37471.3,
+          "p99_us": 77084.5,
+          "max_us": 89907.0,
+          "mean_us": 5292.6,
+          "n": 95
+        },
+        "client": {
+          "min_us": 15934.0,
+          "p50_us": 18366.0,
+          "p95_us": 460776.9,
+          "p99_us": 463020.8,
+          "max_us": 470067.0,
+          "mean_us": 126258.8,
+          "n": 95
+        }
+      },
+      "baseline": {
+        "client": {
+          "min_us": 74027.0,
+          "p50_us": 105384.0,
+          "p95_us": 171187.7,
+          "p99_us": 359017.3,
+          "max_us": 600006.0,
+          "mean_us": 121761.2,
+          "n": 95
+        }
+      },
+      "ratios": {
+        "server_ratio": 113.8,
+        "client_ratio": 5.7
+      },
+      "unique_slots_count": {
+        "value": 1,
+        "note": "Structurally 1 in batch mode (server-side getMultipleAccounts guarantee, validated against feeds.csv). See legacy_sequential for sequential measurement (Zela 91% / Baseline 13% one-slot consistency)."
+      }
+    },
+    "dataset_2026_05_06_2200": {
+      "run_count": 95,
+      "error_count": 0,
+      "cold_start_filtered": 10,
+      "zela": {
+        "server": {
+          "min_us": 621.0,
+          "p50_us": 931.0,
+          "p95_us": 39988.6,
+          "p99_us": 112335.4,
+          "max_us": 114456.0,
+          "mean_us": 8411.8,
+          "n": 95
+        },
+        "client": {
+          "min_us": 15848.0,
+          "p50_us": 18433.0,
+          "p95_us": 460617.4,
+          "p99_us": 471757.2,
+          "max_us": 473547.0,
+          "mean_us": 144639.7,
+          "n": 95
+        }
+      },
+      "baseline": {
+        "client": {
+          "min_us": 67465.0,
+          "p50_us": 108125.0,
+          "p95_us": 186908.2,
+          "p99_us": 210643.6,
+          "max_us": 257418.0,
+          "mean_us": 116667.1,
+          "n": 95
+        }
+      },
+      "ratios": {
+        "server_ratio": 116.1,
+        "client_ratio": 5.9
+      },
+      "unique_slots_count": {
+        "value": 1,
+        "note": "Structurally 1 in batch mode (server-side getMultipleAccounts guarantee, validated against feeds.csv). See legacy_sequential for sequential measurement (Zela 91% / Baseline 13% one-slot consistency)."
+      }
+    },
+    "dataset_2026_05_07_0200": {
+      "run_count": 95,
+      "error_count": 0,
+      "cold_start_filtered": 10,
+      "zela": {
+        "server": {
+          "min_us": 627.0,
+          "p50_us": 965.0,
+          "p95_us": 37146.4,
+          "p99_us": 46013.4,
+          "max_us": 54949.0,
+          "mean_us": 5748.7,
+          "n": 95
+        },
+        "client": {
+          "min_us": 16407.0,
+          "p50_us": 19156.0,
+          "p95_us": 460649.4,
+          "p99_us": 519475.9,
+          "max_us": 1431728.0,
+          "mean_us": 158510.9,
+          "n": 95
+        }
+      },
+      "baseline": {
+        "client": {
+          "min_us": 57056.0,
+          "p50_us": 90753.0,
+          "p95_us": 114444.7,
+          "p99_us": 121316.8,
+          "max_us": 123053.0,
+          "mean_us": 92192.3,
+          "n": 95
+        }
+      },
+      "ratios": {
+        "server_ratio": 94.0,
+        "client_ratio": 4.7
+      },
+      "unique_slots_count": {
+        "value": 1,
+        "note": "Structurally 1 in batch mode (server-side getMultipleAccounts guarantee, validated against feeds.csv). See legacy_sequential for sequential measurement (Zela 91% / Baseline 13% one-slot consistency)."
+      }
+    },
+    "dataset_2026_05_07_0800": {
+      "run_count": 95,
+      "error_count": 0,
+      "cold_start_filtered": 10,
+      "zela": {
+        "server": {
+          "min_us": 590.0,
+          "p50_us": 962.0,
+          "p95_us": 30282.7,
+          "p99_us": 43763.4,
+          "max_us": 77782.0,
+          "mean_us": 5721.7,
+          "n": 95
+        },
+        "client": {
+          "min_us": 16197.0,
+          "p50_us": 18579.0,
+          "p95_us": 460208.4,
+          "p99_us": 466055.8,
+          "max_us": 549446.0,
+          "mean_us": 98698.3,
+          "n": 95
+        }
+      },
+      "baseline": {
+        "client": {
+          "min_us": 61690.0,
+          "p50_us": 98927.0,
+          "p95_us": 145498.8,
+          "p99_us": 170454.7,
+          "max_us": 271249.0,
+          "mean_us": 102098.7,
+          "n": 95
+        }
+      },
+      "ratios": {
+        "server_ratio": 102.8,
+        "client_ratio": 5.3
+      },
+      "unique_slots_count": {
+        "value": 1,
+        "note": "Structurally 1 in batch mode (server-side getMultipleAccounts guarantee, validated against feeds.csv). See legacy_sequential for sequential measurement (Zela 91% / Baseline 13% one-slot consistency)."
+      }
+    },
+    "dataset_2026_05_07_1300": {
+      "run_count": 95,
+      "error_count": 0,
+      "cold_start_filtered": 10,
+      "zela": {
+        "server": {
+          "min_us": 587.0,
+          "p50_us": 946.0,
+          "p95_us": 27945.4,
+          "p99_us": 55223.4,
+          "max_us": 71131.0,
+          "mean_us": 6007.8,
+          "n": 95
+        },
+        "client": {
+          "min_us": 16202.0,
+          "p50_us": 18943.0,
+          "p95_us": 460335.6,
+          "p99_us": 461311.1,
+          "max_us": 462174.0,
+          "mean_us": 133546.7,
+          "n": 95
+        }
+      },
+      "baseline": {
+        "client": {
+          "min_us": 60114.0,
+          "p50_us": 98522.0,
+          "p95_us": 141072.4,
+          "p99_us": 154991.3,
+          "max_us": 184574.0,
+          "mean_us": 103592.3,
+          "n": 95
+        }
+      },
+      "ratios": {
+        "server_ratio": 104.1,
+        "client_ratio": 5.2
+      },
+      "unique_slots_count": {
+        "value": 1,
+        "note": "Structurally 1 in batch mode (server-side getMultipleAccounts guarantee, validated against feeds.csv). See legacy_sequential for sequential measurement (Zela 91% / Baseline 13% one-slot consistency)."
+      }
+    },
+    "dataset_2026_05_07_1700": {
+      "run_count": 95,
+      "error_count": 0,
+      "cold_start_filtered": 10,
+      "zela": {
+        "server": {
+          "min_us": 643.0,
+          "p50_us": 998.0,
+          "p95_us": 60624.1,
+          "p99_us": 75025.4,
+          "max_us": 82786.0,
+          "mean_us": 9172.0,
+          "n": 95
+        },
+        "client": {
+          "min_us": 15981.0,
+          "p50_us": 19170.0,
+          "p95_us": 462147.2,
+          "p99_us": 560809.6,
+          "max_us": 2095495.0,
+          "mean_us": 172168.4,
+          "n": 95
+        }
+      },
+      "baseline": {
+        "client": {
+          "min_us": 64360.0,
+          "p50_us": 98991.0,
+          "p95_us": 137287.3,
+          "p99_us": 440672.1,
+          "max_us": 2161156.0,
+          "mean_us": 124952.2,
+          "n": 95
+        }
+      },
+      "ratios": {
+        "server_ratio": 99.2,
+        "client_ratio": 5.2
+      },
+      "unique_slots_count": {
+        "value": 1,
+        "note": "Structurally 1 in batch mode (server-side getMultipleAccounts guarantee, validated against feeds.csv). See legacy_sequential for sequential measurement (Zela 91% / Baseline 13% one-slot consistency)."
+      }
+    },
+    "dataset_2026_05_07_2200": {
+      "run_count": 95,
+      "error_count": 0,
+      "cold_start_filtered": 10,
+      "zela": {
+        "server": {
+          "min_us": 676.0,
+          "p50_us": 982.0,
+          "p95_us": 68491.3,
+          "p99_us": 107912.7,
+          "max_us": 175996.0,
+          "mean_us": 8484.7,
+          "n": 95
+        },
+        "client": {
+          "min_us": 16628.0,
+          "p50_us": 18851.0,
+          "p95_us": 461590.2,
+          "p99_us": 553382.3,
+          "max_us": 829762.0,
+          "mean_us": 142588.2,
+          "n": 95
+        }
+      },
+      "baseline": {
+        "client": {
+          "min_us": 77211.0,
+          "p50_us": 95411.0,
+          "p95_us": 132648.1,
+          "p99_us": 153005.7,
+          "max_us": 170752.0,
+          "mean_us": 100181.0,
+          "n": 95
+        }
+      },
+      "ratios": {
+        "server_ratio": 97.2,
+        "client_ratio": 5.1
+      },
+      "unique_slots_count": {
+        "value": 1,
+        "note": "Structurally 1 in batch mode (server-side getMultipleAccounts guarantee, validated against feeds.csv). See legacy_sequential for sequential measurement (Zela 91% / Baseline 13% one-slot consistency)."
+      }
+    },
+    "dataset_2026_05_08_0200": {
+      "run_count": 95,
+      "error_count": 0,
+      "cold_start_filtered": 10,
+      "zela": {
+        "server": {
+          "min_us": 594.0,
+          "p50_us": 946.0,
+          "p95_us": 32558.1,
+          "p99_us": 83580.5,
+          "max_us": 83871.0,
+          "mean_us": 7174.1,
+          "n": 95
+        },
+        "client": {
+          "min_us": 15935.0,
+          "p50_us": 18704.0,
+          "p95_us": 461339.4,
+          "p99_us": 466739.6,
+          "max_us": 532408.0,
+          "mean_us": 117727.2,
+          "n": 95
+        }
+      },
+      "baseline": {
+        "client": {
+          "min_us": 56193.0,
+          "p50_us": 94175.0,
+          "p95_us": 132000.6,
+          "p99_us": 189725.7,
+          "max_us": 340653.0,
+          "mean_us": 98056.2,
+          "n": 95
+        }
+      },
+      "ratios": {
+        "server_ratio": 99.6,
+        "client_ratio": 5.0
+      },
+      "unique_slots_count": {
+        "value": 1,
+        "note": "Structurally 1 in batch mode (server-side getMultipleAccounts guarantee, validated against feeds.csv). See legacy_sequential for sequential measurement (Zela 91% / Baseline 13% one-slot consistency)."
+      }
+    },
+    "dataset_2026_05_08_0800": {
+      "run_count": 95,
+      "error_count": 0,
+      "cold_start_filtered": 10,
+      "zela": {
+        "server": {
+          "min_us": 604.0,
+          "p50_us": 937.0,
+          "p95_us": 25890.1,
+          "p99_us": 35726.4,
+          "max_us": 58199.0,
+          "mean_us": 6003.6,
+          "n": 95
+        },
+        "client": {
+          "min_us": 15898.0,
+          "p50_us": 18781.0,
+          "p95_us": 464942.9,
+          "p99_us": 465390.7,
+          "max_us": 465559.0,
+          "mean_us": 131239.0,
+          "n": 95
+        }
+      },
+      "baseline": {
+        "client": {
+          "min_us": 63668.0,
+          "p50_us": 97764.0,
+          "p95_us": 131667.2,
+          "p99_us": 153345.1,
+          "max_us": 180059.0,
+          "mean_us": 99780.1,
+          "n": 95
+        }
+      },
+      "ratios": {
+        "server_ratio": 104.3,
+        "client_ratio": 5.2
+      },
+      "unique_slots_count": {
+        "value": 1,
+        "note": "Structurally 1 in batch mode (server-side getMultipleAccounts guarantee, validated against feeds.csv). See legacy_sequential for sequential measurement (Zela 91% / Baseline 13% one-slot consistency)."
+      }
+    },
+    "dataset_2026_05_08_1300": {
+      "run_count": 95,
+      "error_count": 0,
+      "cold_start_filtered": 10,
+      "zela": {
+        "server": {
+          "min_us": 637.0,
+          "p50_us": 960.0,
+          "p95_us": 27600.5,
+          "p99_us": 53135.4,
+          "max_us": 61132.0,
+          "mean_us": 5711.9,
+          "n": 95
+        },
+        "client": {
+          "min_us": 16024.0,
+          "p50_us": 18646.0,
+          "p95_us": 464849.8,
+          "p99_us": 465184.9,
+          "max_us": 465449.0,
+          "mean_us": 129283.0,
+          "n": 95
+        }
+      },
+      "baseline": {
+        "client": {
+          "min_us": 71534.0,
+          "p50_us": 98830.0,
+          "p95_us": 141926.4,
+          "p99_us": 187769.4,
+          "max_us": 202362.0,
+          "mean_us": 104073.1,
+          "n": 95
+        }
+      },
+      "ratios": {
+        "server_ratio": 102.9,
+        "client_ratio": 5.3
+      },
+      "unique_slots_count": {
+        "value": 1,
+        "note": "Structurally 1 in batch mode (server-side getMultipleAccounts guarantee, validated against feeds.csv). See legacy_sequential for sequential measurement (Zela 91% / Baseline 13% one-slot consistency)."
+      }
+    },
+    "dataset_2026_05_08_1700": {
+      "run_count": 95,
+      "error_count": 0,
+      "cold_start_filtered": 10,
+      "zela": {
+        "server": {
+          "min_us": 663.0,
+          "p50_us": 989.0,
+          "p95_us": 60856.9,
+          "p99_us": 98253.9,
+          "max_us": 119544.0,
+          "mean_us": 9076.5,
+          "n": 95
+        },
+        "client": {
+          "min_us": 16271.0,
+          "p50_us": 18807.0,
+          "p95_us": 464939.2,
+          "p99_us": 492572.1,
+          "max_us": 763388.0,
+          "mean_us": 138879.1,
+          "n": 95
+        }
+      },
+      "baseline": {
+        "client": {
+          "min_us": 60681.0,
+          "p50_us": 97104.0,
+          "p95_us": 133624.0,
+          "p99_us": 230808.6,
+          "max_us": 425226.0,
+          "mean_us": 106028.6,
+          "n": 95
+        }
+      },
+      "ratios": {
+        "server_ratio": 98.2,
+        "client_ratio": 5.2
+      },
+      "unique_slots_count": {
+        "value": 1,
+        "note": "Structurally 1 in batch mode (server-side getMultipleAccounts guarantee, validated against feeds.csv). See legacy_sequential for sequential measurement (Zela 91% / Baseline 13% one-slot consistency)."
+      }
+    },
+    "dataset_2026_05_08_2200": {
+      "run_count": 90,
+      "error_count": 5,
+      "cold_start_filtered": 10,
+      "zela": {
+        "server": {
+          "min_us": 400.0,
+          "p50_us": 1011.0,
+          "p95_us": 29310.4,
+          "p99_us": 66108.4,
+          "max_us": 81541.0,
+          "mean_us": 7311.4,
+          "n": 90
+        },
+        "client": {
+          "min_us": 16095.0,
+          "p50_us": 19156.0,
+          "p95_us": 465195.2,
+          "p99_us": 465444.4,
+          "max_us": 466046.0,
+          "mean_us": 148401.0,
+          "n": 90
+        }
+      },
+      "baseline": {
+        "client": {
+          "min_us": 70850.0,
+          "p50_us": 96565.0,
+          "p95_us": 135310.5,
+          "p99_us": 166433.3,
+          "max_us": 173200.0,
+          "mean_us": 100914.0,
+          "n": 90
+        }
+      },
+      "ratios": {
+        "server_ratio": 95.5,
+        "client_ratio": 5.0
+      },
+      "unique_slots_count": {
+        "value": 1,
+        "note": "Structurally 1 in batch mode (server-side getMultipleAccounts guarantee, validated against feeds.csv). See legacy_sequential for sequential measurement (Zela 91% / Baseline 13% one-slot consistency)."
+      }
+    },
+    "dataset_2026_05_09_0200": {
+      "run_count": 92,
+      "error_count": 3,
+      "cold_start_filtered": 10,
+      "zela": {
+        "server": {
+          "min_us": 438.0,
+          "p50_us": 980.5,
+          "p95_us": 31084.0,
+          "p99_us": 88917.4,
+          "max_us": 91702.0,
+          "mean_us": 6146.1,
+          "n": 92
+        },
+        "client": {
+          "min_us": 16523.0,
+          "p50_us": 18834.5,
+          "p95_us": 464435.5,
+          "p99_us": 465245.6,
+          "max_us": 465282.0,
+          "mean_us": 114104.4,
+          "n": 92
+        }
+      },
+      "baseline": {
+        "client": {
+          "min_us": 55958.0,
+          "p50_us": 89037.0,
+          "p95_us": 107622.6,
+          "p99_us": 139927.6,
+          "max_us": 142108.0,
+          "mean_us": 91086.9,
+          "n": 92
+        }
+      },
+      "ratios": {
+        "server_ratio": 90.8,
+        "client_ratio": 4.7
+      },
+      "unique_slots_count": {
+        "value": 1,
+        "note": "Structurally 1 in batch mode (server-side getMultipleAccounts guarantee, validated against feeds.csv). See legacy_sequential for sequential measurement (Zela 91% / Baseline 13% one-slot consistency)."
+      }
+    },
+    "dataset_2026_05_09_0800": {
+      "run_count": 94,
+      "error_count": 1,
+      "cold_start_filtered": 10,
+      "zela": {
+        "server": {
+          "min_us": 493.0,
+          "p50_us": 991.0,
+          "p95_us": 29778.7,
+          "p99_us": 67312.0,
+          "max_us": 70500.0,
+          "mean_us": 7384.1,
+          "n": 94
+        },
+        "client": {
+          "min_us": 16349.0,
+          "p50_us": 18849.0,
+          "p95_us": 464174.7,
+          "p99_us": 465068.5,
+          "max_us": 466470.0,
+          "mean_us": 125361.4,
+          "n": 94
+        }
+      },
+      "baseline": {
+        "client": {
+          "min_us": 59889.0,
+          "p50_us": 92095.0,
+          "p95_us": 118360.6,
+          "p99_us": 140677.8,
+          "max_us": 159966.0,
+          "mean_us": 94087.9,
+          "n": 94
+        }
+      },
+      "ratios": {
+        "server_ratio": 92.9,
+        "client_ratio": 4.9
+      },
+      "unique_slots_count": {
+        "value": 1,
+        "note": "Structurally 1 in batch mode (server-side getMultipleAccounts guarantee, validated against feeds.csv). See legacy_sequential for sequential measurement (Zela 91% / Baseline 13% one-slot consistency)."
+      }
+    },
+    "dataset_2026_05_09_1300": {
+      "run_count": 95,
+      "error_count": 0,
+      "cold_start_filtered": 10,
+      "zela": {
+        "server": {
+          "min_us": 636.0,
+          "p50_us": 952.0,
+          "p95_us": 40432.4,
+          "p99_us": 60549.8,
+          "max_us": 87744.0,
+          "mean_us": 8232.0,
+          "n": 95
+        },
+        "client": {
+          "min_us": 16494.0,
+          "p50_us": 18854.0,
+          "p95_us": 465267.3,
+          "p99_us": 466489.7,
+          "max_us": 466767.0,
+          "mean_us": 127576.7,
+          "n": 95
+        }
+      },
+      "baseline": {
+        "client": {
+          "min_us": 61716.0,
+          "p50_us": 98191.0,
+          "p95_us": 127775.0,
+          "p99_us": 172191.0,
+          "max_us": 187012.0,
+          "mean_us": 100623.7,
+          "n": 95
+        }
+      },
+      "ratios": {
+        "server_ratio": 103.1,
+        "client_ratio": 5.2
+      },
+      "unique_slots_count": {
+        "value": 1,
+        "note": "Structurally 1 in batch mode (server-side getMultipleAccounts guarantee, validated against feeds.csv). See legacy_sequential for sequential measurement (Zela 91% / Baseline 13% one-slot consistency)."
+      }
+    },
+    "dataset_2026_05_09_1700": {
+      "run_count": 95,
+      "error_count": 0,
+      "cold_start_filtered": 10,
+      "zela": {
+        "server": {
+          "min_us": 567.0,
+          "p50_us": 966.0,
+          "p95_us": 37933.6,
+          "p99_us": 53295.5,
+          "max_us": 58708.0,
+          "mean_us": 5600.4,
+          "n": 95
+        },
+        "client": {
+          "min_us": 16038.0,
+          "p50_us": 18898.0,
+          "p95_us": 465927.0,
+          "p99_us": 469931.2,
+          "max_us": 472080.0,
+          "mean_us": 103835.5,
+          "n": 95
+        }
+      },
+      "baseline": {
+        "client": {
+          "min_us": 54337.0,
+          "p50_us": 93044.0,
+          "p95_us": 119133.9,
+          "p99_us": 140712.5,
+          "max_us": 144998.0,
+          "mean_us": 94606.0,
+          "n": 95
+        }
+      },
+      "ratios": {
+        "server_ratio": 96.3,
+        "client_ratio": 4.9
+      },
+      "unique_slots_count": {
+        "value": 1,
+        "note": "Structurally 1 in batch mode (server-side getMultipleAccounts guarantee, validated against feeds.csv). See legacy_sequential for sequential measurement (Zela 91% / Baseline 13% one-slot consistency)."
+      }
+    },
+    "dataset_2026_05_09_2200": {
+      "run_count": 95,
+      "error_count": 0,
+      "cold_start_filtered": 10,
+      "zela": {
+        "server": {
+          "min_us": 570.0,
+          "p50_us": 910.0,
+          "p95_us": 44754.0,
+          "p99_us": 62651.4,
+          "max_us": 66433.0,
+          "mean_us": 7458.9,
+          "n": 95
+        },
+        "client": {
+          "min_us": 16446.0,
+          "p50_us": 19102.0,
+          "p95_us": 464242.4,
+          "p99_us": 465847.6,
+          "max_us": 470447.0,
+          "mean_us": 153843.4,
+          "n": 95
+        }
+      },
+      "baseline": {
+        "client": {
+          "min_us": 64686.0,
+          "p50_us": 98415.0,
+          "p95_us": 142945.2,
+          "p99_us": 169829.7,
+          "max_us": 193544.0,
+          "mean_us": 103977.8,
+          "n": 95
+        }
+      },
+      "ratios": {
+        "server_ratio": 108.1,
+        "client_ratio": 5.2
+      },
+      "unique_slots_count": {
+        "value": 1,
+        "note": "Structurally 1 in batch mode (server-side getMultipleAccounts guarantee, validated against feeds.csv). See legacy_sequential for sequential measurement (Zela 91% / Baseline 13% one-slot consistency)."
+      }
+    },
+    "dataset_2026_05_10_0200": {
+      "run_count": 95,
+      "error_count": 0,
+      "cold_start_filtered": 10,
+      "zela": {
+        "server": {
+          "min_us": 613.0,
+          "p50_us": 940.0,
+          "p95_us": 30748.4,
+          "p99_us": 57644.7,
+          "max_us": 80137.0,
+          "mean_us": 7205.7,
+          "n": 95
+        },
+        "client": {
+          "min_us": 16333.0,
+          "p50_us": 18814.0,
+          "p95_us": 461693.3,
+          "p99_us": 509031.6,
+          "max_us": 923863.0,
+          "mean_us": 141431.8,
+          "n": 95
+        }
+      },
+      "baseline": {
+        "client": {
+          "min_us": 51191.0,
+          "p50_us": 87478.0,
+          "p95_us": 111311.5,
+          "p99_us": 168252.4,
+          "max_us": 201833.0,
+          "mean_us": 89665.5,
+          "n": 95
+        }
+      },
+      "ratios": {
+        "server_ratio": 93.1,
+        "client_ratio": 4.6
+      },
+      "unique_slots_count": {
+        "value": 1,
+        "note": "Structurally 1 in batch mode (server-side getMultipleAccounts guarantee, validated against feeds.csv). See legacy_sequential for sequential measurement (Zela 91% / Baseline 13% one-slot consistency)."
+      }
+    },
+    "dataset_2026_05_10_0800": {
+      "run_count": 95,
+      "error_count": 0,
+      "cold_start_filtered": 10,
+      "zela": {
+        "server": {
+          "min_us": 644.0,
+          "p50_us": 945.0,
+          "p95_us": 29377.8,
+          "p99_us": 56003.2,
+          "max_us": 75527.0,
+          "mean_us": 6707.9,
+          "n": 95
+        },
+        "client": {
+          "min_us": 16824.0,
+          "p50_us": 18763.0,
+          "p95_us": 1177330.8,
+          "p99_us": 1790859.8,
+          "max_us": 1983901.0,
+          "mean_us": 170545.8,
+          "n": 95
+        }
+      },
+      "baseline": {
+        "client": {
+          "min_us": 63755.0,
+          "p50_us": 91711.0,
+          "p95_us": 125048.5,
+          "p99_us": 130909.6,
+          "max_us": 131843.0,
+          "mean_us": 95734.1,
+          "n": 95
+        }
+      },
+      "ratios": {
+        "server_ratio": 97.0,
+        "client_ratio": 4.9
+      },
+      "unique_slots_count": {
+        "value": 1,
+        "note": "Structurally 1 in batch mode (server-side getMultipleAccounts guarantee, validated against feeds.csv). See legacy_sequential for sequential measurement (Zela 91% / Baseline 13% one-slot consistency)."
+      }
+    },
+    "dataset_2026_05_10_1300": {
+      "run_count": 95,
+      "error_count": 0,
+      "cold_start_filtered": 10,
+      "zela": {
+        "server": {
+          "min_us": 548.0,
+          "p50_us": 998.0,
+          "p95_us": 14428.8,
+          "p99_us": 62527.9,
+          "max_us": 66114.0,
+          "mean_us": 4101.3,
+          "n": 95
+        },
+        "client": {
+          "min_us": 16817.0,
+          "p50_us": 19075.0,
+          "p95_us": 461137.6,
+          "p99_us": 461816.3,
+          "max_us": 461931.0,
+          "mean_us": 125750.7,
+          "n": 95
+        }
+      },
+      "baseline": {
+        "client": {
+          "min_us": 69246.0,
+          "p50_us": 98438.0,
+          "p95_us": 140978.9,
+          "p99_us": 166953.0,
+          "max_us": 170634.0,
+          "mean_us": 102627.3,
+          "n": 95
+        }
+      },
+      "ratios": {
+        "server_ratio": 98.6,
+        "client_ratio": 5.2
+      },
+      "unique_slots_count": {
+        "value": 1,
+        "note": "Structurally 1 in batch mode (server-side getMultipleAccounts guarantee, validated against feeds.csv). See legacy_sequential for sequential measurement (Zela 91% / Baseline 13% one-slot consistency)."
+      }
+    },
+    "dataset_2026_05_10_1700": {
+      "run_count": 95,
+      "error_count": 0,
+      "cold_start_filtered": 10,
+      "zela": {
+        "server": {
+          "min_us": 555.0,
+          "p50_us": 951.0,
+          "p95_us": 31180.0,
+          "p99_us": 54327.6,
+          "max_us": 57236.0,
+          "mean_us": 5365.6,
+          "n": 95
+        },
+        "client": {
+          "min_us": 16392.0,
+          "p50_us": 18715.0,
+          "p95_us": 461562.4,
+          "p99_us": 462235.5,
+          "max_us": 462368.0,
+          "mean_us": 116910.6,
+          "n": 95
+        }
+      },
+      "baseline": {
+        "client": {
+          "min_us": 60261.0,
+          "p50_us": 94768.0,
+          "p95_us": 133142.2,
+          "p99_us": 294901.3,
+          "max_us": 295157.0,
+          "mean_us": 101441.8,
+          "n": 95
+        }
+      },
+      "ratios": {
+        "server_ratio": 99.7,
+        "client_ratio": 5.1
+      },
+      "unique_slots_count": {
+        "value": 1,
+        "note": "Structurally 1 in batch mode (server-side getMultipleAccounts guarantee, validated against feeds.csv). See legacy_sequential for sequential measurement (Zela 91% / Baseline 13% one-slot consistency)."
+      }
+    },
+    "dataset_2026_05_10_2200": {
+      "run_count": 95,
+      "error_count": 0,
+      "cold_start_filtered": 10,
+      "zela": {
+        "server": {
+          "min_us": 632.0,
+          "p50_us": 993.0,
+          "p95_us": 30069.5,
+          "p99_us": 61363.8,
+          "max_us": 71544.0,
+          "mean_us": 5306.2,
+          "n": 95
+        },
+        "client": {
+          "min_us": 16555.0,
+          "p50_us": 18784.0,
+          "p95_us": 461722.0,
+          "p99_us": 462272.8,
+          "max_us": 463445.0,
+          "mean_us": 122823.6,
+          "n": 95
+        }
+      },
+      "baseline": {
+        "client": {
+          "min_us": 73414.0,
+          "p50_us": 99516.0,
+          "p95_us": 134345.4,
+          "p99_us": 146376.5,
+          "max_us": 170025.0,
+          "mean_us": 102890.2,
+          "n": 95
+        }
+      },
+      "ratios": {
+        "server_ratio": 100.2,
+        "client_ratio": 5.3
+      },
+      "unique_slots_count": {
+        "value": 1,
+        "note": "Structurally 1 in batch mode (server-side getMultipleAccounts guarantee, validated against feeds.csv). See legacy_sequential for sequential measurement (Zela 91% / Baseline 13% one-slot consistency)."
+      }
+    },
+    "dataset_2026_05_11_0200": {
+      "run_count": 95,
+      "error_count": 0,
+      "cold_start_filtered": 10,
+      "zela": {
+        "server": {
+          "min_us": 570.0,
+          "p50_us": 990.0,
+          "p95_us": 30130.7,
+          "p99_us": 60686.2,
+          "max_us": 62711.0,
+          "mean_us": 4567.5,
+          "n": 95
+        },
+        "client": {
+          "min_us": 15687.0,
+          "p50_us": 18742.0,
+          "p95_us": 462011.2,
+          "p99_us": 462403.2,
+          "max_us": 463425.0,
+          "mean_us": 124796.4,
+          "n": 95
+        }
+      },
+      "baseline": {
+        "client": {
+          "min_us": 58894.0,
+          "p50_us": 90019.0,
+          "p95_us": 115619.4,
+          "p99_us": 121111.6,
+          "max_us": 128626.0,
+          "mean_us": 91027.1,
+          "n": 95
+        }
+      },
+      "ratios": {
+        "server_ratio": 90.9,
+        "client_ratio": 4.8
+      },
+      "unique_slots_count": {
+        "value": 1,
+        "note": "Structurally 1 in batch mode (server-side getMultipleAccounts guarantee, validated against feeds.csv). See legacy_sequential for sequential measurement (Zela 91% / Baseline 13% one-slot consistency)."
+      }
+    },
+    "dataset_2026_05_11_0800": {
+      "run_count": 95,
+      "error_count": 0,
+      "cold_start_filtered": 10,
+      "zela": {
+        "server": {
+          "min_us": 631.0,
+          "p50_us": 992.0,
+          "p95_us": 27228.7,
+          "p99_us": 39722.2,
+          "max_us": 58713.0,
+          "mean_us": 6136.1,
+          "n": 95
+        },
+        "client": {
+          "min_us": 15829.0,
+          "p50_us": 19196.0,
+          "p95_us": 462686.2,
+          "p99_us": 464318.3,
+          "max_us": 464715.0,
+          "mean_us": 157043.6,
+          "n": 95
+        }
+      },
+      "baseline": {
+        "client": {
+          "min_us": 55127.0,
+          "p50_us": 95480.0,
+          "p95_us": 129392.1,
+          "p99_us": 154124.1,
+          "max_us": 193323.0,
+          "mean_us": 99801.7,
+          "n": 95
+        }
+      },
+      "ratios": {
+        "server_ratio": 96.2,
+        "client_ratio": 5.0
+      },
+      "unique_slots_count": {
+        "value": 1,
+        "note": "Structurally 1 in batch mode (server-side getMultipleAccounts guarantee, validated against feeds.csv). See legacy_sequential for sequential measurement (Zela 91% / Baseline 13% one-slot consistency)."
+      }
+    },
+    "dataset_2026_05_11_1300": {
+      "run_count": 95,
+      "error_count": 0,
+      "cold_start_filtered": 10,
+      "zela": {
+        "server": {
+          "min_us": 561.0,
+          "p50_us": 1002.0,
+          "p95_us": 30916.9,
+          "p99_us": 49895.6,
+          "max_us": 59055.0,
+          "mean_us": 8565.9,
+          "n": 95
+        },
+        "client": {
+          "min_us": 15868.0,
+          "p50_us": 18040.0,
+          "p95_us": 460580.0,
+          "p99_us": 461353.8,
+          "max_us": 461664.0,
+          "mean_us": 150184.0,
+          "n": 95
+        }
+      },
+      "baseline": {
+        "client": {
+          "min_us": 76383.0,
+          "p50_us": 97225.0,
+          "p95_us": 136256.1,
+          "p99_us": 159269.6,
+          "max_us": 191583.0,
+          "mean_us": 101537.2,
+          "n": 95
+        }
+      },
+      "ratios": {
+        "server_ratio": 97.0,
+        "client_ratio": 5.4
+      },
+      "unique_slots_count": {
+        "value": 1,
+        "note": "Structurally 1 in batch mode (server-side getMultipleAccounts guarantee, validated against feeds.csv). See legacy_sequential for sequential measurement (Zela 91% / Baseline 13% one-slot consistency)."
+      }
+    },
+    "dataset_2026_05_11_1700": {
+      "run_count": 95,
+      "error_count": 0,
+      "cold_start_filtered": 10,
+      "zela": {
+        "server": {
+          "min_us": 589.0,
+          "p50_us": 1017.0,
+          "p95_us": 37386.9,
+          "p99_us": 70067.6,
+          "max_us": 185947.0,
+          "mean_us": 7772.3,
+          "n": 95
+        },
+        "client": {
+          "min_us": 15907.0,
+          "p50_us": 17398.0,
+          "p95_us": 460828.8,
+          "p99_us": 475908.3,
+          "max_us": 546632.0,
+          "mean_us": 146464.1,
+          "n": 95
+        }
+      },
+      "baseline": {
+        "client": {
+          "min_us": 63732.0,
+          "p50_us": 96382.0,
+          "p95_us": 159586.6,
+          "p99_us": 1033307.2,
+          "max_us": 2194821.0,
+          "mean_us": 137415.3,
+          "n": 95
+        }
+      },
+      "ratios": {
+        "server_ratio": 94.8,
+        "client_ratio": 5.5
+      },
+      "unique_slots_count": {
+        "value": 1,
+        "note": "Structurally 1 in batch mode (server-side getMultipleAccounts guarantee, validated against feeds.csv). See legacy_sequential for sequential measurement (Zela 91% / Baseline 13% one-slot consistency)."
+      }
+    },
+    "dataset_2026_05_11_2200": {
+      "run_count": 95,
+      "error_count": 0,
+      "cold_start_filtered": 10,
+      "zela": {
+        "server": {
+          "min_us": 481.0,
+          "p50_us": 989.0,
+          "p95_us": 30277.4,
+          "p99_us": 66141.5,
+          "max_us": 106272.0,
+          "mean_us": 7667.9,
+          "n": 95
+        },
+        "client": {
+          "min_us": 15625.0,
+          "p50_us": 18846.0,
+          "p95_us": 461386.4,
+          "p99_us": 462487.5,
+          "max_us": 464047.0,
+          "mean_us": 121648.1,
+          "n": 95
+        }
+      },
+      "baseline": {
+        "client": {
+          "min_us": 64835.0,
+          "p50_us": 96692.0,
+          "p95_us": 136950.7,
+          "p99_us": 312402.6,
+          "max_us": 833783.0,
+          "mean_us": 109939.9,
+          "n": 95
+        }
+      },
+      "ratios": {
+        "server_ratio": 97.8,
+        "client_ratio": 5.1
+      },
+      "unique_slots_count": {
+        "value": 1,
+        "note": "Structurally 1 in batch mode (server-side getMultipleAccounts guarantee, validated against feeds.csv). See legacy_sequential for sequential measurement (Zela 91% / Baseline 13% one-slot consistency)."
+      }
+    },
+    "dataset_2026_05_12_0200": {
+      "run_count": 95,
+      "error_count": 0,
+      "cold_start_filtered": 10,
+      "zela": {
+        "server": {
+          "min_us": 624.0,
+          "p50_us": 947.0,
+          "p95_us": 31315.5,
+          "p99_us": 56447.1,
+          "max_us": 67697.0,
+          "mean_us": 6111.5,
+          "n": 95
+        },
+        "client": {
+          "min_us": 16371.0,
+          "p50_us": 18663.0,
+          "p95_us": 461979.7,
+          "p99_us": 470370.4,
+          "max_us": 571144.0,
+          "mean_us": 142915.0,
+          "n": 95
+        }
+      },
+      "baseline": {
+        "client": {
+          "min_us": 56270.0,
+          "p50_us": 89302.0,
+          "p95_us": 117214.2,
+          "p99_us": 141383.5,
+          "max_us": 162102.0,
+          "mean_us": 92218.9,
+          "n": 95
+        }
+      },
+      "ratios": {
+        "server_ratio": 94.3,
+        "client_ratio": 4.8
+      },
+      "unique_slots_count": {
+        "value": 1,
+        "note": "Structurally 1 in batch mode (server-side getMultipleAccounts guarantee, validated against feeds.csv). See legacy_sequential for sequential measurement (Zela 91% / Baseline 13% one-slot consistency)."
+      }
+    },
+    "dataset_2026_05_12_0800": {
+      "run_count": 95,
+      "error_count": 0,
+      "cold_start_filtered": 10,
+      "zela": {
+        "server": {
+          "min_us": 678.0,
+          "p50_us": 917.0,
+          "p95_us": 30270.7,
+          "p99_us": 54554.1,
+          "max_us": 74547.0,
+          "mean_us": 5157.6,
+          "n": 95
+        },
+        "client": {
+          "min_us": 15751.0,
+          "p50_us": 17733.0,
+          "p95_us": 461886.0,
+          "p99_us": 486228.5,
+          "max_us": 610928.0,
+          "mean_us": 124265.6,
+          "n": 95
+        }
+      },
+      "baseline": {
+        "client": {
+          "min_us": 58688.0,
+          "p50_us": 93348.0,
+          "p95_us": 138427.6,
+          "p99_us": 350112.9,
+          "max_us": 796940.0,
+          "mean_us": 107279.6,
+          "n": 95
+        }
+      },
+      "ratios": {
+        "server_ratio": 101.8,
+        "client_ratio": 5.3
+      },
+      "unique_slots_count": {
+        "value": 1,
+        "note": "Structurally 1 in batch mode (server-side getMultipleAccounts guarantee, validated against feeds.csv). See legacy_sequential for sequential measurement (Zela 91% / Baseline 13% one-slot consistency)."
+      }
+    },
+    "dataset_2026_05_12_1300": {
+      "run_count": 95,
+      "error_count": 0,
+      "cold_start_filtered": 10,
+      "zela": {
+        "server": {
+          "min_us": 619.0,
+          "p50_us": 929.0,
+          "p95_us": 44698.1,
+          "p99_us": 53460.4,
+          "max_us": 58120.0,
+          "mean_us": 6920.3,
+          "n": 95
+        },
+        "client": {
+          "min_us": 15882.0,
+          "p50_us": 17183.0,
+          "p95_us": 460346.6,
+          "p99_us": 460992.0,
+          "max_us": 461212.0,
+          "mean_us": 110647.8,
+          "n": 95
+        }
+      },
+      "baseline": {
+        "client": {
+          "min_us": 63650.0,
+          "p50_us": 96577.0,
+          "p95_us": 153591.7,
+          "p99_us": 184937.1,
+          "max_us": 188981.0,
+          "mean_us": 102130.6,
+          "n": 95
+        }
+      },
+      "ratios": {
+        "server_ratio": 104.0,
+        "client_ratio": 5.6
+      },
+      "unique_slots_count": {
+        "value": 1,
+        "note": "Structurally 1 in batch mode (server-side getMultipleAccounts guarantee, validated against feeds.csv). See legacy_sequential for sequential measurement (Zela 91% / Baseline 13% one-slot consistency)."
+      }
+    },
+    "dataset_2026_05_12_1700": {
+      "run_count": 95,
+      "error_count": 0,
+      "cold_start_filtered": 10,
+      "zela": {
+        "server": {
+          "min_us": 626.0,
+          "p50_us": 961.0,
+          "p95_us": 53692.2,
+          "p99_us": 91943.7,
+          "max_us": 105584.0,
+          "mean_us": 9016.6,
+          "n": 95
+        },
+        "client": {
+          "min_us": 15918.0,
+          "p50_us": 17948.0,
+          "p95_us": 460953.8,
+          "p99_us": 492367.6,
+          "max_us": 634850.0,
+          "mean_us": 127723.2,
+          "n": 95
+        }
+      },
+      "baseline": {
+        "client": {
+          "min_us": 75193.0,
+          "p50_us": 95939.0,
+          "p95_us": 146933.9,
+          "p99_us": 176096.2,
+          "max_us": 179311.0,
+          "mean_us": 101805.4,
+          "n": 95
+        }
+      },
+      "ratios": {
+        "server_ratio": 99.8,
+        "client_ratio": 5.3
+      },
+      "unique_slots_count": {
+        "value": 1,
+        "note": "Structurally 1 in batch mode (server-side getMultipleAccounts guarantee, validated against feeds.csv). See legacy_sequential for sequential measurement (Zela 91% / Baseline 13% one-slot consistency)."
+      }
+    },
+    "combined": {
+      "run_count": 3126,
+      "error_count": 9,
+      "cold_start_filtered": 330,
+      "zela": {
+        "server": {
+          "min_us": 400.0,
+          "p50_us": 965.0,
+          "p95_us": 36699.2,
+          "p99_us": 75290.5,
+          "max_us": 261333.0,
+          "mean_us": 6890.0,
+          "n": 3126
+        },
+        "client": {
+          "min_us": 15625.0,
+          "p50_us": 18749.0,
+          "p95_us": 462716.5,
+          "p99_us": 471580.8,
+          "max_us": 2095495.0,
+          "mean_us": 134077.2,
+          "n": 3126
+        }
+      },
+      "baseline": {
+        "client": {
+          "min_us": 51191.0,
+          "p50_us": 95869.0,
+          "p95_us": 140379.8,
+          "p99_us": 194615.8,
+          "max_us": 2194821.0,
+          "mean_us": 103400.1,
+          "n": 3126
+        }
+      },
+      "ratios": {
+        "server_ratio": 99.3,
+        "client_ratio": 5.1
+      },
+      "unique_slots_count": {
+        "value": 1,
+        "note": "Structurally 1 in batch mode (server-side getMultipleAccounts guarantee, validated against feeds.csv). See legacy_sequential for sequential measurement (Zela 91% / Baseline 13% one-slot consistency)."
+      }
     }
   },
   "commitment": {
