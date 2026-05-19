@@ -1,0 +1,2629 @@
+{
+  "1Link6hB1NpkCwJt3ZtpQKZszKauhEcKgiWjaU8PRDG": {
+    "name": "OneLink Solutions",
+    "city": "44486-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 44486
+  },
+  "3JotfSFPaod4KVK7nj7ULvcq5PjUBdZNVGracNkJNhrt": {
+    "name": null,
+    "city": "20326-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 20326
+  },
+  "3YVoK8UN62dyiPZnGBzBTkGdwsVmmK1MpRoLcxNRs9BE": {
+    "name": "Calypso",
+    "city": "16276-FR-Europe/Paris",
+    "country": "",
+    "asn": 16276
+  },
+  "4mtXJ5pUcMMB4t8cLbi7zfDJCHfYLRrQb4qSLmh57sKL": {
+    "name": null,
+    "city": "20326-IE-Dublin",
+    "country": "",
+    "asn": 20326
+  },
+  "5EhGYUyQNrxgUbuYF4vbL2SZDT6RMfhq3yjeyevvULeC": {
+    "name": null,
+    "city": "20326-JP-Tokyo",
+    "country": "",
+    "asn": 20326
+  },
+  "5ZqveVffQPiUbkjBg4KD9kib1MKHLqiFno4ke9jSq9qk": {
+    "name": null,
+    "city": "20326-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 20326
+  },
+  "5essVpBYvocZkQnkrWsMDfRPwtp4BeihJRaweKLR4dRn": {
+    "name": "Certora Validator",
+    "city": "262287-US-New York",
+    "country": "",
+    "asn": 262287
+  },
+  "5marvipGzf98hxnoJFXsZbGHSXcEQ3yRGJ4ps7D3V4ou": {
+    "name": "MARVEL+MEV!",
+    "city": "20473-BR-Osasco",
+    "country": "",
+    "asn": 20473
+  },
+  "6M53yM6dsE6hiaHgxWvYa4fsfzQTGyAZn7rM6JrzbqJV": {
+    "name": "Pier Two",
+    "city": "16276-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 16276
+  },
+  "6TkKqq15wXjqEjNg9zqTKADwuVATR9dW3rkNnsYme1ea": {
+    "name": "melea \ud83d\ude80 SOL \ud83e\udd112K",
+    "city": "29802-NL-Amsterdam",
+    "country": "",
+    "asn": 29802
+  },
+  "6WgdYhhGE53WrZ7ywJA15hBVkw7CRbQ8yDBBTwmBtAHN": {
+    "name": "Luganodes",
+    "city": "29066-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 29066
+  },
+  "6k5hZkHGa4x3xEU7Wz2LxWwueqZtVvX3fpymGugB14yB": {
+    "name": null,
+    "city": "29066-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 29066
+  },
+  "7qGNnXKW1e3DsqEaSxwxMdBTFsrK73XtWTmkGitRyMQc": {
+    "name": "Alchemy",
+    "city": "be101.rbx-g4-nc5.fr.eu",
+    "country": "",
+    "asn": 16276
+  },
+  "8tjFeSApQ85ThoQXT28acfF2KUfQr3TvTdirSkzNnYC7": {
+    "name": null,
+    "city": "*",
+    "country": "",
+    "asn": 16276
+  },
+  "9UM8wQ8F5oMiRcP5YdqD6Lr4krpBWCD8LtgQYoisJd9i": {
+    "name": null,
+    "city": "396356-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 396356
+  },
+  "9eGrDohdNTAo61DRHyfMuqKWXqYnA3i254Wiszxe8FoY": {
+    "name": "Galaxy",
+    "city": "400963-GB-Europe/London",
+    "country": "",
+    "asn": 400963
+  },
+  "9jxgosAfHgHzwnxsHw4RAZYaLVokMbnYtmiZBreynGFP": {
+    "name": null,
+    "city": "20326-NL-Amsterdam",
+    "country": "",
+    "asn": 20326
+  },
+  "9rkJMARqK6VBkcxGfKBAwnA44gPAfGxPbPsfsggFNDSQ": {
+    "name": null,
+    "city": "16509-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 16509
+  },
+  "A1vqhA2fS6K7CvHsJKX1ACcHJFEmyRg4KuR5pctHANy4": {
+    "name": null,
+    "city": "20326-NL-Amsterdam",
+    "country": "",
+    "asn": 20326
+  },
+  "Av8EnYrPBnSJHK5e2wmTdnCpSy7nzmBgyFaUKSyLnBfe": {
+    "name": "AndrewInUA",
+    "city": "20473-CA-Toronto",
+    "country": "",
+    "asn": 20473
+  },
+  "BNtHBLo1L2vAG7PBQ6mJvWz7GqVPxBnioXsY2Gjtubrg": {
+    "name": "CatalystX - Innovation OnChain",
+    "city": "20473-US-Los Angeles",
+    "country": "",
+    "asn": 20473
+  },
+  "BSVckjdW2f8kcXPGcrPPtV9kUDBZ8w8PjrrGVnxgEdwq": {
+    "name": null,
+    "city": "16125-LT-Vilnius",
+    "country": "",
+    "asn": 16125
+  },
+  "CAo1dCGYrB6NhHh5xb1cGjUiu86iyCfMTENxgHumSve4": {
+    "name": "Kraken 2",
+    "city": "1072-US-America/Chicago",
+    "country": "",
+    "asn": 1072
+  },
+  "CG4tRANBKrzUmpv93V5sgftjQznBdiJsc2yPCzZWWuS9": {
+    "name": "Bybit Staking",
+    "city": "7979-NL-Europe/Amsterdam",
+    "country": "",
+    "asn": 7979
+  },
+  "CW9C7HBwAMgqNdXkNgFg9Ujr3edR2Ab9ymEuQnVacd1A": {
+    "name": "Coinbase 02",
+    "city": "20326-GB-City of London",
+    "country": "",
+    "asn": 20326
+  },
+  "ChorusmmK7i1AxXeiTtQgQZhQNiXYU84ULeaYF1EH15n": {
+    "name": "Bitwise Onchain Solutions 02",
+    "city": "60068-NL-Amsterdam",
+    "country": "",
+    "asn": 60068
+  },
+  "DNVZMSqeRH18Xa4MCTrb1MndNf3Npg4MEwqswo23eWkf": {
+    "name": "Firedancer Development",
+    "city": "20326-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 20326
+  },
+  "EKgSCR3ahdypkxXcBY43ZNxdmyZqPkKNPey3rwKjqbz7": {
+    "name": null,
+    "city": "400963-GB-Europe/London",
+    "country": "",
+    "asn": 400963
+  },
+  "EvnRmnMrd69kFdbLMxWkTn1icZ7DCceRhvmb2SJXqDo4": {
+    "name": "Everstake",
+    "city": "213896-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 213896
+  },
+  "FBbqKvwLfKGZrKrfSbPJz4ymQ7zMarhRyZtu1RBkSe89": {
+    "name": null,
+    "city": "7979-NL-Europe/Amsterdam",
+    "country": "",
+    "asn": 7979
+  },
+  "FSyAsxcE7g8pSSEu5nx7Hkz44rMZiYio5Wz8Lszh3Nbi": {
+    "name": "Honeybee \ud83d\udc1d +Jito",
+    "city": "206264-NL-Europe/Amsterdam",
+    "country": "",
+    "asn": 206264
+  },
+  "Fc6NNdS2j3EmrWbU6Uqt6wsKB5ef72NjaWfNxKYbULGD": {
+    "name": "OKX Earn",
+    "city": "45102-SG-Asia/Singapore",
+    "country": "",
+    "asn": 45102
+  },
+  "Gv9gguvrAkgQtB5g5a3Un7trcHCxLYsk8vSojLmQMsWV": {
+    "name": null,
+    "city": "20326-US-Newark",
+    "country": "",
+    "asn": 20326
+  },
+  "HarmonicyK3BwamKNtWnQAmUeK4GYGXXzeD9FD8WMyZi": {
+    "name": "Harmonic Major",
+    "city": "20326-JP-Tokyo",
+    "country": "",
+    "asn": 20326
+  },
+  "JupmVLmA8RoyTUbTMMuTtoPWHEiNQobxgTeGTrPNkzT": {
+    "name": "Jupiter",
+    "city": "20326-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 20326
+  },
+  "q9XWcZ7T1wP4bW9SB4XgNNwjnFEJ982nE8aVbbNuwot": {
+    "name": "Ledger by Figment",
+    "city": "396356-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 396356
+  },
+  "1KXvrkPXwkGF6NK1zyzVuJqbXfpenPVPP6hoiK9bsK3": {
+    "name": "1000X.sh",
+    "city": "44486-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 44486
+  },
+  "1ggyZGbYtEo1WrV1kmXfnvhPeSPxrYAXoDBeApnszLT": {
+    "name": "Iggyz",
+    "city": "20473-CA-Toronto",
+    "country": "",
+    "asn": 20473
+  },
+  "1i1yPyh843bTfi5qPgqozTbDcEX65rUNEFcUT2KAs2i": {
+    "name": "Lilith",
+    "city": "396356-BR-S\u00e3o Paulo",
+    "country": "",
+    "asn": 396356
+  },
+  "1unarWPGGseFag2WfnoFv8o9P7vTPU8eHex9GinP3eY": {
+    "name": "Luminal",
+    "city": "20473-MX-Quer\u00e9taro City",
+    "country": "",
+    "asn": 20473
+  },
+  "22rU5yUmdVThrkoPieVNphqEyAtMQKmZxjwcD8v4bJDU": {
+    "name": null,
+    "city": "20326-NL-Amsterdam",
+    "country": "",
+    "asn": 20326
+  },
+  "23SUe5fzmLws1M58AnGnvnUBRUKJmzCpnFQwv4M4b9Er": {
+    "name": "Stakin by The Tie",
+    "city": "395201-DE-R\u00f6delheim",
+    "country": "",
+    "asn": 395201
+  },
+  "23U4mgK9DMCxsv2StC4y2qAptP25Xv5b2cybKCeJ1to3": {
+    "name": "BONK - Powered by Jito",
+    "city": "20326-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 20326
+  },
+  "2AKKnirWVZMhnzuwqpizw9SwfZjGpRFLx2zCCNtPWpbc": {
+    "name": "The Chimpions",
+    "city": "396356-SG-Asia/Singapore",
+    "country": "",
+    "asn": 396356
+  },
+  "2Eq6YD8P8QXTeoz9h6JHjgZ55t8RSxNdx4waMDCoPmQU": {
+    "name": "EvasMainnet",
+    "city": "23470-US-Los Angeles",
+    "country": "",
+    "asn": 23470
+  },
+  "2GUnfxZavKoPfS9s3VSEjaWDzB3vNf5RojUhprCS1rSx": {
+    "name": null,
+    "city": "20326-JP-Tokyo",
+    "country": "",
+    "asn": 20326
+  },
+  "2Le6TjeEescF87qDA8Ftdz6U8Kq6SNVwoLJLhzBCHUr5": {
+    "name": "U1S1 Validator \ud83d\ude80 Performant, Secure and NO Fees",
+    "city": "20326-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 20326
+  },
+  "2Mob8FJkb8chZY5pTBMpKfLwgZAQHE5i9jAC5zbASitD": {
+    "name": null,
+    "city": "45102-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 45102
+  },
+  "2P9ZYA4vBoBBr56hrEFTmrd5ctuz3r7wtvRYmbgk6jRL": {
+    "name": "Sunshine",
+    "city": "20473-US-Piscataway",
+    "country": "",
+    "asn": 20473
+  },
+  "2Rv9npqdWE1mLPsT1r2obn3xtKmA5afkxt8GsWeLnKoc": {
+    "name": "SPACE HIGH VALIDATOR +MEV",
+    "city": "20473-PL-Warsaw",
+    "country": "",
+    "asn": 20473
+  },
+  "2UBhtRuyr9nvWsUnrbWrvJiYWEU8TVBD4PLYQJKiRa9H": {
+    "name": "Luna Labs",
+    "city": "44486-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 44486
+  },
+  "2Wf9V9rPeVRUTfmWdPedCJuWVr6MFfyLuigEq42DuMDc": {
+    "name": "Blueprint",
+    "city": "395201-DE-Fechenheim",
+    "country": "",
+    "asn": 395201
+  },
+  "2X7WoaXX9KPqNrNfvguhnwo3rjFPNsfw2t75fGjWRthz": {
+    "name": "Stakely | 0% fee",
+    "city": "395201-JP-Asia/Tokyo",
+    "country": "",
+    "asn": 395201
+  },
+  "2XmhZKHmfjku3T3nC9xKhgr5bm1CAmWXqNsNt49mo82C": {
+    "name": "Soldea Kitchen",
+    "city": "20473-FR-Aubervilliers",
+    "country": "",
+    "asn": 20473
+  },
+  "2abwQG3v2xRemFxRszVHSfnjJNe9zu5X8duKgxjyLeaK": {
+    "name": "Bitwise Onchain Solutions Research",
+    "city": "60068-GB-London",
+    "country": "",
+    "asn": 60068
+  },
+  "2dfgsiSaZ51QYPsECMYMG247PXxyKdwkV9wTHoQb8YEC": {
+    "name": "Astraeus",
+    "city": "20326-NL-Amsterdam",
+    "country": "",
+    "asn": 20326
+  },
+  "2dxz129YxB1xtf7Mx6HUT5JspexArNNtQt84FYueWZV7": null,
+  "2gDeeRa3mwPPtw1CMWPkEhRWo9v5izNBBfEXanr8uibX": {
+    "name": "NuFi",
+    "city": "29405-SK-\u0160a\u013ea",
+    "country": "",
+    "asn": 29405
+  },
+  "2kVZVTY8FMRZ3WuHzyqNz8qd4Ytbba9f9DaesUm5WLvR": {
+    "name": "SunStake",
+    "city": "20473-ES-Madrid",
+    "country": "",
+    "asn": 20473
+  },
+  "2m1A2WM1vte7RWz5xTTw4i1SiXmngVtXhqFERaUjoAAb": {
+    "name": "",
+    "city": "204770-US-Chicago",
+    "country": "",
+    "asn": 204770
+  },
+  "2mDrrmhSzpSyaF12izGk8hnFjtKCGeCFPwQHpRiJDby2": {
+    "name": "S4Mar",
+    "city": "16276-FR-Europe/Paris",
+    "country": "",
+    "asn": 16276
+  },
+  "2mMGsb5uy1Q4Dvezr8HK2E8SJoChcb2X7b61tJPaVHHd": {
+    "name": "Chainflow",
+    "city": "214159-SE-Stockholm",
+    "country": "",
+    "asn": 214159
+  },
+  "2oHUYyW2PU9VJh4XBs5TbGgzdernunvGqyKth3kxW4ns": {
+    "name": null,
+    "city": "20326-NL-Amsterdam",
+    "country": "",
+    "asn": 20326
+  },
+  "2uxEHizFmmnLekKG2LZJwxNabhpymEYfdVCpgDxjt87m": {
+    "name": "\ud83c\udf40PADDY - \ud83d\udcb0JITO-BAM",
+    "city": "39122-IE-Europe/Dublin",
+    "country": "",
+    "asn": 39122
+  },
+  "32ke3uf1qL3xLqbwzU76T2sbG2XaJrGuSCNdUnien3zm": {
+    "name": "FalconX",
+    "city": "be102.bhs-g1-nc5.qc.ca",
+    "country": "",
+    "asn": 16276
+  },
+  "3B2mGaZoFwzAnWCoZ4EAKdps4FbYbDKQ48jo8u1XWynU": {
+    "name": "Low Fee Validation TOP API \ud83d\udd25",
+    "city": "39020-ES-Seville",
+    "country": "",
+    "asn": 39020
+  },
+  "3CKKAoVi94EnfX8QcVxEmk8CAvZTc6nAYzXp1WkSUofX": {
+    "name": "Solid State Nodes",
+    "city": "20473-US-Santa Clara",
+    "country": "",
+    "asn": 20473
+  },
+  "3KiDz3wuZrJfsgKt5KEvRb1WPpbci1PWj78aPVF5ei3F": {
+    "name": "Nemertes",
+    "city": "16276-FR-Europe/Paris",
+    "country": "",
+    "asn": 16276
+  },
+  "3RXKQBRv7xKTQeNdLSPhCiD4QcUfxEQ12rtgUkMf5LnS": {
+    "name": "Chainode Tech & MEV(0% Fee)",
+    "city": "16125-LT-Europe/Vilnius",
+    "country": "",
+    "asn": 16125
+  },
+  "3SkE34PVeGck2ArEffFKjihrQgURsvnoTAhitsNXNzXd": {
+    "name": null,
+    "city": "214159-SE-Stockholm",
+    "country": "",
+    "asn": 214159
+  },
+  "3V2xaccDpFib4DbTksdiveNDmiwpXBqSWyjSof3w1Bg7": {
+    "name": "Aurora Validator",
+    "city": "20473-PL-Warsaw",
+    "country": "",
+    "asn": 20473
+  },
+  "3WDh9HgusCujDmXCVhophLrHvoKHQd1Sd4uFHz1Awo35": {
+    "name": "Absolute Guard",
+    "city": "395201-DE-Fechenheim",
+    "country": "",
+    "asn": 395201
+  },
+  "3cZSHGfNdaULpFAvGbWbxpVwzXB4gHdk8NFucPNR5pgA": {
+    "name": "Ghost",
+    "city": "tier-four.demarc.cogentco.com",
+    "country": "",
+    "asn": 18450
+  },
+  "3psxMyr7rQzywVp1MXKd1XFmFz33NjydzCoJx9t2sMQW": {
+    "name": "OtterSec",
+    "city": "395201-US-Sterling",
+    "country": "",
+    "asn": 395201
+  },
+  "3rqEEEGjHRyndHuduBcjkf17rX3hgmGACpYTQYeZ5Ltk": {
+    "name": "StakeThat +MEV",
+    "city": "213896-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 213896
+  },
+  "3s97yjq2MhoPVPC3U9VeE3Z5S643Pweovg88ysvrQPw5": {
+    "name": "Starke Finance",
+    "city": "20473-US-Elk Grove Village",
+    "country": "",
+    "asn": 20473
+  },
+  "3tzpLMWRkWucvTRWU5PjgKzN1iwJuV69yCCjmuuo4gTk": {
+    "name": "TruFin by Twinstake",
+    "city": "20326-NL-Amsterdam",
+    "country": "",
+    "asn": 20326
+  },
+  "3x9nibnhgBHWKMRiGnsXJELRBjviQpKyigfrXtKW27KJ": null,
+  "43Am3PKFeo9cACpqYL5Sk95rpVdxLw3Mc22PqRqZXEW2": null,
+  "49j9bnkdgVNxLwsZ9h88sPR5MYEmsUyKrrJ6ZW8ijBrb": null,
+  "4JahMMrVRS1gimWoXpD5H6KwKc2MrsoTDFMaStMttL1E": null,
+  "4Kbcyn7JVPAWLRLPsNGTPmcNMvCkLTw51ZLRhqsUC6jP": null,
+  "4QNekaDqrLmUENqkVhGCJrgHziPxkX9kridbKwunx9su": null,
+  "4SNKY7GCp7ohY4AawND5Cc2D71sWMWN3Uifo854yvtks": null,
+  "4SsMncJdtKiUcDtukkX15mqei7WiuQ9yvRtQrQW4reWC": {
+    "name": "Quicknode",
+    "city": "46475-US-New York",
+    "country": "",
+    "asn": 46475
+  },
+  "4XspXDcJy3DWZsVdaXrt8pE1xhcLpXDKkhj9XyjmWWNy": {
+    "name": "Ubik Capital - 0% Fee, MEV",
+    "city": "be102.sbg-g2-nc5.fr.eu",
+    "country": "",
+    "asn": 16276
+  },
+  "4YGgmwyqztpJeAi3pzHQ4Gf9cWrMHCjZaWeWoCK6zz6X": {
+    "name": "Chainlayer",
+    "city": "34989-NO-Europe/Oslo",
+    "country": "",
+    "asn": 34989
+  },
+  "4b1onMDEasBh4BuPekQWijx3BYR64hAE1z2jJyeZUkck": {
+    "name": "4BLOCK 0% Fee + Jito All MEV",
+    "city": "23470-US-Los Angeles",
+    "country": "",
+    "asn": 23470
+  },
+  "4k6wgP5WPBKQpsFGtzuXNrjcTE2fKWLj17nDvFeG5zSF": {
+    "name": "DawnLabs | 0% Fee + Block Rewards Sharing",
+    "city": "395201-DE-R\u00f6delheim",
+    "country": "",
+    "asn": 395201
+  },
+  "4kL5QD8ir5CvkuvCUnQhBDuWhq3Xfnz3UfQLt4CqPQZQ": {
+    "name": "Swyke | ISO27001",
+    "city": "214132-EE-Tallinn",
+    "country": "",
+    "asn": 214132
+  },
+  "4uH4G6YiD5G8rU3mtPg73C2Uqamrqedy3FboTZcZrh6x": {
+    "name": "Windfall",
+    "city": "206264-HK-Asia/Hong_Kong",
+    "country": "",
+    "asn": 206264
+  },
+  "4vcmYPfLztUckU3c3FvXDwSq8aDNDqwEpvEiqAv97LGJ": {
+    "name": null,
+    "city": "vl1248.gra-d2-a75.fr.eu",
+    "country": "",
+    "asn": 16276
+  },
+  "4vdWYn2KbmQ3Dns5wVBfz4CFQDds4b7CpsC8MHBhHAib": {
+    "name": "Unit 261",
+    "city": "tier-four.demarc.cogentco.com",
+    "country": "",
+    "asn": 18450
+  },
+  "57i31UEyDg4koaZMZ1wAHbYuezXv3AVaHtvJgJarxt3f": {
+    "name": "[Public Good] Chive \ud83c\udf31 - 0% Fee + MEV + BlockReward",
+    "city": "204770-US-Chicago",
+    "country": "",
+    "asn": 204770
+  },
+  "58KprHKFNHgH1Cvo4QwxWkDeJNaSQVteCoAAFUWjtESn": {
+    "name": "Flash",
+    "city": "16125-LT-Europe/Vilnius",
+    "country": "",
+    "asn": 16125
+  },
+  "5Cchr1XGEg7dbBXByV5NY2ad8jfxAM7HA3x8D56rq9Ux": {
+    "name": "Upbit Staking",
+    "city": "16509-US-Boardman",
+    "country": "",
+    "asn": 16509
+  },
+  "5HCTsoKM7vwjubSZSyVWChaHQ9sNNRB1d2SuvL3eZ6Y6": {
+    "name": "Amber",
+    "city": "396356-DE-Frankfurt (Oder)",
+    "country": "",
+    "asn": 396356
+  },
+  "5HYjArGt81naevDdwMaEx8yeGNw9jYBSDJa8YavT9Mp4": {
+    "name": "Splash",
+    "city": "7979-HK-Asia/Hong_Kong",
+    "country": "",
+    "asn": 7979
+  },
+  "5P35CJVKU15Rrh5M6EVkre23EyA3K34kAut2GXhHKM7W": {
+    "name": null,
+    "city": "60414-FI-Europe/Helsinki",
+    "country": "",
+    "asn": 60414
+  },
+  "5RvfTSowms7BTYaBj8SxVjj7ELAAKdQadKsuNpmBAwCs": {
+    "name": null,
+    "city": "20326-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 20326
+  },
+  "5TGfVQV1S3wHE9hkgGaQkRoPC7xZxiqwMcjQZxVYsf1j": {
+    "name": "Sanctum",
+    "city": "396356-DE-Frankfurt (Oder)",
+    "country": "",
+    "asn": 396356
+  },
+  "5Us18hLZPXJTS4QVuGSsUw137Dyd2tgBaem24Xsf5nBS": {
+    "name": null,
+    "city": "214159-SE-Stockholm",
+    "country": "",
+    "asn": 214159
+  },
+  "5VrW7YNBccVnhnZVmooCePdLFcs2UjfxRT3hoY9mN8Ec": {
+    "name": "Appleyello",
+    "city": "*",
+    "country": "",
+    "asn": 16276
+  },
+  "5XKJwdKB2Hs7pkEXzifAysjSk6q7Rt6k5KfHwmAMPtoQ": {
+    "name": "Moonlet",
+    "city": "395201-JP-Asia/Tokyo",
+    "country": "",
+    "asn": 395201
+  },
+  "5ZjxMYBbnKd4VFxLjAChSWMTeQ96147HnxZvQJxUseHV": null,
+  "5aD6KB8g4MPt3xJafmMmun86hHMDnoFiGbd5gYiMFZw7": null,
+  "5ejbTALcBsKQ7Cj1iSuu2mY5jqbYHqh9gF5ERXLiYj1z": null,
+  "5ikB9XZNVsjwKb6hHT3FS3So1Z1SrDvU5yaniWEQyDEG": null,
+  "5ivRNcK1yThcK3koZR1oikAfuNm6rj1LceMskayoVSzc": null,
+  "5pPRHniefFjkiaArbGX3Y8NUysJmQ9tMZg3FrFGwHzSm": null,
+  "5pZvwjSpGYCxpJeySwSbSAji7kZe4YntL7rQvXM3YcNT": null,
+  "5t4shVsKnUqgjmhK3fFNsvyju2E6Rd7cc4S5pmqqEVEW": {
+    "name": "SteakStache",
+    "city": "396356-BR-S\u00e3o Paulo",
+    "country": "",
+    "asn": 396356
+  },
+  "5tfcGyf3NQFcufDigvbRt9kWoVN2KPEkBRUY3UaC3Zwm": {
+    "name": null,
+    "city": "29066-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 29066
+  },
+  "5zm9g3zgAPWzX3wmUB2JtTkcwCqe74NWsTmt5wLFwCKK": {
+    "name": "00Tokyo",
+    "city": "396356-JP-Tokyo",
+    "country": "",
+    "asn": 396356
+  },
+  "5zuNci3TV79w6zLoJZzbZujMvkVZb2FcSPhgv9aT24AK": {
+    "name": "Solana Japan Validator\ud83c\uddef\ud83c\uddf5",
+    "city": "216444-SG-Singapore",
+    "country": "",
+    "asn": 216444
+  },
+  "61QB1Evn9E3noQtpJm4auFYyHSXS5FPgqKtPgwJJfEQk": {
+    "name": "Pigs in Blankets",
+    "city": "25160-GB-Lambeth",
+    "country": "",
+    "asn": 25160
+  },
+  "65pHd5P2VrehonT1cdJ2JUnq5wi3WUgfL3A8RhYH7Kg7": {
+    "name": null,
+    "city": "20326-NL-Amsterdam",
+    "country": "",
+    "asn": 20326
+  },
+  "6NDen7aDi65apHo8m1Vea4nuS6LyjQeM6pDNqcW4Q5Pg": {
+    "name": "0node.io",
+    "city": "206264-HK-Hong Kong",
+    "country": "",
+    "asn": 206264
+  },
+  "6Rk694kh1QTyQkirdb1uDZmS5xqG9bNaYtxx8d311Mr7": {
+    "name": "Anode \u26a1\ufe0f Beta",
+    "city": "20473-US-Atlanta",
+    "country": "",
+    "asn": 20473
+  },
+  "6XKqyUVUcpe3CNucjF6gk5zonJDqNGvob6kaTy4Ps1U": {
+    "name": "Solana Mobile Validator",
+    "city": "60068-US-Dallas",
+    "country": "",
+    "asn": 60068
+  },
+  "6aDs9tUm2gErcPn2c1TZnp5cu2bQV9BzyuwW4baWQYd4": {
+    "name": "Coinbase 05",
+    "city": "20326-IE-Dublin",
+    "country": "",
+    "asn": 20326
+  },
+  "6c6RrC9TWNgiVXnbZ6hehNuhyh81pZK1yAj5w2nXZTwi": {
+    "name": "Ivy Oracle",
+    "city": "395201-JP-Asia/Tokyo",
+    "country": "",
+    "asn": 395201
+  },
+  "6gL3uHvuUjaPp9mTBf2VZ4tpKiYhbWyPrAPboGByzEHd": {
+    "name": "Mira Validator",
+    "city": "41722-RU-St Petersburg",
+    "country": "",
+    "asn": 41722
+  },
+  "6gnbmed7kzwQVQ7ghsjgEuCoYmGeWciV2qCwni6WS6HU": {
+    "name": "Capital Alliance \ud83d\udd25",
+    "city": "48014-DE-Hamburg",
+    "country": "",
+    "asn": 48014
+  },
+  "6pEtDovpyd1zUMYPuNhMCPU37sUTEAtzzgoVVAh1G1JL": {
+    "name": "Zemnoi \ud83d\udc7e",
+    "city": "206264-NL-Europe/Amsterdam",
+    "country": "",
+    "asn": 206264
+  },
+  "6ptuwW4rg5A3wP9hNKxeymG3QhSagugPd3grnMTGJwWG": {
+    "name": null,
+    "city": "20326-GB-City of London",
+    "country": "",
+    "asn": 20326
+  },
+  "6tpuCGuvAZyUwQPFLKmiUfGUKSBjk3yVHJ314cfJV4ZF": {
+    "name": "Valor Node Capital",
+    "city": "57269-ES-Atlantic/Canary",
+    "country": "",
+    "asn": 57269
+  },
+  "6vG7fgweSfvY7JRViG4HwKgV9u6JKhMpf2bqr6TKNjUW": {
+    "name": "InfraMesh",
+    "city": "395201-DE-Fechenheim",
+    "country": "",
+    "asn": 395201
+  },
+  "6xUK9Nbonr4eoJNtHGoUEMmYKoPz5mipKzyDBv6deX4d": {
+    "name": "LuSOL +MEV",
+    "city": "25160-GB-London",
+    "country": "",
+    "asn": 25160
+  },
+  "6xWLi1TDSh65fWsSqE1zdvANTSuVDRMx4ghsGJwgunS8": {
+    "name": "Solana Validator",
+    "city": "395201-DE-Fechenheim",
+    "country": "",
+    "asn": 395201
+  },
+  "6y7V8dL673XFzm9QyC5vvh3itWkp7wztahBd2yDqsyrK": {
+    "name": null,
+    "city": "16125-LT-Vilnius",
+    "country": "",
+    "asn": 16125
+  },
+  "6yFGGAgYpBxgYPuHW4rv7hJmhKrUiXKyHkpVGaYtKrwE": null,
+  "722RdWmHC5TGXBjTejzNjbc8xEiduVDLqZvoUGz6Xzbp": null,
+  "73hojLdq1vZDSxeVQEqVFJ4iwLngdvEJPEpEHkSdv6BZ": null,
+  "76rcGHdPvgs8G1XrzCXUTWtwgT59AFDvpB4VbTS2TBBJ": null,
+  "78sEMVmeecStjxWU7XMJMH8bMRBW9vSiEAhAjtZbt3fW": null,
+  "7CR3Jq4ny2tsr3DX3DvyjoU8TYs776MGkU6nLMWjAqCT": null,
+  "7EzbSahSfSjeRexHcNDLDpzHBAGBLjLKtjbmuoQnEtjE": null,
+  "7G4RfctwLLgqG4ZWfCirU8dfJd87mKQWgB4EHQRv8i7v": {
+    "name": "\u2604\ufe0f The Mandalorian \u2604\ufe0f",
+    "city": "206264-SC-Indian/Mahe",
+    "country": "",
+    "asn": 206264
+  },
+  "7GkMBmtrTZz8QbjSe1sXvAUtz7Pp42SQxfT5ymmJD4We": {
+    "name": "Phantom Validator",
+    "city": "20326-US-Newark",
+    "country": "",
+    "asn": 20326
+  },
+  "7HMHSdQkjDwz9Q5zAhEy83uzW3XHJchjdpMYapKXcKt5": {
+    "name": "GERSIA",
+    "city": "20473-US-Piscataway",
+    "country": "",
+    "asn": 20473
+  },
+  "7Hp1e6BrTBkbBN4wFiNmycPVPsjvyUUBL2tGhYEMT6gt": {
+    "name": "Bandito Stake",
+    "city": "262287-US-Miami",
+    "country": "",
+    "asn": 262287
+  },
+  "7MTjmteQHhthwwTZhUzsc2dP4NBvGNRqj8jzdqNxHFGE": {
+    "name": "WEB34EVER \u221e POSTHUMAN",
+    "city": "206264-HK-Hong Kong",
+    "country": "",
+    "asn": 206264
+  },
+  "7PdKhpKz7T39vZHFL1UfcYNDsLvay6hp4KPQq1aUckFf": {
+    "name": "Alpha Pro | High APY\ud83d\ude80 100% Reliable \u2b50 VIP Services",
+    "city": "20326-NL-Europe/Amsterdam",
+    "country": "",
+    "asn": 20326
+  },
+  "7QQGNm3ptwinipDCyaCF7jY5katgmFUu1ieP2f7nwLpE": {
+    "name": null,
+    "city": "16125-LT-Vilnius",
+    "country": "",
+    "asn": 16125
+  },
+  "7U68WfpxJF5W1HjVQ2NCQr5EuKhNSvSRAnmWTk6225Jf": {
+    "name": "NodT",
+    "city": "8285-LV-Riga",
+    "country": "",
+    "asn": 8285
+  },
+  "7VZM7YHcX73TpGoXDeBu61g4QKC86GwAEnew8dA7Y2xn": {
+    "name": "BLOCKSIZE",
+    "city": "395201-DE-R\u00fcsselsheim am Main",
+    "country": "",
+    "asn": 395201
+  },
+  "7ZjHeeYEesmBs4N6aDvCQimKdtJX2bs5boXpJmpG2bZJ": {
+    "name": "Chainflow Experimental",
+    "city": "214159-SE-Stockholm",
+    "country": "",
+    "asn": 214159
+  },
+  "7Zm1pE4FubFYZDyAQ5Labh3A4cxDcvve1s3WCRgEAZ84": {
+    "name": "7Zm1pE4FubFYZDyAQ5Labh3A4cxDcvve1s3WCRgEAZ84",
+    "city": "7979-NL-Europe/Amsterdam",
+    "country": "",
+    "asn": 7979
+  },
+  "7cVfgArCheMR6Cs4t6vz5rfnqd56vZq4ndaBrY5xkxXy": {
+    "name": "Blockdaemon \ud83e\uddf1\ud83d\udc7f Validator",
+    "city": "20326-NL-Amsterdam",
+    "country": "",
+    "asn": 20326
+  },
+  "7knvB4bbqHCKuNp3ef2hJWdwqoH6WAUi55NQt6LdRfkx": {
+    "name": "AutoStake \u26a1\ufe0f 0% fee",
+    "city": "201814-PL-Warsaw",
+    "country": "",
+    "asn": 201814
+  },
+  "7mF8NZJdREuM1uwYcvKffuY9QJBEoHhNp4hZ4NS2fuXW": {
+    "name": "Meria",
+    "city": "16276-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 16276
+  },
+  "7tqeaFKsg2K9xKnQWe61w71AtCZVMQvG4hbFAiFAngYw": {
+    "name": "",
+    "city": "204770-US-Chicago",
+    "country": "",
+    "asn": 204770
+  },
+  "7y5VhV4fkz6r4zUmH2UiwPjLwXzPL1PcV28or5NWkWRL": {
+    "name": "Haus \u2013 Best APY & No Fees",
+    "city": "395201-DE-Fechenheim",
+    "country": "",
+    "asn": 395201
+  },
+  "84gC25fbFKYueR9WEfreUysk1n3ZFxLFDDjbyqeqGpoW": {
+    "name": null,
+    "city": "137409-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 137409
+  },
+  "8GLRbAstsabZuZUx73AoyfGi1FRCWSUhRgMugFyofEz7": {
+    "name": "Syncnode | 0% Fees  | Genesis Validator",
+    "city": "206264-NL-Europe/Amsterdam",
+    "country": "",
+    "asn": 206264
+  },
+  "8Nvaxzif1NrdvxNkRetjT8xJvd33EHkKVrfL8EDkgaNy": {
+    "name": "South",
+    "city": "7979-HK-Asia/Hong_Kong",
+    "country": "",
+    "asn": 7979
+  },
+  "8T8AJfUCXwPFwEMmjca8gCRSktPrqbUBVa6ggNyhLhFJ": {
+    "name": "StudentSOL",
+    "city": "7979-HK-Asia/Hong_Kong",
+    "country": "",
+    "asn": 7979
+  },
+  "8W8v28d1fBZE1fkaaHbowJM4hGZGnVHWNK1NyhUsob6Z": null,
+  "8Yq98CFAorqAc3CN7XtMVgKLrBc78wsBvjhAbFr4sNQ5": null,
+  "8ZQg3K1V1Z2BVJkjmnxpi43WKhjPGXphzu5QmBkJibSP": null,
+  "8a4juhtQScHcXPAcqVF3otxLMqxZMDALcE3FEVGBnKu8": null,
+  "8augxYLUge2iWmitQMwbcBL5VQEpsM6aJdRofhwpnzyw": null,
+  "8aySXUFrqJz5kath6aVijrkBH8ZtxMWJGhYXwYBpKmHK": null,
+  "8cnksBVjDPspn3AvmxJd8JKUdh4uWDDXzDemPmDctaHi": null,
+  "8cqck84coxk8TGXYBD95QosKCEA6fKwXLevcEv3oGmu8": null,
+  "8ebFZA8NPLBZD91CwsG1HWQsa2B5Ludgdyf5Hi3sYhhs": {
+    "name": "stake.systems",
+    "city": "59642-NL-Amsterdam",
+    "country": "",
+    "asn": 59642
+  },
+  "8n4pc4sCJtBeLfJdGyJn6EcZuhtfTiepRa9ExdJFdmEN": {
+    "name": "Pier Two Infrastructure",
+    "city": "16276-SG-Asia/Singapore",
+    "country": "",
+    "asn": 16276
+  },
+  "8nbE53mcKhy74HLiGZ1q5HRocwiCvgh49csSaHSdtukr": {
+    "name": "Moutai Validator \ud83d\ude80 Performant, Secure and NO Fees",
+    "city": "be101.lon1-eri1-g2-nc5.uk.eu",
+    "country": "",
+    "asn": 16276
+  },
+  "8pyp3vfVPRziYdAYEyqkwytdBbdVbQmHqfQAVDcRV3w": {
+    "name": "Rustiq Technology",
+    "city": "12703-GB-Edinburgh",
+    "country": "",
+    "asn": 12703
+  },
+  "8uJiHDJ1b7UDQ4KFsQGJXK9nUCkokdKRJymg1Wy9nxvM": {
+    "name": "Alpha",
+    "city": "16125-LT-Europe/Vilnius",
+    "country": "",
+    "asn": 16125
+  },
+  "8uPW9msN75rfaKiwy8y8NxEX5zSk2WejtVv5YhZr3jCo": {
+    "name": "Lumos Maxima",
+    "city": "395201-DE-Fechenheim",
+    "country": "",
+    "asn": 395201
+  },
+  "8vk6QpG93JSaQCSgnycBsv5qmfQBk4qC9FjNA35E5JhU": {
+    "name": "Tinydancer",
+    "city": "59642-NL-Amsterdam",
+    "country": "",
+    "asn": 59642
+  },
+  "8yjHdsCgx3bp2zEwGiWSMgwpFaCSzfYAHT1vk7KJBqhN": {
+    "name": "JStaking: 0% fee \u00b7 top returns",
+    "city": "395201-DE-Fechenheim",
+    "country": "",
+    "asn": 395201
+  },
+  "91oPXTs2oq8VvJpQ5TnvXakFGnnJSpEB6HFWDtSctwMt": {
+    "name": "Stronghold",
+    "city": "214783-NL-Rotterdam",
+    "country": "",
+    "asn": 214783
+  },
+  "93Q99nhdKjuSe6WNXgMBbC3s8QVQEAoHKt91PNRkUkMn": {
+    "name": "STEALTH",
+    "city": "44486-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 44486
+  },
+  "99rG5AhkVagxJ7y8NpMAmy1h1u9GhT3h1Cimu2X3cwaJ": {
+    "name": null,
+    "city": "262287-NL-Amsterdam",
+    "country": "",
+    "asn": 262287
+  },
+  "9AW87WqARQonyJYhx1G25fKfvjURFYVmHs79z1NUXDPD": {
+    "name": "\ud83d\udd25Aurora staking",
+    "city": "20326-JP-Tokyo",
+    "country": "",
+    "asn": 20326
+  },
+  "9FXD1NXrK6xFU8i4gLAgjj2iMEWTqJhSuQN8tQuDfm2e": {
+    "name": "Grassets Tech | Jito-BAM | IBRL",
+    "city": "201265-CZ-Europe/Prague",
+    "country": "",
+    "asn": 201265
+  },
+  "9GHvMeJ4ZWuAX6sDGscFL1TBMszx2EehnrcTVUy4MZJQ": {
+    "name": null,
+    "city": "16509-JP-Tokyo",
+    "country": "",
+    "asn": 16509
+  },
+  "9T6SNsBimjCRJpkEjiVsc8AcxTBa1XVA7RjnBGGfWP23": {
+    "name": "NeuralNode",
+    "city": "206264-HK-Asia/Hong_Kong",
+    "country": "",
+    "asn": 206264
+  },
+  "9USijQaAfSzw6gWbHNq68VVigmj3HvffDJYhbK4tfquB": {
+    "name": "Lord Validates-a-Lot",
+    "city": "59642-NL-Amsterdam",
+    "country": "",
+    "asn": 59642
+  },
+  "9UbU7oaVXX6t7bMthxzzGPnWumFNxoWqUwX3qsrxb4pp": {
+    "name": null,
+    "city": "16125-LT-\u0160iauliai",
+    "country": "",
+    "asn": 16125
+  },
+  "9W3QTgBhkU4Bwg6cwnDJo6eGZ9BtZafSdu1Lo9JmWws7": {
+    "name": "Coinbase 03",
+    "city": "20326-JP-Tokyo",
+    "country": "",
+    "asn": 20326
+  },
+  "9Wmaz9VPpEnH67ZqrvYd9bcH66DtsGaEKcSQE1ac5wkf": {
+    "name": "LumLabs",
+    "city": "396356-SG-Singapore",
+    "country": "",
+    "asn": 396356
+  },
+  "9WzPWqKSqbE5PT9hMsmCDFjzpurAXEYCE9qrpVWp28KR": {
+    "name": null,
+    "city": "59642-NL-Amsterdam",
+    "country": "",
+    "asn": 59642
+  },
+  "9dH6wfdJVgnDcbCUjT8rkmejAzTnGQaFarmLfvBYXANK": null,
+  "9gFxqsXbFyrKXUkqpAatonn47uYZ7sEZSnMxhzQoXrUJ": null,
+  "9hQqNe3DQTiwhspatewA8EXhz12e6sq5UJVJ2qNRwnTf": null,
+  "9iFPQbP1jGkj67sXg6YLLGRUBVEDMcapdS6jmCZSnz8R": null,
+  "9pBHfuE19q7PRbupJf8CZAMwv6RHjasdyMN9U9du7Nx2": null,
+  "9ppJrpsbbuGNjiMhhD52Ueco4KXUzVfrtNQ6tAcDab4f": null,
+  "9q16BB7WGmBxf1nJTdxH5zPnBUhtHqdqXqRFjSjuM4k7": null,
+  "9ueKvL3WiLM4mNUZrfWqPTYY2Np5YwzFTYvAiPibx1Zq": {
+    "name": null,
+    "city": "395201-DE-R\u00f6delheim",
+    "country": "",
+    "asn": 395201
+  },
+  "A23LfQn6khffj2hGhGfXr6P52W2pxrVcCaHVQLYQgiX2": {
+    "name": "vladika",
+    "city": "20473-JP-Osaka",
+    "country": "",
+    "asn": 20473
+  },
+  "A4hyMd3FyvUJSRafDUSwtLLaQcxRP4r1BRC9w2AJ1to2": {
+    "name": "Jito2",
+    "city": "20326-SG-Singapore",
+    "country": "",
+    "asn": 20326
+  },
+  "A9mvukTd77EbRoBX4ydSCFQHdu5bsRFkNXTTRstA8FAC": {
+    "name": null,
+    "city": "16276-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 16276
+  },
+  "ABC1U4cf9DZMwqy8ktEr4WJj8VHmVBQibbC57gEJthwY": {
+    "name": "algo|stake",
+    "city": "59642-NL-Amsterdam",
+    "country": "",
+    "asn": 59642
+  },
+  "ABREU5YkQcfpDZymoQ97iGUgQcfgjctWUUxEMfumiPdV": {
+    "name": "ABREU Foundation",
+    "city": "396356-BR-S\u00e3o Paulo",
+    "country": "",
+    "asn": 396356
+  },
+  "ACvL73V4GNnxPVfZ7K89jCrYurLyzpEuE9qirjvh2Xmi": {
+    "name": "Kiln2",
+    "city": "7979-LU-Europe/Luxembourg",
+    "country": "",
+    "asn": 7979
+  },
+  "ADjyeNzWd8yhEjCVyAqT87eqoyGRbimERQsNhFQcXjop": {
+    "name": "\ud83d\udca5InfiniteSOL\ud83d\udca5 0% Fees",
+    "city": "204770-US-Chicago",
+    "country": "",
+    "asn": 204770
+  },
+  "AEAJtnjjB19XFreJH21UP8rfd12f9kxMmngwZG3tGXbP": {
+    "name": "Black Sand",
+    "city": "396356-US-Ashburn",
+    "country": "",
+    "asn": 396356
+  },
+  "AEHqTB2RtJjegsR2ePjvoJSm6AA5pnYKWVbcsn6kqTBD": {
+    "name": null,
+    "city": "59642-NL-Amsterdam",
+    "country": "",
+    "asn": 59642
+  },
+  "AG1PsJMQcutNUX64RD3bAhW7NpxWeFkqkgGizBznYFKW": {
+    "name": null,
+    "city": "262287-NL-Amsterdam",
+    "country": "",
+    "asn": 262287
+  },
+  "AHZxzLeRGRfNVFrCmP58iJgEwbcXyZeAkZ32CmbfEmYR": {
+    "name": null,
+    "city": "20326-US-Newark",
+    "country": "",
+    "asn": 20326
+  },
+  "ALPHA6rdHZkx1om79xp47vX1iZXcbM3qfEwLyttZ1T7R": {
+    "name": "Lifetime 0% fee + full MEV payout | Alphasearch",
+    "city": "47447-DE-Europe/Berlin",
+    "country": "",
+    "asn": 47447
+  },
+  "ALp2GdA1eJV8vZHMHazCtTxNXe3BLUSco9LDASgjDs8R": {
+    "name": "\ud83c\udf38 SOLGirl MEV \u26a1\ufe0f\ud83d\udc69\u200d\ud83d\udcbb",
+    "city": "206264-HK-Asia/Hong_Kong",
+    "country": "",
+    "asn": 206264
+  },
+  "AMukCLCr52XxsEjXoDxKKxjNg4FpnsReXNaQx8aR6DJF": {
+    "name": null,
+    "city": "20326-NL-Amsterdam",
+    "country": "",
+    "asn": 20326
+  },
+  "ANC1u9sY36q3mi2MyVhtz71un8yLgTsFBUuyLcSPzKsk": {
+    "name": "Anchorage Digital",
+    "city": "29802-HK-Tsuen Wan",
+    "country": "",
+    "asn": 29802
+  },
+  "AWZhUiQjrjtxL8MEMWsCFbMausFQKkdTnDsFW2i411hN": {
+    "name": "MeshMap",
+    "city": "29802-NL-Amsterdam",
+    "country": "",
+    "asn": 29802
+  },
+  "AWcCdYG7Dy6GX45c6QMPbgGwgRZPKcBDT4bXGb3QrVRV": {
+    "name": null,
+    "city": "57043-NL-Europe/Amsterdam",
+    "country": "",
+    "asn": 57043
+  },
+  "AdSHK6vpQnwHRSw7jXUwjMEytmhFwnynZSENhvpAxL1y": {
+    "name": "crypto-jack-sparrow",
+    "city": "20473-US-Piscataway",
+    "country": "",
+    "asn": 20473
+  },
+  "AfZTWYoFQbzqCMmUBTD7XwxFvjob1FVyCvkaXRryxtKc": {
+    "name": "Digital Energy",
+    "city": "59253-SG-Asia/Singapore",
+    "country": "",
+    "asn": 59253
+  },
+  "AiBEt9kE8yZ4CnaLfTCGMp7Fg2wCtqhPTfvJ8D3zrLfu": null,
+  "AiDoLWFKzNxSXKeZ4zym2TEPkg6F4kQ3YBA8WhANVPEq": null,
+  "AicQr2zCWBLiBwt2r6o7iTemmtyE7q5pTKyuuupbXEQA": null,
+  "AmhQFcGvH2hjkucP78rn6GMKSbstYwyFpCDVKZUwBGrG": null,
+  "AnKWYWA1zktynzWqPC5KQFYWrTEWNny2CAHbAVU9zSXT": null,
+  "AoUwfPuiEek2thVRDhMP7HbQb9rguyab4rDiz2NAfwwA": null,
+  "AqyRvpjjSN6jWYPxijoJwhmKwJFk6fRYDh9fQZHcJ2o7": null,
+  "ArMBx6veRq33ffEP9sxHafiPRgrtzww4XvbwZbSMfXiM": {
+    "name": "Luke",
+    "city": "206264-HK-Hong Kong",
+    "country": "",
+    "asn": 206264
+  },
+  "As9NxA9bCfhrVLAFyGeWG5X5iLYPGhU3R7nLfX3tN6am": {
+    "name": "Elysium \ud83e\uddca 0% fee",
+    "city": "206264-NL-Europe/Amsterdam",
+    "country": "",
+    "asn": 206264
+  },
+  "AsMpvJ3DZ2Ydu1WTRMAyMH4QjSLiUG39rKzfzvtE1bWr": {
+    "name": "Nordic Staking 0% fee top APY 2+ years",
+    "city": "214783-NL-Rotterdam",
+    "country": "",
+    "asn": 214783
+  },
+  "Aw5wEMXhbygFLR7jHtHpih8QvxVBGAMTqsQ2SjWPk1ex": {
+    "name": null,
+    "city": "20326-NL-Amsterdam",
+    "country": "",
+    "asn": 20326
+  },
+  "AwcMVMvmT1aCETVYV42WE1cSMCyNp4vZqVjLsvs6dM4o": {
+    "name": "Beachside",
+    "city": "be102.bhs-g1-nc5.qc.ca",
+    "country": "",
+    "asn": 16276
+  },
+  "Awes4Tr6TX8JDzEhCZY2QVNimT6iD1zWHzf1vNyGvpLM": {
+    "name": "Staking Facilities | MEV \ud83d\udd25",
+    "city": "9002-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 9002
+  },
+  "B94PGWcxE9iEDov8sZobTkqEY96Yb5gfcsYWSWpQxh6S": {
+    "name": "SUNREN",
+    "city": "6597-US-Duluth",
+    "country": "",
+    "asn": 6597
+  },
+  "BCJN2vZFAHDYmufBDcbD5UAQHSyerXfc6UQkgX3mSWuh": {
+    "name": "TomYum",
+    "city": "262287-US-New York",
+    "country": "",
+    "asn": 262287
+  },
+  "BCeczqpTRPigndHVJu1KEzno1Uhb4hjrE7ttmAndrV1p": {
+    "name": "GlobalStake [Bare Metal]",
+    "city": "27424-US-America/Chicago",
+    "country": "",
+    "asn": 27424
+  },
+  "BGAjnivVWqLqByqCVT9dSyPUFicvyJrz7vRvrvui3SEk": {
+    "name": null,
+    "city": "20326-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 20326
+  },
+  "BLUEHGDihXD9CqqC5XFSQzDC3aS5jASohb2BAsXaJokR": {
+    "name": "Bluestone \ud83d\udc99",
+    "city": "20326-NL-Amsterdam",
+    "country": "",
+    "asn": 20326
+  },
+  "BR1aTt4ZZUCwWJDkSYf1hqkYJjo7Mb7Ar8iVTkeSwUB8": {
+    "name": "Abacus",
+    "city": "20473-GB-Swinton",
+    "country": "",
+    "asn": 20473
+  },
+  "BTGPbq4KuFENn4CKuaKGqkaDd3TJD3TEgtMjSrsZnMLb": {
+    "name": null,
+    "city": "396356-SG-Asia/Singapore",
+    "country": "",
+    "asn": 396356
+  },
+  "BULKzVM41WAyQZfL34vxqdsYwEYH9mJAJyzRS4xraf8b": {
+    "name": "BULK",
+    "city": "20326-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 20326
+  },
+  "BUokhb8pPF9MZuzW3rHLr6jzakgcz3NDq2PZkpiVv3jb": {
+    "name": "DeFi Dev Corp (NASDAQ: DFDV)",
+    "city": "3402-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 3402
+  },
+  "BUv44cVtsdvU9z2BfFGk6s5JZZWrmVnq5qCaii5ARyyB": {
+    "name": null,
+    "city": "20326-NL-Amsterdam",
+    "country": "",
+    "asn": 20326
+  },
+  "BXAxLMMMUNYfC1z166VjWHR3WjTmqzLxB837o5ghmRtH": {
+    "name": null,
+    "city": "20326-IE-Dublin",
+    "country": "",
+    "asn": 20326
+  },
+  "BaDhUB1eWfunwD21Tu3WywyYQ9wZx5hS9WXeHHNGZUPy": {
+    "name": null,
+    "city": "396356-US-America/Chicago",
+    "country": "",
+    "asn": 396356
+  },
+  "BeSovDCzhEAfgwDyXBuhmCFKsu5WQ3PaX61GEfteNzXM": {
+    "name": "Yonta Labs - LST 0%Fee MEV -",
+    "city": "19344-US-Anchorage",
+    "country": "",
+    "asn": 19344
+  },
+  "BeaCHioStqCEFDFxKwAEzyrUPYxqnBPhJ98gDKeEiTPb": {
+    "name": "Solana Beach Validator",
+    "city": "9002-DE-Munich",
+    "country": "",
+    "asn": 9002
+  },
+  "BfgMdL4FaNHp5zZpD7WMYG5sZUrCWQPEjXDwWS7M5q3F": null,
+  "Bi9kKNxfW2XqgCmLcuhHt6A3x55GuAGmrVZxRHLyVoQ4": null,
+  "BiGcsiuFCLuiTzXoQgfLdge9sfpwr55YzdT8Kp7bCXmS": null,
+  "BirdeyeK5yooepHNNgaW2bGGDD2jmib4oSRFTHyELbZ1": null,
+  "BkoS26vBuaXnSowACdChi4WKid8UwmuPNhEJWa8KsLHd": null,
+  "BoNKmNCGvoHS4CkKvYRnF21iEpUP827pZjhFGdA4t5as": null,
+  "Bs19Z9SokV1s46jutN9tqqaCgYf1GsVyyytVfkzwn9qK": null,
+  "BtsmiEEvnSuUnKxqXj2PZRYpPJAc7C34mGz8gtJ1DAaH": {
+    "name": null,
+    "city": "20326-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 20326
+  },
+  "BuoZ7q6faiJNTN24r7Kcj8dp96axs5XPEKXmWGsh2pDE": {
+    "name": null,
+    "city": "20326-US-Newark",
+    "country": "",
+    "asn": 20326
+  },
+  "BuonuQoAR74GoMwCFhxKWVWWSGGt2wfbNmQ3cizaJ97G": {
+    "name": "Solarius\u2600\ufe0f",
+    "city": "395201-DE-Hattersheim",
+    "country": "",
+    "asn": 395201
+  },
+  "BxkAkLR2W3agWtjMXBNvhxmB8vsn7zhjNQcyfost99KY": {
+    "name": "\ud83e\ude90 To The Stars \ud83e\ude90",
+    "city": "206264-JP-Tokyo",
+    "country": "",
+    "asn": 206264
+  },
+  "ByszyWdqC3rVMWy8f6jwK5cmwkpwYdwsr7UL58xS5vnm": {
+    "name": "ILY\u2661 Validator \u2795 Firedancer\ud83d\udd25 ||neochibi culture X:@ILY_validator",
+    "city": "20473-JP-Minamishinagawa",
+    "country": "",
+    "asn": 20473
+  },
+  "C1ocKDYMCm2ooWptMMnpd5VEB2Nx4UMJgRuYofysyzcA": {
+    "name": "Overclock",
+    "city": "60068-US-New York",
+    "country": "",
+    "asn": 60068
+  },
+  "CARBN9PY1Qej1aCg4885pfoYH8EHfjWuMy59pVa48ky": {
+    "name": "Cloak",
+    "city": "396356-BR-S\u00e3o Paulo",
+    "country": "",
+    "asn": 396356
+  },
+  "CEL22Qx7p85qY6gmhCZaYJrrnynJitkVRMQo6qZdT8Ns": {
+    "name": "\ud83d\ude80\ud83d\ude80Super\ud83d\ude80\ud83d\ude80 Validator",
+    "city": "20326-JP-Tokyo",
+    "country": "",
+    "asn": 20326
+  },
+  "CLsFr1KZVbAyz16iFpwg2e4hiekR1unpwyxfNdjBMaoE": {
+    "name": "Vault",
+    "city": "7979-HK-Asia/Hong_Kong",
+    "country": "",
+    "asn": 7979
+  },
+  "CMPSSdrTnRQBiBGTyFpdCc3VMNuLWYWaSkE8Zh5z6gbd": {
+    "name": "Solana Compass \ud83e\udded Solana For The People",
+    "city": "20473-JP-Minamishinagawa",
+    "country": "",
+    "asn": 20473
+  },
+  "CPcDFHCAKkr5Kp9T5aQWJhXV5J6iFj141NMQ87L6poPL": {
+    "name": null,
+    "city": "7979-NL-Europe/Amsterdam",
+    "country": "",
+    "asn": 7979
+  },
+  "CTDGxTK789ZvhgyHZHtSnxTtysbyY1mrywXEJiYYqXxC": {
+    "name": "Cointelegraph Decentralization Guardians",
+    "city": "395201-JP-Asia/Tokyo",
+    "country": "",
+    "asn": 395201
+  },
+  "CTwsruptUccEtZGNxBDbuusHYxkBX3P6ndrxVjSG213y": {
+    "name": "CryptoVik",
+    "city": "216444-SG-Singapore",
+    "country": "",
+    "asn": 216444
+  },
+  "CVGwNaC1FaG95hRBHUuieDLyQU2hJuGhPduu2cMyHnw6": {
+    "name": null,
+    "city": "16509-JP-Tokyo",
+    "country": "",
+    "asn": 16509
+  },
+  "CVgwMrWo9chKEuEPCe6Za9KJe8jamnAcoeWzaMeNubr6": {
+    "name": "SelfLiquidity",
+    "city": "395201-DE-Offenbach",
+    "country": "",
+    "asn": 395201
+  },
+  "CVvaeDPR2o7P1eawG5c9TPFLzSXAewwPovPmREaEL4Cm": {
+    "name": "Lion3d | 0% Forever + Block Rewards Sharing",
+    "city": "396356-GB-London",
+    "country": "",
+    "asn": 396356
+  },
+  "CXPeim1wQMkcTvEHx9QdhgKREYYJD8bnaCCqPRwJ1to1": {
+    "name": "Jito1 (Experimental)",
+    "city": "20326-NL-Amsterdam",
+    "country": "",
+    "asn": 20326
+  },
+  "CZanBzZHFzrGY5qKzaX3CNhJ5smHEMTWFFnoeUi4J6dr": {
+    "name": "Omakase",
+    "city": "206264-HK-Asia/Hong_Kong",
+    "country": "",
+    "asn": 206264
+  },
+  "CaveyttUBTKttncu1e4RF814XjuoGfYv8cEsiKGDNCPX": {
+    "name": "Cavey Cool",
+    "city": "3402-US-Newark",
+    "country": "",
+    "asn": 3402
+  },
+  "Certusm1sa411sMpV9FPqU5dXAYhmmhygvxJ23S6hJ24": {
+    "name": "Asymmetric Research",
+    "city": "20326-NL-Amsterdam",
+    "country": "",
+    "asn": 20326
+  },
+  "CfgRXmp1LEYr97EaT2RyoL2cSvtWgJh52Bes89RxVSoW": null,
+  "CiR8HNCfkjtcongPmP2DRdZPnFgjSbN5gsXdjmsXXHcB": null,
+  "CkCMabrc3HgBgDkeKPXkbWuQpUuSqW7zs1Mg3HFArx61": null,
+  "CoG8d9Fp2TFJRkAmrPMiPsGhQWHzdTTVoegEp9svRgmJ": null,
+  "Cogent51kHgGLHr7zpkpRjGYFXM57LgjHjDdqXd4ypdA": null,
+  "CpNnGGhgVATJAbzHUXdrcGfpPiGuZyPka4QUmH7YgavX": null,
+  "CpgSfd6QUoBw1267rTtJoZhELqC5q7isKLojBifSbNEE": null,
+  "CpuDNi3iVoHXbaT8gHpzKe6rqeBasoYjEKi21q7NRVJS": {
+    "name": "val37",
+    "city": "20473-US-Santa Clara",
+    "country": "",
+    "asn": 20473
+  },
+  "Crg1X8FftV44NmwfFvgREjanBQmyyS7NEu6duLU7Cyy6": {
+    "name": "Chronoflare",
+    "city": "206264-NL-Europe/Amsterdam",
+    "country": "",
+    "asn": 206264
+  },
+  "CtvdyHYt8cMuGVHFarV2RADfoCdnrbd8e9jAsB225uMW": {
+    "name": "SolanaBull \ud83d\ude80",
+    "city": "206264-JP-Tokyo",
+    "country": "",
+    "asn": 206264
+  },
+  "CtzN7ysR5rX69qd168Aosbuc83mPozhi81bEHbG7ecNP": {
+    "name": "Citizen Node",
+    "city": "396356-SG-Singapore",
+    "country": "",
+    "asn": 396356
+  },
+  "Cu9Ls6dsTL6cxFHZdStHwVSh1uy2ynXz8qPJMS5FRq86": {
+    "name": "Stardust Staking - 0% fee forever + MEV 0% fee",
+    "city": "29405-SK-Bratislava",
+    "country": "",
+    "asn": 29405
+  },
+  "CuStTdKU5nWev5YKxMHyFjiHYG2CnjZ3rrPa8r1G2hTw": {
+    "name": "Custodian \ud83d\udcbc 0% fees +MEV!",
+    "city": "58061-NL-Amsterdam",
+    "country": "",
+    "asn": 58061
+  },
+  "CwyVpfmfSiMeCexi3JgUNvaiDfYN14cLDjzT99zcBuD2": {
+    "name": "Hamsa",
+    "city": "16125-LT-Europe/Vilnius",
+    "country": "",
+    "asn": 16125
+  },
+  "D1Vbgkrhp1TmLGhfUD1urRMx5Ntz9AqQpgdX8DR8QMC1": {
+    "name": "Next Finance Tech",
+    "city": "396356-JP-Tokyo",
+    "country": "",
+    "asn": 396356
+  },
+  "D2RV1q6FgePVVjrMa7AMzVbvvAeg5oS7TAV7qdNKSDsX": {
+    "name": "Validatore",
+    "city": "16125-LT-\u0160iauliai",
+    "country": "",
+    "asn": 16125
+  },
+  "D8kuk3qEiVBGwYkuMGKfBDwuRi6jjRkzjAZg45fdaRLx": {
+    "name": "LuminaNodes",
+    "city": "20473-US-Atlanta",
+    "country": "",
+    "asn": 20473
+  },
+  "DB7DNWMVQASMFxcjkwdr4w4eg3NmfjWTk2rqFMMbrPLA": {
+    "name": "Orangefin by SOL Strategies",
+    "city": "60068-NL-Amsterdam",
+    "country": "",
+    "asn": 60068
+  },
+  "DCKyEmMENQMtLXgbmUoHRmgP9XdJ9HsR5WxrKnSDCzKA": {
+    "name": "Dicky",
+    "city": "396356-BR-S\u00e3o Paulo",
+    "country": "",
+    "asn": 396356
+  },
+  "DCdTPyDbXNHrmdv4ZyPPzEfY4mPAqH4hDPtowAteoNgv": {
+    "name": "bloXroute US",
+    "city": "396356-US-New York",
+    "country": "",
+    "asn": 396356
+  },
+  "DDnAqxJVFo2GVTujibHt5cjevHMSE9bo8HJaydHoshdp": {
+    "name": "Block Logic +MEV +Triton",
+    "city": "20326-NL-Amsterdam",
+    "country": "",
+    "asn": 20326
+  },
+  "DF1owXYZ1fk5vWyHJ8s1cJeAozgkqsi1JUVqvktqrpwd": {
+    "name": "DFlow",
+    "city": "20326-NL-Amsterdam",
+    "country": "",
+    "asn": 20326
+  },
+  "DRpbCBMxVnDK7maPM5tGv6MvB3v1sRMC86PZ8okm21hy": {
+    "name": "binance staking",
+    "city": "14618-US-Ashburn",
+    "country": "",
+    "asn": 14618
+  },
+  "DTSUkYHd2e9P2HLyZfbLarsbDdPhQUhZnWjRYuJZQRC8": {
+    "name": "Temporal Emerald",
+    "city": "55285-NL-Amsterdam",
+    "country": "",
+    "asn": 55285
+  },
+  "DUND26mEDfFeaPsVof3YvbXDRvpuQX7HMUJrLgEWzYw4": {
+    "name": null,
+    "city": "20326-JP-Tokyo",
+    "country": "",
+    "asn": 20326
+  },
+  "DViARWAWKkxAzp4UCgbw5B9pLSrBY3PaztFErcwgVUKX": {
+    "name": "Code-Breader",
+    "city": "215120-AT-Vienna",
+    "country": "",
+    "asn": 215120
+  },
+  "DWvDTSh3qfn88UoQTEKRV2JnLt5jtJAVoiCo3ivtMwXP": {
+    "name": "P2P.org",
+    "city": "7979-NL-Europe/Amsterdam",
+    "country": "",
+    "asn": 7979
+  },
+  "DZKTNGR3r4Akj3G42ReZatKhkmgEXoZjk5Ed2tFwRyqm": null,
+  "DeXsDvvZzKhVux4YfDFE6p4acJLGzr8yKt5pSTjzZB8t": null,
+  "Diman2GphWLwECE3swjrAEAJniezpYLxK1edUydiDZau": null,
+  "DnQBmTJyLbBMgJYQLJDqJz25AJModNkyexL5LdVRGnG4": null,
+  "DrifTrN923QaouP89UxkQzFGbumKPCnfkNYQRwmZxatz": null,
+  "DupN8puwoPdFo9EYm8AXemEn9cMsore1QmZzfPaxyUG4": null,
+  "E1r4Psq84tHfQ6aPTvvDka4U3u8zPVD7gEUrH25RdxHL": null,
+  "E5UXkzUxqEXpeDf3WsrMZHTs2ZSSBpAz7G4hpGwgRGDT": null,
+  "E99w1XfS4UNM1xUKXWEuDmj8Mduy7u65jm2NCULTspSV": {
+    "name": "Project Super",
+    "city": "396356-BR-S\u00e3o Paulo",
+    "country": "",
+    "asn": 396356
+  },
+  "E9hD3ikumJx1GVswDjnpCt6Uu4WG5mz1PDWCqdE5uhmo": {
+    "name": "cp0x_by_STAKRspace",
+    "city": "206264-HK-Asia/Hong_Kong",
+    "country": "",
+    "asn": 206264
+  },
+  "EATpCzQNs8BzZh1mx1hXMAJm3o1MLXakTXr4UEmcsY7f": {
+    "name": "EAT TRIBE",
+    "city": "204770-US-Chicago",
+    "country": "",
+    "asn": 204770
+  },
+  "EBk678aQvc3cUkfGyoehfw21JQfJXjmWuBeopYc89RSV": {
+    "name": "\u4f5b\u91d1\u75af Solana Chinese Community",
+    "city": "18450-US-El Segundo",
+    "country": "",
+    "asn": 18450
+  },
+  "ECZx4Dfyn2o55KTYbM9r3Dt4VZRcrdfdrst7sUbWgrdU": {
+    "name": "Orca",
+    "city": "32209-GB-Europe/London",
+    "country": "",
+    "asn": 32209
+  },
+  "EN5F2BU5juUEWr9zRNNqKuQMi9zBUY1YLPHV5EyMrvnW": {
+    "name": "SunshineVR",
+    "city": "396356-GB-City of London",
+    "country": "",
+    "asn": 396356
+  },
+  "EPFZFVrXuveEQar9LaEkt5kDRPMnbvK54qu5FwCxpkcy": {
+    "name": "AiSol",
+    "city": "395201-JP-Asia/Tokyo",
+    "country": "",
+    "asn": 395201
+  },
+  "EQhTjikb1L2jvxsCaSW2o2TuRXh4Do6HzBEWCxpeM44W": {
+    "name": "JM",
+    "city": "20473-PL-Warsaw",
+    "country": "",
+    "asn": 20473
+  },
+  "ETcW7iuVraMKLMJayNCCsr9bLvKrJPDczy1CMVMPmXTc": {
+    "name": "stakeware.xyz | ferric",
+    "city": "29802-SG-Singapore",
+    "country": "",
+    "asn": 29802
+  },
+  "ETuPS3kRfLufz5VSYN2ZrePoEVSZSpgVPKz3MUZpYe3x": {
+    "name": null,
+    "city": "7979-NL-Europe/Amsterdam",
+    "country": "",
+    "asn": 7979
+  },
+  "EUcJwf7jXskRE6NZBtFPVH2EedNvNYko8LL2WT62XctB": {
+    "name": "StakeBowl",
+    "city": "395201-DE-Offenbach",
+    "country": "",
+    "asn": 395201
+  },
+  "EWARp8Syq8cTWGWHtP5LT9fKAn5GvXfSCH8LfAwpgQ6m": {
+    "name": "SOLrainDrops",
+    "city": "20473-CA-Toronto",
+    "country": "",
+    "asn": 20473
+  },
+  "EXckihF3qmguH5znjhfzLvHsbk2E3nEW2DqNh4MMnDMm": {
+    "name": null,
+    "city": "20326-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 20326
+  },
+  "Ed9WjPnZfAXsPttcqxMwj94qsuXVRyBsyXnDkxFva2Zv": {
+    "name": "Rakurai | High TPS | High rewards",
+    "city": "213896-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 213896
+  },
+  "EdFUcP2f6j9iBg5BqsgJn3WDr1JieiKCo41hZ5Zrsk6w": {
+    "name": "Bitget Wallet",
+    "city": "45102-JP-Tokyo",
+    "country": "",
+    "asn": 45102
+  },
+  "EdGevanA2MZsDpxDXK6b36FH7RCcTuDZZRcc6MEyE9hy": {
+    "name": "Edgevana",
+    "city": "20473-NL-Amsterdam",
+    "country": "",
+    "asn": 20473
+  },
+  "Ee8dX3qtwrDRnxYK6NGQfmMeKT3Qpp2QZHpxiAiw23W9": {
+    "name": "StakeNode777",
+    "city": "20473-JP-Minamishinagawa",
+    "country": "",
+    "asn": 20473
+  },
+  "EfPYQ4BUMiKa6736qqrtnCBGkUSRDGSr1WvtyUgWHuyp": {
+    "name": null,
+    "city": "20326-IE-Dublin",
+    "country": "",
+    "asn": 20326
+  },
+  "EkvdKhULbMFqjKBKotAzGi3kwMvMpYNDKJXXQQmi6C1f": {
+    "name": null,
+    "city": "262287-NL-Amsterdam",
+    "country": "",
+    "asn": 262287
+  },
+  "Ex1AxFCipXGfSxgvXPPT3nPQUARddCduHwKR6jHiXAaT": {
+    "name": null,
+    "city": "20326-NL-Amsterdam",
+    "country": "",
+    "asn": 20326
+  },
+  "Ey3DkEVbfBxfWmkTsG7Hqj7jshYf5Zx9H8462Zjjkykf": null,
+  "EydLxzdWfD434DDxZYXkTcajvK5VKH7p6CofEDCRUkJ4": null,
+  "F6kVwubXEfZZo6e4Kozrtg7WoWk5wTRmrC8pwoxSLa7S": null,
+  "FACb6bbTDRBHCK999V8ox8jga5JBnt1r3vvzmAYAMv2o": null,
+  "FBKFWadXZJahGtFitAsBvbqh5968gLY7dMBBJUoUjeNi": null,
+  "FCWkGAHDWK41ANjiaoPudkCZRkvTecaEkoZQugezUnpr": null,
+  "FGiEdzde7Fco2WLpNQMat299hUVoykJdaA5hxdmCzHiS": null,
+  "FLVgaCPvSGFguumN9ao188izB4K4rxSWzkHneQMtkwQJ": {
+    "name": "EWR 0% Validator | No commission + Jito/MEV",
+    "city": "399781-NL-Amsterdam",
+    "country": "",
+    "asn": 399781
+  },
+  "FLwV8tm3pL8pZj6d927VASzPrgW51Gf4nRJuTewrfega": {
+    "name": "Velox Validator",
+    "city": "262287-US-New York",
+    "country": "",
+    "asn": 262287
+  },
+  "FNKgX9dYUhYQFRTM9bkeKoRpsyEtZGNMxbdQLDzfqB8a": {
+    "name": "Coinbase 04",
+    "city": "20326-NL-Amsterdam",
+    "country": "",
+    "asn": 20326
+  },
+  "FWwwP9tNttSy9dJFxwf6ebXWfc6VJXqFNMTccrMiLFTH": {
+    "name": "Quatro",
+    "city": "16125-LT-Europe/Vilnius",
+    "country": "",
+    "asn": 16125
+  },
+  "FZ4MT1HYJHd9GK8D5mJ9f3r7irLaDL5NxBNLjGqrLqs9": {
+    "name": null,
+    "city": "20326-NL-Amsterdam",
+    "country": "",
+    "asn": 20326
+  },
+  "FbYX2uN573G5WsgiPdHU6fS5PNUyjdXfGfpZNkYUuT4k": {
+    "name": null,
+    "city": "214159-SE-Stockholm",
+    "country": "",
+    "asn": 214159
+  },
+  "Fd7btgySsrjuo25CJCj7oE7VPMyezDhnx7pZkj2v69Nk": {
+    "name": "Figment",
+    "city": "be102.bhs-g1-nc5.qc.ca",
+    "country": "",
+    "asn": 16276
+  },
+  "FdH9QEQBxPQfaF2JpcjgdfcMnDb7rjZkCDRCWLRjTQwj": {
+    "name": "Solana Ukraine \ud83c\uddfa\ud83c\udde6",
+    "city": "20473-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 20473
+  },
+  "FjYEr2UCeFzNfAKiFrbhG34Zv8LxbmfHYAFhAfc7SLQL": {
+    "name": "Easytoken.me",
+    "city": "207083-NL-Europe/Amsterdam",
+    "country": "",
+    "asn": 207083
+  },
+  "FoigPJ6kL6Gth5Er6t9d1Nkh96Skadqw63Ciyjxc1f8H": {
+    "name": "Solana.capital",
+    "city": "ex9k1.dc19.fsn1.hetzner.com",
+    "country": "",
+    "asn": 24940
+  },
+  "Frog1Fks1AVN8ywFH3HTFeYojq6LQqoEPzgQFx2Kz5Ch": {
+    "name": "Leapfrog Systems \ud83d\udc8e No Fees",
+    "city": "29802-GB-Stepney",
+    "country": "",
+    "asn": 29802
+  },
+  "Fudp7uPDYNYQRxoq1Q4JiwJnzyxhVz37bGqRki3PBzS": {
+    "name": "huglester",
+    "city": "216.200.163.234.IDIA-367305-ZYO.zip.zayo.com",
+    "country": "",
+    "asn": 18450
+  },
+  "FugJZepeGfh1Ruunhep19JC4F3Hr2FL3oKUMezoK8ajp": {
+    "name": "Temporal Topaz",
+    "city": "20326-US-Newark",
+    "country": "",
+    "asn": 20326
+  },
+  "FwnWx7x99rGwLmipzz8ii15NqcHkKRo2oS1Y7j6LivgZ": {
+    "name": "Prompt Logic",
+    "city": "206264-JP-Tokyo",
+    "country": "",
+    "asn": 206264
+  },
+  "Fy7RCjDdFLG8wLn7TBKbccaKwYX1FetdSoVDREdUHf5o": {
+    "name": "3SDK",
+    "city": "20473-SG-Singapore",
+    "country": "",
+    "asn": 20473
+  },
+  "FyLVPAKkgdAy8Gn9jnFYN5yjC1ubQWRkw2EHt2UnC8uA": {
+    "name": "Solary | 0% +MEV",
+    "city": "20326-NL-Amsterdam",
+    "country": "",
+    "asn": 20326
+  },
+  "FyrwfMaomErzqrFUXMjCJ7mA4u81DsiDdrzC3MJD6d4j": {
+    "name": "1dad | Solf\u00e8ge",
+    "city": "20473-SG-Singapore",
+    "country": "",
+    "asn": 20473
+  },
+  "FzQqaDStQQHs52YKeCnDovwSqvyZBCgs2kJcmvoFZwaS": {
+    "name": null,
+    "city": "20326-SG-Singapore",
+    "country": "",
+    "asn": 20326
+  },
+  "G1bLKfyNm7zsmmYEL9dyxBvMtxpFcwy2s84bHDj2ZFUY": {
+    "name": "P2P.org Turbo",
+    "city": "396356-BR-S\u00e3o Paulo",
+    "country": "",
+    "asn": 396356
+  },
+  "G1eAmANVWf6ZeoxG4aMbS1APauyEDHqLxHFytzk5hZqN": {
+    "name": "Gleam",
+    "city": "396356-SG-Asia/Singapore",
+    "country": "",
+    "asn": 396356
+  },
+  "G2TBEh2ahNGS9tGnuBNyDduNjyfUtGhMcssgRb8b6KfH": null,
+  "G3a3iYZKNLbivothF3twqcaTCEvoPb9uJ2bFc9DNKkBQ": null,
+  "G4GT8z4AKWNoy3x6nuzxW83UfFXLXzrwn7DZQt4GvWdU": null,
+  "G9vCpJUUSpEm4zPwzSNpDmZ8MGwLEbiSLV59EBzCGvzM": null,
+  "GBQ2GvTzmjXMu97dr7WUnLKYTNim1aoZsYS53KYXAAAA": null,
+  "GEM1N1UE3C8BB8EaaEPrcFvT3iLMVrurknjW5AYjUReR": null,
+  "GFXVa19rX6iwfs3sLS5UvX9Exu2usRsG4V5MRMDRo23V": null,
+  "GGX3BEoZDqjxcw4AbCdu62ZTMrkpSgmPt81oP2mVuZNS": {
+    "name": "HashKey Cloud",
+    "city": "be101.sbg-g2-nc5.fr.eu",
+    "country": "",
+    "asn": 16276
+  },
+  "GK2YYwmQk58xA2k2SeugY3i334SJVViqTT8sT5wim3Dk": {
+    "name": "Node1",
+    "city": "59642-NL-Amsterdam",
+    "country": "",
+    "asn": 59642
+  },
+  "GQzMeEMwAR44ugoNCifTb5NdRKos1GduDUPeNh6AgV46": {
+    "name": null,
+    "city": "20326-JP-Tokyo",
+    "country": "",
+    "asn": 20326
+  },
+  "GREEDkgav1ox1jYyd9Anv6exLqKV2vYnxMw5prGwmNKc": {
+    "name": "GREED Academy - funding education",
+    "city": "46475-SG-Singapore",
+    "country": "",
+    "asn": 46475
+  },
+  "GRT7yrpfF1TEvp3RmCzu5YZ74B4EueVMPg5NYtSiPwtD": {
+    "name": "Tramplin",
+    "city": "7979-NL-Europe/Amsterdam",
+    "country": "",
+    "asn": 7979
+  },
+  "GSTampk6BJRKSDkzhaMM49R7qRx98MTPYYWvKbp83XKc": {
+    "name": null,
+    "city": "59642-NL-Amsterdam",
+    "country": "",
+    "asn": 59642
+  },
+  "GYx8kpp7SsRwtQEEsGQjAxb4hFMMmT91kFJuDeky3YGQ": {
+    "name": null,
+    "city": "20326-JP-Tokyo",
+    "country": "",
+    "asn": 20326
+  },
+  "GiYSnFRrXrmkJMC54A1j3K4xT6ZMfx1NSThEe5X2WpDe": {
+    "name": "MonkeDAO",
+    "city": "396356-US-New York",
+    "country": "",
+    "asn": 396356
+  },
+  "GkFT5nmcFVmJiLwuE98PjdF3LReMeq4WbejFHfwrnsgw": {
+    "name": "KAST",
+    "city": "7979-NL-Europe/Amsterdam",
+    "country": "",
+    "asn": 7979
+  },
+  "GmCxjmjKZoaKN1DKunbYq8RCYib94Nm3sHyncFfofaF5": {
+    "name": "Rocket",
+    "city": "16125-LT-Europe/Vilnius",
+    "country": "",
+    "asn": 16125
+  },
+  "GoeW4aFK4dGoekJySgUynWDxBZiQJqm8GDAF4H53tDK9": {
+    "name": "Twinstake",
+    "city": "214434-NL-Europe/Amsterdam",
+    "country": "",
+    "asn": 214434
+  },
+  "GqDCbnafLmKkdqiqf278jDLXqjjZMB2sViZQtR82jPUf": {
+    "name": "SolLana",
+    "city": "20473-US-Dallas",
+    "country": "",
+    "asn": 20473
+  },
+  "GvfaiJUhNCRZGVGumsEF1eHDb8JpAeFAyHSrTifyhrbt": {
+    "name": "Vybe Validator",
+    "city": "396356-SG-Asia/Singapore",
+    "country": "",
+    "asn": 396356
+  },
+  "H8fHToVcZPi5bupGZohGPX2SWs8NHzgFKQ31wi5n6oux": {
+    "name": null,
+    "city": "59642-NL-Amsterdam",
+    "country": "",
+    "asn": 59642
+  },
+  "H9ENbtmy2tWFtAJNmpC8xQtbcr1NTp4FXLdphRaG8L2T": {
+    "name": "Bubbles",
+    "city": "3402-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 3402
+  },
+  "H9METtoxNp2PhcDNxXwqpzBarJw9zJezhzdDEFgBqv8w": {
+    "name": "Teraswitch",
+    "city": "20326-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 20326
+  },
+  "HEL1USMZKAL2odpNBj2oCjffnFGaYwmbGmyewGv1e2TU": {
+    "name": "Helius",
+    "city": "20326-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 20326
+  },
+  "HFTcVVrX93SJwYHAiiHAssb3c4zXqSsF4mNjg5arGPEj": {
+    "name": "Alien \ud83d\udc7d 0% +Mev rewards",
+    "city": "206264-NL-Europe/Amsterdam",
+    "country": "",
+    "asn": 206264
+  },
+  "HH5dA42XF1HxNk1TRpG6LuKfLViMYNdAz5iWrFM4hWFi": {
+    "name": "Trust Nodes",
+    "city": "7979-NL-Europe/Amsterdam",
+    "country": "",
+    "asn": 7979
+  },
+  "HLnodbYkL5PFA8hjAZDkm5pGzV7eLTvcs671AW2L6St9": {
+    "name": "PoH PoS",
+    "city": "262287-US-Chicago",
+    "country": "",
+    "asn": 262287
+  },
+  "HM1KjNaXa4w8K4gCXbieoMh5gUTNeUhg9fvdXMKeBW3L": null,
+  "HMWXfjaeSHhww1wvdBhqhHVP9v96mFB4LJ9xP2MXbDGH": null,
+  "HT41udB8mLZZf7tev9tUoHYJ41TP8GWZ6zFMbjiviXk5": null,
+  "HVXXmNKkmDZbZwj74iL2Y9Wu4SyrchBoxAfFYVAktLrG": null,
+  "HW4zorvt6xDwhU36RqjcWNwU8YMj9tiqnAafBKW4cqV": null,
+  "Ha1iade1AH3B12K9SccfWoPdFtQKKQsj2ZyWwxcjqJJU": null,
+  "HaLanfo94ezLc3JZ55qqxr7W3qbe1PprJyv2uEtriEqN": null,
+  "HbidP4hpQdwhkzrxder3x3VNPt6DQnE25gFG46napD2p": {
+    "name": null,
+    "city": "20326-NL-Amsterdam",
+    "country": "",
+    "asn": 20326
+  },
+  "HcZvwZ83PfjrQDiq3GLHxisTs17aGURs6bJ2LwtmL4qv": {
+    "name": "SolGuardian",
+    "city": "33487--",
+    "country": "",
+    "asn": 33487
+  },
+  "HgozywotiKv4F5g3jCgideF3gh9sdD3vz4QtgXKjWCtB": {
+    "name": "coyote.staking",
+    "city": "20473-CA-Toronto",
+    "country": "",
+    "asn": 20473
+  },
+  "Hj2jzpAp57KyM3SmnYwJbDVrQ8tTWizMon2hhzYzwxet": {
+    "name": "A Unicorn Julia",
+    "city": "44486-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 44486
+  },
+  "HnfPZDrbJFooiP9vvgWrjx3baXVNAZCgisT58gyMCgML": {
+    "name": null,
+    "city": "20326-SG-Singapore",
+    "country": "",
+    "asn": 20326
+  },
+  "HnwMGBAw5PxaX56eSYc969MorEy2NzEMPLkmBkdnJmeq": {
+    "name": "\u2b50StepByStep\u2b50 0%Fee+Jito MEV",
+    "city": "20473-JP-Minamishinagawa",
+    "country": "",
+    "asn": 20473
+  },
+  "HpcB5Qg8Y9E73dUkot5e8HkgAJbExsYeUzniY4bCuKac": {
+    "name": null,
+    "city": "16125-LT-Vilnius",
+    "country": "",
+    "asn": 16125
+  },
+  "HrpWeJSYnQVtZe3BKxFCBrAEr8GRCmYUbQev4hoGDBs6": {
+    "name": null,
+    "city": "9",
+    "country": "",
+    "asn": 18450
+  },
+  "HyperSPG8w4jgdHgmA8ExrhRL1L1BriRTHD9UFdXJUud": {
+    "name": "Hyper \ud83e\udee8",
+    "city": "20473-MX-Quer\u00e9taro City",
+    "country": "",
+    "asn": 20473
+  },
+  "Hz5aLvpKScNWoe9YZWxBLrQA3qzHJivBGtfciMekk8m5": {
+    "name": null,
+    "city": "20326-GB-City of London",
+    "country": "",
+    "asn": 20326
+  },
+  "HzrEstnLfzsijhaD6z5frkSE2vWZEH5EUfn3bU9swo1f": {
+    "name": "StakeWolf",
+    "city": "29802-NL-Amsterdam",
+    "country": "",
+    "asn": 29802
+  },
+  "J6etcxDdYjPHrtyvDXrbCkx3q9W1UjMj1vy1jBFPJEbK": {
+    "name": null,
+    "city": "20326-US-Newark",
+    "country": "",
+    "asn": 20326
+  },
+  "JC7bH7HSZoDhwggBXtRF31cVt71WiizY2J6YDDQfG5er": {
+    "name": "Valid Blocks",
+    "city": "395201-JP-Asia/Tokyo",
+    "country": "",
+    "asn": 395201
+  },
+  "JD549HsbJHeEKKUrKgg4Fj2iyv2RGjsV7NTZjZUrHybB": {
+    "name": "Forward Industries",
+    "city": "400963-GB-Europe/London",
+    "country": "",
+    "asn": 400963
+  },
+  "KTMkUG8WCw9FdH44jLMBpc1teGafnYL6SgP4fHHbsNM": {
+    "name": "\u2694\ufe0f Epics DAO \u2694\ufe0f  - ALL 0% Fees \u2b50\ufe0f",
+    "city": "200261-NL-Europe/Amsterdam",
+    "country": "",
+    "asn": 200261
+  },
+  "KoLibrJsbABbtmtFPc7nPvDxT81rc4UPM7mY9xSLjpo": {
+    "name": "Kolibrio",
+    "city": "58061-NL-Amsterdam",
+    "country": "",
+    "asn": 58061
+  },
+  "LA1NEzryoih6CQW3gwQqJQffK2mKgnXcjSQZSRpM3wc": {
+    "name": "Laine \u2764\ufe0f  by SOL Strategies",
+    "city": "20326-NL-Amsterdam",
+    "country": "",
+    "asn": 20326
+  },
+  "LFGGGJtnBLvq78DyMz1gTeedM6f8owck76qHThDABBC": {
+    "name": "_gamma",
+    "city": "395201-DE-R\u00f6delheim",
+    "country": "",
+    "asn": 395201
+  },
+  "Lake8NXDThihebhxS3Js7mFnj9fthmus93zEdsFNrsL": {
+    "name": "LakeStake",
+    "city": "204770-LT-Europe/Vilnius",
+    "country": "",
+    "asn": 204770
+  },
+  "LeDbQ99QT342j9S5YdyXLrsq2Gu3T3dMGajExdAuE3V": {
+    "name": "Ledger by Chorus One",
+    "city": "60068-NL-Amsterdam",
+    "country": "",
+    "asn": 60068
+  },
+  "LiFiDJwJjW98MB8wxcnXpafKYsuz1hwpUkuszkERiX6": null,
+  "LitxAVo3RnYXD2sX1TyRJxfnKy48amXgyGiysPZjZwE": null,
+  "MARiKM3t7pDCyXtvLq24ErWDAvYu84yXqCthkR1GS33": null,
+  "MBVyz9s72WSfUmbr1S8fgHjDJQkPs1Q4Wxi6A2Mees9": null,
+  "MCFmmmXdzTKjBEoMggi8JGFJmd856uYSowuH2sCU5kx": null,
+  "MargusJeV9bkePFLWbbzRNsMVo3Re6h9wKB5Ago8Tfj": null,
+  "MutT1jxCXbRWJXpXoJK259gLrNfzDezdxS3BSkQAmv1": null,
+  "N43JWBg42ZoUFMkHsRUVbP7wGVdxaHKanqaF9BBNiFC": null,
+  "NATsUSZGohWw8xtLdxG4yus21UCkaes4FLfM2eqKbRk": {
+    "name": "Kisetsu Stake",
+    "city": "396356-SG-Asia/Singapore",
+    "country": "",
+    "asn": 396356
+  },
+  "NLMSHTjmSiRxGJPs3uaqtsFBC2dTGYwK41U18Nmw5kH": {
+    "name": "T-STAKE Systems",
+    "city": "47447-DE-Europe/Berlin",
+    "country": "",
+    "asn": 47447
+  },
+  "Ninja1spj6n9t5hVYgF3PdnYz2PLnkt7rvaw3firmjs": {
+    "name": "Shinobi Systems \ud83d\ude80 stakeview.app",
+    "city": "6939-CA-Vancouver",
+    "country": "",
+    "asn": 6939
+  },
+  "NordEHiwa6wT5TCjdeWJzpsA7DSmWQPqfSS7m2b6cv3": {
+    "name": "nordstar \u2b50 reliable staking +MEV",
+    "city": "34989-NO-Europe/Oslo",
+    "country": "",
+    "asn": 34989
+  },
+  "PAD9aPiKJGcbGxuVLbc8o4Vf65GPq3fJQ7PkHWuX6a8": {
+    "name": "BlueLotus \ud83d\udc69\u200d\ud83d\udcbb",
+    "city": "47447-DE-Europe/Berlin",
+    "country": "",
+    "asn": 47447
+  },
+  "PAWsME7oYbjt5TRNc11mBa33JhKnQr9AYherdr9YAZ6": {
+    "name": "Paws\ud83d\udc3e 0% Fee/MEV",
+    "city": "395201-JP-Asia/Tokyo",
+    "country": "",
+    "asn": 395201
+  },
+  "PKdLMugp1Mf88Ji1GkdqRDBewaUh2cqg79CBEo6eJoQ": {
+    "name": "PK",
+    "city": "29066-FR-Strasbourg",
+    "country": "",
+    "asn": 29066
+  },
+  "PRGNnb8DxVcP2WjSHfVRGgc8SkA5u6dbMwoTVV1BGKN": {
+    "name": "Paragon",
+    "city": "206264-HK-Asia/Hong_Kong",
+    "country": "",
+    "asn": 206264
+  },
+  "PUmpKiNnSVAZ3w4KaFX6jKSjXUNHFShGkXbERo54xjb": {
+    "name": "Pumpkin's Pool \u2764\ufe0f",
+    "city": "396356-SG-Asia/Singapore",
+    "country": "",
+    "asn": 396356
+  },
+  "PoN1E3VyqwqoGQEhC8ExpkRKTuyhxtGLnHHH3DwbgTU": {
+    "name": "Ponke Validator",
+    "city": "29802-HK-Tsuen Wan",
+    "country": "",
+    "asn": 29802
+  },
+  "R2D2imoV8nXk1ngT9v4dEK65We4uLNyUarTBdWbFruq": {
+    "name": "\ud83e\udd16 RoboRun.xyz",
+    "city": "59642-NL-Amsterdam",
+    "country": "",
+    "asn": 59642
+  },
+  "RAuSNo4DRjo83uGhdgg4fPqYBVszi1KsrQGpqcPHK1D": {
+    "name": "Hubra",
+    "city": "29066-SG-Singapore",
+    "country": "",
+    "asn": 29066
+  },
+  "RBFiUqjYuy4mupzZaU96ctXJBy23sRBRsL3KivDAsFM": {
+    "name": "RockawayX Infra",
+    "city": "0--Unknown",
+    "country": "",
+    "asn": 0
+  },
+  "REA1zKzM5WjDEcpB27Zx2Rk16foNPtLGTETy93LLgNw": {
+    "name": null,
+    "city": "7979-NL-Europe/Amsterdam",
+    "country": "",
+    "asn": 7979
+  },
+  "RLMS1pv3YKi7CSUCKTNcFN5fFkXJc2SmCwPhbQpqZJo": {
+    "name": "Realms Validator",
+    "city": "206264-JP-Tokyo",
+    "country": "",
+    "asn": 206264
+  },
+  "RNXnAJV1DeBt6Lytjz4wYzvS3d6bhsfidS5Np4ovwZz": {
+    "name": "RockawayX Firedancer",
+    "city": "200871-CZ-Europe/Prague",
+    "country": "",
+    "asn": 200871
+  },
+  "ReFiqMfGnc7tW8WQtFFcJRPZSDAWDBnAsdoFYF2QnfR": {
+    "name": "ReFi Hub",
+    "city": "396356-AR-America/Argentina/Buenos_Aires",
+    "country": "",
+    "asn": 396356
+  },
+  "SANDCxXBbQhvbUqNtiLqKdFEY1uQhVo1UgUACaS4mXU": {
+    "name": "Goldsand",
+    "city": "396356-US-Ashburn",
+    "country": "",
+    "asn": 396356
+  },
+  "SLAY6uN1zZpXBTfbuDDCesNmM5D288xrz8uYvfS3n41": {
+    "name": "Solayer Validator [5% Commission + 100% MEV Kickback]",
+    "city": "396356-US-Ashburn",
+    "country": "",
+    "asn": 396356
+  },
+  "SLNDCSGTEsA6KHpgR32MBt9UAurZnVSJGUtW2tRpdU2": {
+    "name": "Solend",
+    "city": "216.200.163.234.IDIA-367305-ZYO.zip.zayo.com",
+    "country": "",
+    "asn": 18450
+  },
+  "SPHERExTW7GaMgS4RN6MbghYvXU2REfFWHgpxMH1P69": null,
+  "SQDS9iwyWvT2mQbSZzuNKGoxuBug5jRHouF6SuMRBkA": null,
+  "SSmBEooM7RkmyuXxuKgAhTvhQZ36Z3G2WsmLGJKoQLY": null,
+  "STaKesuXJH6UGRizuEVSWG1tyLu5ycKgWj3i1HUdvs5": null,
+  "SWiz7QwnYPm61pWWUUkMhj4r5pZLP1SvYibdHcB2cov": null,
+  "SoLiDJGk4WkdinyLiRWjkFbgLUhjL3idGJK8H1rUWqH": null,
+  "SscQkTYV2BFQYGGffAmTzvefrFrw6z9GNYiWHstVZ77": null,
+  "Ste1115xFGdAYK5jaWA3dEFcUc1S5jEbVvD8e327zty": null,
+  "SyndicAgdEphcy5xhAKZAomTYhcF8xhC7za2UD9xeug": {
+    "name": "Syndica",
+    "city": "*",
+    "country": "",
+    "asn": 16276
+  },
+  "THE1CosYJD9F1eBq53Fg4MZYZa5WrPUf2RQU5ZHnfEj": {
+    "name": "Theia",
+    "city": "395201-DE-R\u00f6delheim",
+    "country": "",
+    "asn": 395201
+  },
+  "TopjgY7N1fJdnW89S9fX6t7LF61nspgXGL1NpgAKhDG": {
+    "name": "TopReward",
+    "city": "395201-DE-R\u00f6delheim",
+    "country": "",
+    "asn": 395201
+  },
+  "Tri1F8B6YtjkBztGCwBNSLEZib1EAqMUEUM7dTT7ZG3": {
+    "name": "Trillium",
+    "city": "60068-NL-Amsterdam",
+    "country": "",
+    "asn": 60068
+  },
+  "UNrgBLmc8JT6A3dxXY9DWeHvDezt2DZQbhg1KPQfqEL": {
+    "name": "Unruggable",
+    "city": "396356-SG-Asia/Singapore",
+    "country": "",
+    "asn": 396356
+  },
+  "UPSCQNqdbiaqrQou9X9y8mr43ZHzvoNpKC26Mo7GubF": {
+    "name": null,
+    "city": "396356-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 396356
+  },
+  "UZBmptMjMSQEPKm4WyUkJeAuvZSqTuNK3cQCKFqJcXT": {
+    "name": "UZB Validator",
+    "city": "395201-DE-Fechenheim",
+    "country": "",
+    "asn": 395201
+  },
+  "VQwCCSfW3o5NDx7n5FBr9SoYiLXVgetstHvaWBvv2YH": {
+    "name": null,
+    "city": "400963-GB-Europe/London",
+    "country": "",
+    "asn": 400963
+  },
+  "Va1idLRtYEtVFJFsvz8vtt1uCJgea4Q1zi2Rh3eraJh": {
+    "name": "validator.com",
+    "city": "395201-DE-R\u00f6delheim",
+    "country": "",
+    "asn": 395201
+  },
+  "WUNoB9YQXmXXRcJsjY1G8PfVag5aAfnyGmFd6YwJVwp": {
+    "name": "StakeCraft",
+    "city": "206264-HK-Hong Kong",
+    "country": "",
+    "asn": 206264
+  },
+  "XAqHfPFsqTfAJHBRHAcEECkMSykXjkUj2Rta16Qshrk": {
+    "name": "Blockchain at Emory",
+    "city": "395201-DE-Fechenheim",
+    "country": "",
+    "asn": 395201
+  },
+  "XkCriyrNwS3G4rzAXtG5B1nnvb5Ka1JtCku93VqeKAr": {
+    "name": "Coinbase",
+    "city": "20326-NL-Amsterdam",
+    "country": "",
+    "asn": 20326
+  },
+  "YE11a5nVJtUNqsojkphYuWc7StqBzbCeFH6BjhAAUEV": {
+    "name": "Mellow Yellow",
+    "city": "396356-SG-Asia/Singapore",
+    "country": "",
+    "asn": 396356
+  },
+  "YuRBAsy9Stw1u46A8dMp7WQVBFweLP1PKuYibzYAMmQ": {
+    "name": "Yurbason",
+    "city": "48014-AL-Tirana",
+    "country": "",
+    "asn": 48014
+  },
+  "ZoD1XLMhxdMveAJL4x9oab4FhRKP5NThTnSCH19Tdjp": {
+    "name": "Zodia Custody",
+    "city": "397423-US-New York",
+    "country": "",
+    "asn": 397423
+  },
+  "aXiomFkk6VzXaBhPuhMqTLZZguCFzzbyP9LTtZ7ZHLQ": {
+    "name": "Axiom",
+    "city": "3402-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 3402
+  },
+  "adramSYKBv1yHoZTub4kepcmF5LybPxwyJcsz4fpfi7": {
+    "name": "Adrastea Validator",
+    "city": "18450-US-America/Chicago",
+    "country": "",
+    "asn": 18450
+  },
+  "adre1Xia7ekGsEqNgHeFc7MYwkfzTQNeJgQmZ2agAKZ": {
+    "name": "Systems",
+    "city": "396356-SG-Asia/Singapore",
+    "country": "",
+    "asn": 396356
+  },
+  "ana2y2YvQ3ZPMwm6qhnN3nJoUSiT3qx5Pvetkq9xcfY": {
+    "name": "Anagram Staking",
+    "city": "20473-FR-Aubervilliers",
+    "country": "",
+    "asn": 20473
+  },
+  "anza1rXDVhy1NfVNtsbT3kSBh2jgB1BGZUKuUibSAJd": {
+    "name": "Anza",
+    "city": "396356-GB-City of London",
+    "country": "",
+    "asn": 396356
+  },
+  "anzaeL7Lsv71HW2mew8YcKGyGqL6qNn3xoNPRrejM73": null,
+  "ark1hdnnfmusE24wGHkyVG1gdRCqfmXs9drasDAdABZ": null,
+  "avnujiRNoSRe9PcET42DPKznyfYnb2LRaZAsqv6REZo": null,
+  "axy3tCRL3wmFMVG4c69rYurcf4fXhBo2RcuBj9ADnJ4": null,
+  "bay3wXfJsu9ds1zQBoQQ4DUwFGs3NP6q4gca9WM5G1z": null,
+  "bcZxRSozXDb61a77rxL6n9yumsbatqC7RFmZ8Xi5K8V": null,
+  "bkpk9KVsDRfrArzzmkJ9mPEvbXfQxczzQYR3QMGiR8Z": null,
+  "bookoVmqw4QjVj5BbkFacouadx9M7816wyRkfM7A5Lo": {
+    "name": "The Library",
+    "city": "20473-SG-Singapore",
+    "country": "",
+    "asn": 20473
+  },
+  "bxrAptB5ZpZBhoLedJpoGWY5hBjjt3zvVBr2323Rrq6": {
+    "name": "bloXroute EU",
+    "city": "396356-DE-Frankfurt (Oder)",
+    "country": "",
+    "asn": 396356
+  },
+  "c3rtoMCHSbFrLRTAdw4iRowKSn4BrDtvSPbuyJwkHwx": {
+    "name": "Latitude.sh",
+    "city": "396356-BR-S\u00e3o Paulo",
+    "country": "",
+    "asn": 396356
+  },
+  "capyS1jerxhFp1RehdWRG6kbWi8bnWF3fkEG2RGLsQf": {
+    "name": "capy",
+    "city": "396356-BR-S\u00e3o Paulo",
+    "country": "",
+    "asn": 396356
+  },
+  "chdvWr6T14nqGRFD37KY36dsvhkCtDaufW5rpu3AfHe": {
+    "name": "CH Dev",
+    "city": "396356-BR-S\u00e3o Paulo",
+    "country": "",
+    "asn": 396356
+  },
+  "chopskqnudaeCTENWzUjfFCBSLcxprqbdMoCAucAwfb": {
+    "name": "Choplet Studios",
+    "city": "51202-DE-Europe/Berlin",
+    "country": "",
+    "asn": 51202
+  },
+  "ciTyjzN9iyobidMycjyqRRM7vXAHXkFzH3m8vEr6cQj": {
+    "name": "Phase Stake",
+    "city": "262287-NL-Amsterdam",
+    "country": "",
+    "asn": 262287
+  },
+  "dcntruDNP5SEcGV4RxnsqXFURdDZGT3DTQv68Q8H7Vu": {
+    "name": "Decentra",
+    "city": "18450-US-America/Chicago",
+    "country": "",
+    "asn": 18450
+  },
+  "dmMwc4RazLHkvDZYrWAfbHQ6cViAvNa5szCJKaiun8S": {
+    "name": "Ded Monkes",
+    "city": "396356-BR-S\u00e3o Paulo",
+    "country": "",
+    "asn": 396356
+  },
+  "dst2u7mXMyDvb14cSErRNA1mxH1d5VXbSXgZ3DKE9xH": {
+    "name": "Dust Eleven",
+    "city": "396356-BR-S\u00e3o Paulo",
+    "country": "",
+    "asn": 396356
+  },
+  "dxa6QFqLcByyHykLCAW5tv1VYNVQFV3v6oovM2h8inH": {
+    "name": "Fidelity Center for Applied Technology (FCAT\u00ae)",
+    "city": "396356-US-New York",
+    "country": "",
+    "asn": 396356
+  },
+  "fdzip81euDS8jEZHx5H1mn27zGVMLzkgpQuzYRBfBYG": {
+    "name": "fd1.zip \ud83d\udce6",
+    "city": "395201-JP-Asia/Tokyo",
+    "country": "",
+    "asn": 395201
+  },
+  "fishfishrD9BwrQQiAcG6YeYZVUYVJf3tb9QGQPMJqF": {
+    "name": "stakefish \ud83d\udc1f",
+    "city": "262287-US-Miami",
+    "country": "",
+    "asn": 262287
+  },
+  "forb5u56XgvzxiKfRt4FVNFQKJrd2LWAfNCsCqL6P7q": {
+    "name": "Forbole",
+    "city": "16125-LT-Europe/Vilnius",
+    "country": "",
+    "asn": 16125
+  },
+  "gUvo3g5LfH4Pd8qnG7T6MPEFa5bPr8LhDdxDahwYqis": {
+    "name": null,
+    "city": "262287-NL-Amsterdam",
+    "country": "",
+    "asn": 262287
+  },
+  "gangtCrQg5RmKf5yxvhvZThPugPX58pDSdQ5UuS26vN": {
+    "name": "The Lotus Validator",
+    "city": "3402-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 3402
+  },
+  "gojir4WnhS7VS1JdbnanJMzaMfr4UD7KeX1ixWAHEmw": {
+    "name": "Gojira",
+    "city": "206264-JP-Tokyo",
+    "country": "",
+    "asn": 206264
+  },
+  "gotasRuLTuJNZDtLHmaDJpEUjCWZqkHcuwbLhkgCwCX": {
+    "name": "Gotas",
+    "city": "396356-BR-S\u00e3o Paulo",
+    "country": "",
+    "asn": 396356
+  },
+  "gridqZmeBcsUKT2Mv4M9YFHFN3tVLFb2TCtTcLD1cAd": {
+    "name": "Grid Systems",
+    "city": "20473-SG-Singapore",
+    "country": "",
+    "asn": 20473
+  },
+  "grptonHnt7YSmJokGK9TJJTBXDT8ca4LSWMHCCfzzPa": {
+    "name": "gripto",
+    "city": "395201-DE-Fechenheim",
+    "country": "",
+    "asn": 395201
+  },
+  "hnhCMmnrmod4rcyc3QRKkLEC9XnPTvYJ2gBvjgFiV4o": null,
+  "hy1oMaD3ViyJ8i6w1xjP79zAWBBaRd1zWdTW8zYXnwu": null,
+  "hykfH9jUQqe2yqv3VqVAK5AmMYqrmMWmdwDcbfsm6My": null,
+  "icex1C6pnZxznQWiHZZANjGU8nZ8kNquFnjyY7XXrXE": null,
+  "idCE5k2BtTpwXdwAC7Var1enT9reut9fWECcxQP7LY7": null,
+  "jagBNeXYncnn1hzwSq1JJ16XhWTgQ7DCFVqndSJZ6vT": null,
+  "juigBT2qetpYpf1iwgjaiWTjryKkY3uUTVAnRFKkqY6": null,
+  "kom1oNHyyt84XLGVfi5Jo1qkVkU5xG1sBxPG19rWknE": {
+    "name": "Komorebi",
+    "city": "262287-NL-Amsterdam",
+    "country": "",
+    "asn": 262287
+  },
+  "krakeNd6ednDPEXxHAmoBs1qKVM8kLg79PvWF2mhXV1": {
+    "name": "Kraken",
+    "city": "1072-IN-Gurugram",
+    "country": "",
+    "asn": 1072
+  },
+  "mD1afZhSisoXfJLT8nYwSFANqjr1KPoDUEpYTEfFX1e": {
+    "name": "Block Parliament \ud83e\udd89",
+    "city": "396356-JP-Tokyo",
+    "country": "",
+    "asn": 396356
+  },
+  "mXv18ov8qCiQGs3ieoen981LdgZzYJjJak6reK6fpNC": {
+    "name": "MX Validator",
+    "city": "396356-US-New York",
+    "country": "",
+    "asn": 396356
+  },
+  "mastWEbKEMjvBCd1uaUBpNjWcfSPhXMWnH9tTrgzn1g": {
+    "name": "MAS DeFi",
+    "city": "20473-MX-Mexico City",
+    "country": "",
+    "asn": 20473
+  },
+  "mds1WWedpezW3qvgML4WgP341jZksYAy5SbMLwjP5KC": {
+    "name": null,
+    "city": "20326-US-Bluffdale",
+    "country": "",
+    "asn": 20326
+  },
+  "mds2fZEpJP688PqJHvfLxGyf2VFrcNkvjuUxNYCwjrq": {
+    "name": null,
+    "city": "20326-US-Bluffdale",
+    "country": "",
+    "asn": 20326
+  },
+  "mds4GEuiSgQRqveGyktWpETBFCb4AS2wDnhqwLHcT6Z": {
+    "name": null,
+    "city": "396356-JP-Tokyo",
+    "country": "",
+    "asn": 396356
+  },
+  "meshRrDTME9cL2FSQ9E56EncfkZ7vL8apwcCFsw3o6Y": {
+    "name": "Mesh Validator",
+    "city": "20473-SG-Singapore",
+    "country": "",
+    "asn": 20473
+  },
+  "mineL1YNwcRnxN93B2sX6q22R11WfRqxnY4NBV8KfFY": {
+    "name": "Exo Tech",
+    "city": "204770-US-Chicago",
+    "country": "",
+    "asn": 204770
+  },
+  "mint13XHZSSxtgHuTSM9qPDEJSbWktpmpM4CZxeLB8f": {
+    "name": "Hanabi Staking \ud83c\udf86 | Staking Champions | DoubleZero | \u274cBAM",
+    "city": "216.200.163.234.IDIA-367305-ZYO.zip.zayo.com",
+    "country": "",
+    "asn": 18450
+  },
+  "mrgn28BhocwdAUEenen3Sw2MR9cPKDpLkDvzDdR7DBD": {
+    "name": "Project 0 Horizon",
+    "city": "20326-NL-Amsterdam",
+    "country": "",
+    "asn": 20326
+  },
+  "mrgn4sJJu5GBa5wbKyjuASzhyCifvcedGoLtpKjB3Wf": {
+    "name": "Project 0 Meridian",
+    "city": "3402-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 3402
+  },
+  "nSGZ3tv2UhskkPqiB666yDVj7PTi9qKgDqvjHyw5JgM": {
+    "name": "OranG3cluB",
+    "city": "20473-US-Los Angeles",
+    "country": "",
+    "asn": 20473
+  },
+  "nateKhsYkrVc992UuTfAhEEFQqr2zQfpGg9RafNkxdC": {
+    "name": "Epoch.Day",
+    "city": "262287-BR-S\u00e3o Paulo",
+    "country": "",
+    "asn": 262287
+  },
+  "nebu15XQKGpxzhhckADBX9PgvGN5qk9RRJCFLKc118w": {
+    "name": "Nebula Node",
+    "city": "44486-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 44486
+  },
+  "novaeuhY2JH2WHhc9KVTHDx2cyJZdXJC6faf4CtARZn": {
+    "name": "Nova Consortium",
+    "city": "51202-DE-Europe/Berlin",
+    "country": "",
+    "asn": 51202
+  },
+  "nymsHergYedT9CJMgtGMvqXUTGcbs5o3MiWTJUbqTGY": {
+    "name": "Hypo Nyms",
+    "city": "3402-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 3402
+  },
+  "oPaLtitM6cwpFVzP2rDhLsJLdY2vcbuZiJJyD1TFUKs": {
+    "name": "Temporal Opal",
+    "city": "20326-GB-London",
+    "country": "",
+    "asn": 20326
+  },
+  "odcvDWH5wHVKz9XtmGGxTj5ZsmawTjCCty3nyBKDGzS": {
+    "name": "Odyssey",
+    "city": "18450-US-America/Chicago",
+    "country": "",
+    "asn": 18450
+  },
+  "omeg2wsojzB7tfyAxsFhp8npxHL8yxVnaf51poXCwSd": null,
+  "pSoLoZx55zZz61gjxSTwHtwTg4yTwdm7ruBmyjbYgT2": null,
+  "peNgUgnzs1jGogUPW8SThXMvzNpzKSNf3om78xVPAYx": null,
+  "phz1CRbEsCtFCh2Ro5tjyu588VU1WPMwW9BJS9yFNn2": null,
+  "pitch9cMruwjDtAnisNS4mwZUPhMsBztNEGu2weMg55": null,
+  "popscoyTKVksa4TyTXw488b3vvFxM7qQEyTBeMQopKu": null,
+  "privaEdSEmnMPGPoQACUkcDGkFBbTArVvsEGd7C5wUM": null,
+  "puffinQSvKFriPbyE5atyx1ptfnyytovbzxybr1jsyy": {
+    "name": "Puffin",
+    "city": "395201-DE-Fechenheim",
+    "country": "",
+    "asn": 395201
+  },
+  "qZMH9GWnnBkx7aM1h98iKSv2Lz5N78nwNSocAxDQrbP": {
+    "name": "Spectrum Staking",
+    "city": "29405-SK-Bratislava",
+    "country": "",
+    "asn": 29405
+  },
+  "radM7PKUpZwJ9bYPAJ7V8FXHeUmH1zim6iaXUKkftP9": {
+    "name": "Radiants",
+    "city": "396356-SG-Asia/Singapore",
+    "country": "",
+    "asn": 396356
+  },
+  "revtecFsGSRCdF29atQvchSXrjwBesA9vSisD4fyH5K": {
+    "name": "RevTec | 100% Block Reward",
+    "city": "58010-DE-Europe/Berlin",
+    "country": "",
+    "asn": 58010
+  },
+  "rsbp8zMHbGCpLoRktmsjspYv77VcjxAzH1KxPCD9BiU": {
+    "name": "Albert is Great",
+    "city": "20473-NL-Amsterdam",
+    "country": "",
+    "asn": 20473
+  },
+  "sCANXAaS1a7yB8jz3USvGNLfd8DSc9r7TNzNSKKPkfY": {
+    "name": "Range",
+    "city": "20473-CL-Santiago",
+    "country": "",
+    "asn": 20473
+  },
+  "sTEAKPk59EtPPbixCweyv6oRLNCDEE8pnnef6gUfbiW": {
+    "name": "STEAK.NET \ud83e\udd69",
+    "city": "395201-DE-R\u00f6delheim",
+    "country": "",
+    "asn": 395201
+  },
+  "sTEVErNNwF2qPnV6DuNPkWpEyCt4UU6k2Y3Hyn7WUFu": {
+    "name": "STEVE",
+    "city": "396356-BR-S\u00e3o Paulo",
+    "country": "",
+    "asn": 396356
+  },
+  "sTepQGoReJq2tBKStL19DT6nnGHcGiAvFjyYaokLyuM": {
+    "name": "Step Finance",
+    "city": "20473-SG-Singapore",
+    "country": "",
+    "asn": 20473
+  },
+  "sZAqxCSN5kkVfG2s65Bje4jzCkD2aLyk21qU95PMf2Y": {
+    "name": "Dual Validator",
+    "city": "206264-JP-Tokyo",
+    "country": "",
+    "asn": 206264
+  },
+  "sbidYi7fbif6qNsMpwBKvyF5DKcLCbjaegpADsKqNux": {
+    "name": "SolBlaze",
+    "city": "396356-SG-Asia/Singapore",
+    "country": "",
+    "asn": 396356
+  },
+  "scb1Z7du8NVSaHFXsafSjRdXr6xBjWR3iugikL739Y1": {
+    "name": null,
+    "city": "396356-JP-Tokyo",
+    "country": "",
+    "asn": 396356
+  },
+  "shftkxnsXmqAkmLgz9Mn7bNB5Fr6mKgFc58kFHfVikj": {
+    "name": "blueshift",
+    "city": "395201-DE-R\u00fcsselsheim am Main",
+    "country": "",
+    "asn": 395201
+  },
+  "simpRo1FrQYGa1moicfgnPDp6KyE38d4gYrZzhjXYJb": {
+    "name": "Simpdigit",
+    "city": "396356-SG-Singapore",
+    "country": "",
+    "asn": 396356
+  },
+  "soLStaCk5TiGCpeLKa9Fvv6f5JQGMa6S3uhLh826e9N": {
+    "name": "SolStack by Corvus Labs",
+    "city": "214783-NL-Europe/Amsterdam",
+    "country": "",
+    "asn": 214783
+  },
+  "spcti6GQVvinbtHU9UAkbXhjTcBJaba1NVx4tmK4M5F": {
+    "name": "Staker Space",
+    "city": "49127-NL-Nijmegen",
+    "country": "",
+    "asn": 49127
+  },
+  "spur5CDwBvTZszvy1ozGjRc1x2TuDWo3VF4jrq7zgvD": {
+    "name": null,
+    "city": "1299-DE-Frankfurt am Main",
+    "country": "",
+    "asn": 1299
+  },
+  "t23p8aBQN6P6tziMuN5XPmzqVRrip9oes7KuQwSmate": {
+    "name": "Solmate - RockawayX powered",
+    "city": "205064-AE-Asia/Dubai",
+    "country": "",
+    "asn": 205064
+  },
+  "uEhHSnCXvWgtgvVaYscPHjG13G3peMmngQQ2ghC54i3": {
+    "name": "Satellite Staking",
+    "city": "20473-US-Piscataway",
+    "country": "",
+    "asn": 20473
+  },
+  "vALigXFg9wnnhVHN16vNxHxXtAXiBv5QjAE6udoniBY": {
+    "name": "Valigator Open",
+    "city": "204770-US-Chicago",
+    "country": "",
+    "asn": 204770
+  },
+  "vahMVcSS3v6uwyFormV7FDAUbQSHwmy6vUedp1P7L42": null,
+  "vaoJKVZYPAsqc52T2nNQhABR1gU6Cy2koDKfCQaEiva": null,
+  "vu1sGn2f1Xim6voHNLt4nLn38zNkYdLasU7hEr1TC2D": null,
+  "vvvvbtDs9HsdsE6NskZMnb1RA6muoud1ChQuiF9QhSM": null,
+  "xLabscif2DLnYg39rQThqi7A9E45L9qiysRZhmZ1ARE": null,
+  "yJeahQNRHNWtL9Z1SqPX3SBwTYXr5ECMYYVK4uYVwxt": null,
+  "zeroT6PTAEjipvZuACTh1mbGCqTHgA6i1ped9DcuidX": null
+}
