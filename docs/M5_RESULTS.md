@@ -86,20 +86,10 @@ entire M1–M5 history of this benchmark.
 | 6 | BNB/USD | `4CkQJBxhU8EZ2UjhigbtdaPbpTe6mqf811fipYBFbSYN` |
 | 7 | JUP/USD | `g6eRCbboSwK4tSWngn773RCMexr1APQr4uA9bGZBYfo` |
 | 8 | BONK/USD | `8ihFLu5FimgTQ1Unh4dVyEHUGodJ5gJQCrQf4KUVB9bN` |
-| 9 | W/USD | `8gTpR6DjS66SeyUvy3TXMBZpJQ3ZMMcifTGp3zhwS5gS` |
+| 9 | PYTH/USD | `nrYkQQQur7z8rYTST3G9GqATviK5SxTDkrqd21MW6Ue` |
 | 10 | JTO/USD | `D8UUgr8a3aR3yUeHLu7v8FWK7E8Y5sSU7qrYBXUJXBQ5` |
 
-**W/USD account is consistently unavailable.** The pubkey resolves but the
-Solana account returns `account_found: false` across all 3,411 runs in M5.
-This reflects a Pyth-side deactivation of the legacy push W/USD feed, not a
-benchmark or platform error. The procedure logs the missing account and
-continues with the remaining 9 feeds by design (defensive against data
-quality, not against production resilience). The same behavior applies
-symmetrically to the baseline path, so the comparison remains fair —
-both sides receive identical responses for this account.
-
-Per-feed `account_found` flags and per-run state are recorded in each
-dataset's `feeds.csv` for reproducibility audit.
+All 10 feeds returned `account_found: true` across every run in the M5 dataset.
 
 ---
 
@@ -213,7 +203,7 @@ no server-side measurement available — Helius is third-party.)
 - Zela client e2e: 18.71 ms (consistent with Prague→Frankfurt fiber RTT)
 - Baseline client e2e: 95.48 ms (Prague→Helius round-trip)
 
-![CDF of read-path latency — Zela client vs baseline client vs Zela server-side](docs/figures/fig1_cdf.png)
+![CDF of read-path latency — Zela client vs baseline client vs Zela server-side](figures/fig1_cdf.png)
 
 The CDF makes the bimodal Zela client distribution visible: a tight knee at
 ~18 ms (Frankfurt-routed calls), a step at ~228 ms (Newark/Dubai), one at
@@ -300,7 +290,7 @@ region, warm sample = last 95, dropping first 5 as connection warmup:
 
 (All values in milliseconds.)
 
-![Per-region client latency from Prague — 100 runs per route, warm=last 95](docs/figures/fig2_per_region.png)
+![Per-region client latency from Prague — 100 runs per route, warm=last 95](figures/fig2_per_region.png)
 
 Four observations matter here:
 
@@ -385,7 +375,7 @@ all offsets resolve to a known tier, n=1,573) reproduces the same shape:
 
 The full confusion matrix at offset +1, row-normalized:
 
-![Routing confusion matrix at offset +1](docs/figures/fig3_confusion_matrix.png)
+![Routing confusion matrix at offset +1](figures/fig3_confusion_matrix.png)
 
 | expected ↓ / observed → | fr2 | mid | slc | tyo | total | match rate |
 |---|---|---|---|---|---|---|
@@ -446,12 +436,14 @@ The analysis is reproducible from the repo:
 
 ## Measurement asymmetries (disclosed in `summary.json`)
 
-1. **`getGenesisHash` overhead on Zela side**. The procedure invokes
-   `getGenesisHash` once per call before the `getMultipleAccounts` request
-   (a sanity check that the procedure is talking to mainnet). This adds
-   ~1–2 ms to the Zela server-side wall-clock that has no baseline
-   counterpart. Effect is small relative to the ratios reported, but
-   present. Fix is procedure-side and out of M5 scope.
+1. **`getGenesisHash` overhead on Zela client e2e**. The procedure issues
+   `getMultipleAccounts` first; `server_wall_clock_us` brackets only that
+   call. After returning the batch result, the procedure invokes
+   `getGenesisHash` once as a mainnet sanity check. This adds ~1–2 ms to
+   the Zela client e2e time (the orchestrator's HTTP session duration) but
+   does **not** affect `server_wall_clock_us`, which closes before
+   `getGenesisHash` runs. Effect is small relative to the ratios reported.
+   Fix is procedure-side and out of M5 scope.
 
 2. **Baseline `subprocess`-per-run TCP/TLS handshake**. The baseline client
    is a Rust binary the orchestrator spawns once per run; each invocation
@@ -483,9 +475,9 @@ The analysis is reproducible from the repo:
 
 - Slot freshness lag (`getSlot` vs response slot) — deprioritized
 - Multi-account scaling: M5 uses 10 oracle accounts. Realistic liquidator
-  scans want 50–100. Tested in M9 (see below).
+  scans want 50–100. Planned for M9 (see below).
 - Concurrency limits: per-procedure concurrency in dashboard caps at 32
-  (UI restriction); server-side hard max unknown. Tested in M9.
+  (UI restriction); server-side hard max unknown. Planned for M9.
 - Write path: no transaction submission, no `simulateTransaction`. M8.
 - Subscriptions (`account_subscribe` etc.): Zela's `Subscription::new`
   primitive is available but not exercised — relevant for the "watch"
@@ -570,7 +562,7 @@ submission to measure end-to-end "decide and submit" latency.
   `getAccountInfo` loop, kept for historical comparison)
 - `leader_correlation_results/` — slot→leader cache, validator metadata,
   per-run mapping CSV
-- `docs/figures/` — generated charts referenced above
+- `figures/` — generated charts referenced above
 
 All data, code, and intermediate caches are in this repository — reproduce,
 critique, fork.

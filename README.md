@@ -39,7 +39,7 @@ These are all explicitly out of scope for M5 and are mapped to follow-up milesto
 |---|---|---|---|
 | **Zela server-side** (inside procedure, no internet) | **0.97 ms** | 37.4 ms | 7.0 ms |
 | **Zela client e2e** (Prague→Frankfurt→Prague) | **18.71 ms** | 462.4 ms | 132.3 ms |
-| **Baseline client e2e** (Prague→Helius→Prague) | **95.48 ms** | 140.3 ms | 99.7 ms |
+| **Baseline client e2e** (Prague→Helius→Prague) | **95.48 ms** | 139.7 ms | 103.1 ms |
 
 Full distributions, CDF plots, and per-region breakdowns: [`docs/M5_RESULTS.md`](docs/M5_RESULTS.md) and [`docs/figures/`](docs/figures/).
 
@@ -49,7 +49,7 @@ Full distributions, CDF plots, and per-region breakdowns: [`docs/M5_RESULTS.md`]
 
 Each run is a paired measurement: the orchestrator issues one HTTP request to Zela's executor endpoint, then waits one second (to respect baseline rate limits), then issues one HTTP request to Helius. Each side does one batch `getMultipleAccounts` call returning state for the same 10 Pyth price accounts.
 
-The cron schedule runs five times daily (02:00, 08:00, 13:00, 17:00, 22:00 UTC) for 10 days, producing 36 datasets of 100 runs each. After symmetric cold-start filtering (first 5 runs per dataset, both sides) and 9 network errors, the clean dataset is ~3,050 paired runs.
+The cron schedule runs five times daily (02:00, 08:00, 13:00, 17:00, 22:00 UTC) for 10 days, producing 36 datasets of 100 runs each. After symmetric cold-start filtering (first 5 runs per dataset, both sides), the clean dataset is **3,420 baseline warm runs and 3,411 complete paired runs** (9 Zela-side errors filtered).
 
 A known measurement asymmetry is disclosed up-front: the baseline subprocess incurs a fresh TCP/TLS handshake on every run, while the Zela side uses a persistent `requests.Session()`. The handicap inflates the headline client ratio (5.1×) above the architectural advantage (~2.5–3.5×). See `## Measurement asymmetries` in the full report for the detailed accounting.
 
