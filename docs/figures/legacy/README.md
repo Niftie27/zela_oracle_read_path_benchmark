@@ -1,0 +1,1 @@
+Legacy figures and aggregated summary from pre-M5 milestones (M1–M4 sequential-mode era, one RPC call per oracle account, 10 calls per run). Preserved for historical reference. The current benchmark (M5) uses batch `getMultipleAccounts` and produces fig1–fig3 in the parent directory; see `../../M5_RESULTS.md` for details.
