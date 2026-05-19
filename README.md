@@ -12,7 +12,7 @@ An independent, open-source benchmark of Solana oracle read latency through Zela
 - Median read latency from a Prague client: **18.7 ms** (Zela) vs **95.5 ms** (Helius).
 - Headline client ratio is **5.1×**, but baseline carries a structural TCP/TLS handshake handicap of ~30–50 ms per run. After honest correction, architectural advantage is **~2.5–3.5×** — disclosed throughout the report.
 - **Sub-millisecond server-side compute** (median 0.97 ms) is stable across all 36 datasets and time-of-day buckets, while baseline shows ~9 ms diurnal swing tied to public-internet congestion.
-- **Leader-aware routing across 5 executor regions** verified at **83.7% per-run match rate** to the Solana leader schedule (n=2,571 known leaders, +1 slot offset).
+- **Leader-aware routing across 5 executor regions** verified at **83.7 % per-run match rate** to the Solana leader schedule (2,151 / 2,571 known-leader runs at +1 slot offset; 840 runs excluded due to validator-geolocation gaps — see Reading the numbers for full breakdown).
 - From a single Prague vantage point, two regions (Dubai, Newark) are indistinguishable by latency — the benchmark resolves 4 tiers, not 5.
 
 ---
@@ -173,6 +173,8 @@ The full disclosures section lives in [`docs/M5_RESULTS.md`](docs/M5_RESULTS.md)
 - **slc tail outliers** show a stdev of 37 ms vs 1–19 ms on other static routes. Root cause not resolved (sporadic TCP events vs systematic US-West path variance) — open Backlog item.
 - **Read-path only.** Write submission, inclusion latency, finality, BloXroute and Jito bundling are out of scope (M8).
 - **`getMultipleAccounts` with 10 oracle accounts** is one specific workload. Larger account batches (50–100), heterogeneous account types (obligation accounts, pool state), and write-bearing workflows are not characterized here (M9).
+- **840 of 3,411 runs are excluded from the routing-accuracy analysis** because public validator-geolocation data was missing, unparsable, or absent from local caches. The 83.7 % routing-accuracy headline is conditional on the 2,571 runs where geolocation succeeded. Full breakdown by exclusion reason is in docs/M5_RESULTS.md.
+- **Reads are at commitment: `confirmed`, not `processed`.** Oracle data snapshots are typically one slot behind the live chain tip; the benchmark does not characterize freshness-to-tip latency.
 
 ---
 

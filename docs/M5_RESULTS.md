@@ -205,6 +205,8 @@ no server-side measurement available — Helius is third-party.)
 
 ![CDF of read-path latency — Zela client vs baseline client vs Zela server-side](figures/fig1_cdf.png)
 
+Zela is much faster than baseline when auto-routing selects the nearby Frankfurt executor, which occurs in roughly two thirds of Prague-client runs. In the remaining third, auto-routing follows leaders in farther regions, so Prague pays Dubai/Newark/Salt Lake City/Tokyo round-trip and Helius can be faster on those paired runs. The CDF is therefore a latency-outcome distribution, not a routing-accuracy plot — routing accuracy is analyzed separately in Fig. 3.
+
 The CDF makes the bimodal Zela client distribution visible: a tight knee at
 ~18 ms (Frankfurt-routed calls), a step at ~228 ms (Newark/Dubai), one at
 ~330 ms (Salt Lake City), and a final mass at ~462 ms (Tokyo). The baseline
@@ -289,6 +291,8 @@ region, warm sample = last 95, dropping first 5 as connection warmup:
 | `auto` (default) | 16.4 | **18.5** | 460.9 | 462.7 | 144.6 |
 
 (All values in milliseconds.)
+
+From a single Prague vantage point, `dx1` Dubai (227.7 ms p50) and `ewr` Newark (229.7 ms p50) produce overlapping latency distributions and cannot be reliably distinguished by latency alone. Since the routing-accuracy analysis infers the observed tier from latency, these two regions are reported as a merged `mid` tier throughout the confusion matrix. This reduces precision: the analysis cannot say whether a `mid`-observed run went to Dubai or to Newark. Full 5-tier resolution would require three or more independent client vantage points (M7B follow-up).
 
 ![Per-region client latency from Prague — 100 runs per route, warm=last 95](figures/fig2_per_region.png)
 
@@ -432,6 +436,96 @@ The analysis is reproducible from the repo:
 - Caches saved to `leader_correlation_results/` (slot→leader, validator
   metadata, per-run mapping CSV)
 
+### Reading the numbers — workflow and four accuracy metrics
+
+This section ties together the percentages reported in this benchmark. They use different denominators and are easy to confuse.
+
+**Starting point: 3,411 complete paired runs.** After symmetric cold-start filtering (first 5 runs per dataset, both sides) and 9 Zela-side network errors, the clean M5 dataset contains 3,420 baseline warm runs and 3,411 complete paired runs. Every percentage below is derived from this set.
+
+#### Latency outcome across the 3,411 paired runs
+
+| Outcome | Count | Share |
+|---|---|---|
+| Zela faster than baseline | 2,244 | 65.8 % |
+| Baseline faster than Zela | 1,167 | 34.2 % |
+| **Total** | **3,411** | **100 %** |
+
+The 1,167 cases where baseline won are paired runs where Zela's auto-routing sent the request to a distant region (Newark, Salt Lake City, or Tokyo) and Helius from Prague was the shorter path despite traveling through the public internet.
+
+#### Observed Zela tier across the 3,411 paired runs
+
+Every Zela run is classified into one of four observed latency tiers by matching its client e2e wall-clock against the per-region reference distributions from the controlled static-routing test:
+
+| Observed Zela tier | Count | Share |
+|---|---|---|
+| fr2 (Frankfurt-like, ~18 ms) | 2,236 | 65.6 % |
+| mid (Dubai/Newark-like, ~228 ms) | 554 | 16.2 % |
+| slc (Salt Lake-like, ~322 ms) | 64 | 1.9 % |
+| tyo (Tokyo-like, ~462 ms) | 557 | 16.3 % |
+| **Total** | **3,411** | **100 %** |
+
+A useful sanity check: 2,236 Zela runs landed in the fast fr2 tier, while 2,244 Zela runs beat baseline. The 8-run gap is runs where Zela was routed to a non-Frankfurt region but the paired baseline happened to be unusually slow, so Zela still won the pair.
+
+#### Routing-prediction workflow
+
+For each run we want to know: did Zela's auto-router actually pick the region closest to the current Solana leader? Answering this requires both an expected tier (where the leader was) and an observed tier (where the request ended up).
+
+The per-run pipeline runs in `analysis/post_hoc/leader_correlation_v3.py`:
+
+1. Read `context_slot` from the Zela response — the Solana slot whose oracle-account state was returned. Reads use `commitment: confirmed`, so this slot is typically 1 slot behind the live processed chain tip.
+2. Compute `target_slot = context_slot + 1` — the live-tip estimate. This is the confirmed-vs-processed commitment-lag artifact: the oracle data snapshot is one slot behind the slot whose leader influenced Zela's routing decision.
+3. Look up the leader pubkey for `target_slot` from a local cache built by `analysis/post_hoc/fetch_new_slots.py` (sourced from Solana mainnet RPC `getSlotLeaders`).
+4. Look up validator metadata for that pubkey from a local validators.app cache built by `analysis/post_hoc/fill_missing_validators.py`.
+5. Parse the validator's location string and map it to a Zela tier (`fr2`/`mid`/`slc`/`tyo`).
+6. Compare expected tier from step 5 against observed tier from latency classification.
+
+Each step can fail. Of the 3,411 runs at slot+1:
+
+| Outcome | Count |
+|---|---|
+| Expected tier resolved | 2,571 |
+| Excluded — see breakdown | 840 |
+| **Total** | **3,411** |
+
+**Why 840 runs are excluded**
+
+| Reason | Count |
+|---|---|
+| Leader pubkey resolved, but validators.app had no usable validator data for it | 542 |
+| Validator data present, but the location string was not parsable into a known Zela tier | 208 |
+| target_slot missing from the leader cache | 83 |
+| Leader pubkey missing from the validator cache | 7 |
+| **Total excluded** | **840** |
+
+Why so many? Validator metadata is an external, messy data source. Some validators advertise clean geographic strings like `44486-DE-Frankfurt am Main`. Others publish only hostnames like `be102.bhs-g1-nc5.qc.ca`, or empty/null fields, or strings that don't parse cleanly into `fr2`/`mid`/`slc`/`tyo`. The 840 exclusions are a transparency artifact of building the routing-accuracy story on top of imperfect public validator geolocation data. The headline 83.7 % is therefore conditional on the 2,571 runs where geolocation succeeded; the 840 are not "Zela failed", they are "we could not check Zela on this run".
+
+#### Confusion matrix breakdown
+
+For the 2,571 runs with known expected tier:
+
+| Expected tier | Total | Matched observed | Mismatches |
+|---|---|---|---|
+| fr2 | 1,777 | 1,592 (89.6 %) | 185 |
+| mid | 434 | 273 (62.9 %) | 161 |
+| slc | 14 | 1 (7.1 %) | 13 |
+| tyo | 346 | 285 (82.4 %) | 61 |
+| **Total** | **2,571** | **2,151 (83.7 %)** | **420** |
+
+Reading the rows: 1,777 + 434 + 14 + 346 = 2,571 (column adds back to the known-tier subset). The 420 mismatches are off-diagonal entries — 185 + 161 + 13 + 61 — across all four expected-tier rows.
+
+The 185 mismatches in the fr2 row break down (per Fig. 3) as 73 observed as mid, 7 as slc, 105 as tyo. Runs where the leader was in Europe but Zela's actual routing landed in a more distant region (possible reasons include load-based dispatcher fallback, leader transitions mid-handshake, or geolocation noise on the expected side).
+
+#### Four percentages, four denominators
+
+| Number | Question it answers | Denominator |
+|---|---|---|
+| 65.8 % | What share of paired runs did Zela win on latency? | 3,411 paired runs |
+| 65.6 % | What share of Zela runs landed in the fast fr2 tier? | 3,411 paired runs |
+| 89.6 % | When the leader was in fr2, how often did Zela actually route to fr2? | 1,777 fr2-expected runs |
+| 83.7 % | Overall routing-prediction accuracy across all known leaders | 2,571 known-leader runs |
+
+These are four different things and should not be substituted for each other.
+
 ---
 
 ## Measurement asymmetries (disclosed in `summary.json`)
@@ -468,6 +562,18 @@ The analysis is reproducible from the repo:
    structurally compares Zela's server-side (no client→server network) to
    baseline's full end-to-end. We report it for transparency but treat
    `client_ratio` as the honest comparison.
+
+5. **Reads are at commitment: `confirmed`, not `processed`.** M5 reads
+   oracle account state with `commitment: confirmed`, which typically lags
+   the live processed chain tip by about one slot. The benchmark therefore
+   characterizes read latency at the confirmed-commitment level, not
+   freshness-to-tip. A separate benchmark would be required to measure how
+   stale the returned oracle data is relative to the most recent processed
+   slot. The +1 slot offset used in the routing-prediction analysis is a
+   consequence of this commitment lag: the data snapshot is one slot behind
+   the slot whose leader influenced Zela's routing decision. This is
+   documented honestly but should not be conflated with a freshness
+   comparison.
 
 ---
 
