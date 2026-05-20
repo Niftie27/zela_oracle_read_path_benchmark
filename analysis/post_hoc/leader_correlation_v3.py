@@ -23,6 +23,7 @@ Uses existing caches (no network calls):
 Run: python3 leader_correlation_v3.py
 """
 
+import argparse
 import csv
 import json
 import re
@@ -136,6 +137,15 @@ def get_name(validator_info) -> str:
 
 
 def main():
+    ap = argparse.ArgumentParser(description="Per-run leader correlation pipeline")
+    ap.add_argument("--slot-offset", type=int, default=1,
+                    help="Slot offset applied to context_slot before leader lookup (default: 1)")
+    ap.add_argument("--manifest", default="analysis/m5_manifest.txt",
+                    help="Path to dataset manifest (default: analysis/m5_manifest.txt)")
+    ap.add_argument("--output", default=None,
+                    help="Output CSV path (default: leader_correlation_results/runs_with_leaders_offset_N.csv)")
+    args = ap.parse_args()
+
     repo_root = Path(".").resolve()
     out_dir = repo_root / "leader_correlation_results"
 
@@ -168,13 +178,27 @@ def main():
         print(f"  {t:<10}: {tier_counts[t]:>4} validators")
 
     # Cross-correlate
+    manifest_path = Path(args.manifest)
+    if not manifest_path.is_absolute():
+        manifest_path = repo_root / manifest_path
+    if not manifest_path.exists():
+        print(f"ERROR: manifest not found: {manifest_path}", file=sys.stderr)
+        sys.exit(1)
+    manifest_entries = [
+        l.strip() for l in manifest_path.read_text().splitlines()
+        if l.strip() and not l.startswith("#")
+    ]
     datasets_dir = repo_root / "zela_datasets"
     all_datasets = sorted([
-        p for p in datasets_dir.iterdir()
-        if p.is_dir() and p.name.startswith("dataset_2026_05_")
-        and (p / "feeds.csv").exists()
+        datasets_dir / name for name in manifest_entries
+        if (datasets_dir / name / "feeds.csv").exists()
     ])
-    print(f"\nFound {len(all_datasets)} batch datasets")
+    skipped = [name for name in manifest_entries
+               if not (datasets_dir / name / "feeds.csv").exists()]
+    if skipped:
+        print(f"WARNING: {len(skipped)} manifest entries not found on disk: {skipped}",
+              file=sys.stderr)
+    print(f"\nLoaded {len(all_datasets)}/{len(manifest_entries)} manifest datasets")
 
     runs = []
     for ds in all_datasets:
@@ -207,7 +231,8 @@ def main():
 
     print(f"Total Zela runs: {len(runs)}")
 
-    out_csv = out_dir / "runs_with_leaders_v3.csv"
+    out_name = args.output or f"runs_with_leaders_offset_{args.slot_offset}.csv"
+    out_csv = Path(out_name) if Path(out_name).is_absolute() else out_dir / out_name
     matches = defaultdict(int)
     no_leader = 0
     no_vdata = 0
@@ -220,7 +245,7 @@ def main():
             "client_us", "client_ms", "observed_tier", "expected_tier", "match",
         ])
         for r in runs:
-            slot = r["slot"]
+            slot = r["slot"] + args.slot_offset
             leader = leader_cache.get(slot)
             if not leader:
                 no_leader += 1

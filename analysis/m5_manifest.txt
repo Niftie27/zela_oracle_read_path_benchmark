@@ -1,0 +1,39 @@
+# M5 frozen dataset manifest — 36 datasets, 2026-05-04 through 2026-05-13
+# zela_datasets/dataset_2026_05_04_2200/summary.json is the combined M5 summary,
+# regenerated against this manifest by: python3 analysis/analyze.py --mode batch $(grep -v '^#' analysis/m5_manifest.txt | sed 's|^|zela_datasets/|')
+dataset_2026_05_04_2200
+dataset_2026_05_06_1655
+dataset_2026_05_06_1700
+dataset_2026_05_06_2200
+dataset_2026_05_07_0200
+dataset_2026_05_07_0800
+dataset_2026_05_07_1300
+dataset_2026_05_07_1700
+dataset_2026_05_07_2200
+dataset_2026_05_08_0200
+dataset_2026_05_08_0800
+dataset_2026_05_08_1300
+dataset_2026_05_08_1700
+dataset_2026_05_08_2200
+dataset_2026_05_09_0200
+dataset_2026_05_09_0800
+dataset_2026_05_09_1300
+dataset_2026_05_09_1700
+dataset_2026_05_09_2200
+dataset_2026_05_10_0200
+dataset_2026_05_10_0800
+dataset_2026_05_10_1300
+dataset_2026_05_10_1700
+dataset_2026_05_10_2200
+dataset_2026_05_11_0200
+dataset_2026_05_11_0800
+dataset_2026_05_11_1300
+dataset_2026_05_11_1700
+dataset_2026_05_11_2200
+dataset_2026_05_12_0200
+dataset_2026_05_12_0800
+dataset_2026_05_12_1300
+dataset_2026_05_12_1700
+dataset_2026_05_13_1300
+dataset_2026_05_13_1700
+dataset_2026_05_13_2200

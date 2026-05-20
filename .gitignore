@@ -30,3 +30,28 @@ __pycache__/
 .codex
 .codex/
 *.code-workspace
+
+# Stdout log files
+*_stdout.txt
+
+# Windows attachment metadata
+*.Zone.Identifier
+
+# Post-M5-window datasets (outside the frozen M5 manifest)
+zela_datasets/dataset_2026_05_1[5-9]*/
+zela_datasets/dataset_2026_05_2*/
+zela_datasets/dataset_2026_0[6-9]*/
+zela_datasets/dataset_202[7-9]*/
+
+# Route test raw outputs at repo root (committed under analysis/post_hoc/route_test_results/)
+/route_test_results/
+
+# Temporary result files
+fill_slots_round2.txt
+fill_stdout.txt
+fill_validators_stdout.txt
+route_test_100_stdout.txt
+stdout.txt
+stdout_v2.txt
+stdout_v3.txt
+stdout_v4.txt

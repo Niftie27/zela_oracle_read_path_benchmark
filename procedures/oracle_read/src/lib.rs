@@ -1,19 +1,19 @@
 use chrono::Utc;
 use serde::{Deserialize, Serialize};
 use serde_json::{json, Value};
-use zela_std::{call_rpc, CustomProcedure, JsonValue, RpcError, zela_custom_procedure};
+use zela_std::{call_rpc, zela_custom_procedure, CustomProcedure, JsonValue, RpcError};
 
 const FEEDS: &[(&str, &str)] = &[
-    ("SOL/USD",  "H6ARHf6YXhGYeQfUzQNGk6rDNnLBQKrenN712K4AQJEG"),
-    ("BTC/USD",  "GVXRSBjFk6e6J3NbVPXohDJetcTjaeeuykUpbQF8UoMU"),
-    ("ETH/USD",  "JBu1AL4obBcCMqKBBxhpWCNUt136ijcuMZLFvTP7iWdB"),
+    ("SOL/USD", "H6ARHf6YXhGYeQfUzQNGk6rDNnLBQKrenN712K4AQJEG"),
+    ("BTC/USD", "GVXRSBjFk6e6J3NbVPXohDJetcTjaeeuykUpbQF8UoMU"),
+    ("ETH/USD", "JBu1AL4obBcCMqKBBxhpWCNUt136ijcuMZLFvTP7iWdB"),
     ("USDC/USD", "Gnt27xtC473ZT2Mw5u8wZ68Z3gULkSTb5DuxJy7eJotD"),
     ("USDT/USD", "3vxLXJqLqF3JG5TCbYycbKWRBbCJQLxQmBGCkyqEEefL"),
-    ("BNB/USD",  "4CkQJBxhU8EZ2UjhigbtdaPbpTe6mqf811fipYBFbSYN"),
-    ("JUP/USD",  "g6eRCbboSwK4tSWngn773RCMexr1APQr4uA9bGZBYfo"),
+    ("BNB/USD", "4CkQJBxhU8EZ2UjhigbtdaPbpTe6mqf811fipYBFbSYN"),
+    ("JUP/USD", "g6eRCbboSwK4tSWngn773RCMexr1APQr4uA9bGZBYfo"),
     ("BONK/USD", "8ihFLu5FimgTQ1Unh4dVyEHUGodJ5gJQCrQf4KUVB9bN"),
     ("PYTH/USD", "nrYkQQQur7z8rYTST3G9GqATviK5SxTDkrqd21MW6Ue"),
-    ("JTO/USD",  "D8UUgr8a3aR3yUeHLu7v8FWK7E8Y5sSU7qrYBXUJXBQ5"),
+    ("JTO/USD", "D8UUgr8a3aR3yUeHLu7v8FWK7E8Y5sSU7qrYBXUJXBQ5"),
 ];
 
 pub struct OracleRead;
@@ -59,7 +59,11 @@ struct MultipleAccounts {
 }
 
 fn io_err(e: impl std::fmt::Display) -> RpcError<JsonValue> {
-    RpcError { code: -32000, message: e.to_string(), data: None }
+    RpcError {
+        code: -32000,
+        message: e.to_string(),
+        data: None,
+    }
 }
 
 fn b64_decoded_len(s: &str) -> usize {

@@ -284,10 +284,10 @@ region, warm sample = last 95, dropping first 5 as connection warmup:
 | Route | p5 | p50 | p95 | max | stdev |
 |---|---|---|---|---|---|
 | `fr2` Frankfurt | 16.4 | **18.6** | 20.2 | 20.7 | 1.1 |
-| `dx1` Dubai | 225.5 | **227.7** | 229.4 | 240.1 | 7.5 |
-| `ewr` Newark NJ | 217.6 | **229.7** | 248.6 | 259.0 | 11.3 |
-| `slc` Salt Lake City | 309.8 | **321.7** | 383.9 | 546.0 | 37.4 |
-| `tyo` Tokyo | 459.7 | **461.7** | 464.1 | 464.7 | 19.3 |
+| `dx1` Dubai | 226.2 | **227.7** | 229.5 | 240.1 | 7.5 |
+| `ewr` Newark NJ | 219.1 | **229.7** | 248.6 | 259.0 | 11.3 |
+| `slc` Salt Lake City | 311.7 | **322.9** | 384.3 | 546.0 | 37.4 |
+| `tyo` Tokyo | 459.9 | **461.8** | 464.1 | 464.7 | 19.3 |
 | `auto` (default) | 16.4 | **18.5** | 460.9 | 462.7 | 144.6 |
 
 (All values in milliseconds.)
@@ -303,7 +303,7 @@ Four observations matter here:
    warm window, this happened in 73% of calls — consistent with Solana's
    stake distribution placing EU validators frequently in the leader slot.
 
-2. **`auto` p95 = 461 ms matches `tyo` p50 = 461.7 ms.** When the leader is
+2. **`auto` p95 = 461 ms matches `tyo` p50 = 461.8 ms.** When the leader is
    in APAC, Zela routes to `tyo`, and Prague→Tokyo RTT is the dominant cost.
    This is the *cause* of the bimodality in the main cron dataset.
 
@@ -362,18 +362,18 @@ routing.
 Looking up the leader at `context_slot + 1` (shifting one slot toward the
 chain tip) resolves this. The full curve:
 
-| Slot offset | Match rate (full coverage, 2,571 known) |
-|---|---|
-| −2 | 57.8% |
-| −1 | 66.2% |
-| 0 (raw context_slot) | 73.5% |
-| **+1** | **83.7%** ← chain-tip estimate |
-| +2 | 81.3% |
-| +3 | 73.0% |
+| Slot offset | Matched | Known leaders | Match rate |
+|---|---:|---:|---:|
+| −2 | 1,380 | 2,386 | 57.8 % |
+| −1 | 1,567 | 2,367 | 66.2 % |
+| 0 (raw context_slot) | 1,943 | 2,643 | 73.5 % |
+| **+1** | **2,151** | **2,571** | **83.7 %** ← chain-tip estimate |
+| +2 | 2,044 | 2,514 | 81.3 % |
+| +3 | 1,761 | 2,413 | 73.0 % |
 
-The peak at +1 is clear; the curve is mildly asymmetric — a sharper rise from −2 to +1 than the decline from +1 to +3. A fixed-subset control (runs where
-all offsets resolve to a known tier, n=1,573) reproduces the same shape:
-+1 → 83.7%. The effect is not denominator drift.
+The denominator varies by offset because the leader/validator cache resolves a different subset of runs at each candidate slot. A fixed-subset control (runs with known leaders at every offset −2..+3) would yield a smaller but constant `n`; the per-offset table above is the canonical form used in the report.
+
+The peak at +1 is clear; the curve is mildly asymmetric — a sharper rise from −2 to +1 than the decline from +1 to +3.
 
 ### Confusion matrix and per-tier breakdown
 
@@ -473,7 +473,7 @@ For each run we want to know: did Zela's auto-router actually pick the region cl
 The per-run pipeline runs in `analysis/post_hoc/leader_correlation_v3.py`:
 
 1. Read `context_slot` from the Zela response — the Solana slot whose oracle-account state was returned. Reads use `commitment: confirmed`, so this slot is typically 1 slot behind the live processed chain tip.
-2. Compute `target_slot = context_slot + 1` — the live-tip estimate. This is the confirmed-vs-processed commitment-lag artifact: the oracle data snapshot is one slot behind the slot whose leader influenced Zela's routing decision.
+2. Compute `target_slot = context_slot + 1` — the live-tip estimate. The +1 offset is the best empirical effective-leader estimate, consistent with confirmed-commitment lag (the read returns data from a slot typically one behind the live processed tip, and the leader at that next slot best predicts the observed routing).
 3. Look up the leader pubkey for `target_slot` from a local cache built by `analysis/post_hoc/fetch_new_slots.py` (sourced from Solana mainnet RPC `getSlotLeaders`).
 4. Look up validator metadata for that pubkey from a local validators.app cache built by `analysis/post_hoc/fill_missing_validators.py`.
 5. Parse the validator's location string and map it to a Zela tier (`fr2`/`mid`/`slc`/`tyo`).
@@ -656,19 +656,34 @@ submission to measure end-to-end "decide and submit" latency.
 
 ## Repository layout
 
-- `procedures/oracle_read/src/lib.rs` — Zela procedure source (batch)
-- `baseline_client/src/main.rs` — Rust client for baseline RPC (batch)
-- `orchestrator/orchestrate.py` — collector, runs both sides per cron tick
-- `analysis/analyze.py` — combined-statistics pipeline (`--mode batch`)
-- `route_test_session.py` — controlled per-region latency test
-- `leader_correlation_v3.py` — leader correlation pipeline
-- `fetch_new_slots.py` / `fill_missing_validators.py` — cache priming
-- `zela_datasets/dataset_2026_05_*/` — 36 batch datasets (this run)
-- `zela_datasets/legacy_sequential/` — 34 pre-M5 datasets (sequential
-  `getAccountInfo` loop, kept for historical comparison)
-- `leader_correlation_results/` — slot→leader cache, validator metadata,
-  per-run mapping CSV
-- `figures/` — generated charts referenced above
+```
+zela_oracle_read_path_benchmark/
+├── README.md
+├── docs/
+│   ├── M5_RESULTS.md
+│   └── figures/
+│       ├── fig1_cdf.png
+│       ├── fig2_per_region.png
+│       └── fig3_confusion_matrix.png
+├── orchestrator/
+│   └── orchestrate.py                 (paired-run collector, cron entry point)
+├── analysis/
+│   ├── analyze.py                     (combined-statistics pipeline, --mode batch)
+│   ├── make_m5_figures.py             (regenerate fig1–fig3 from frozen inputs)
+│   ├── m5_manifest.txt                (frozen 36-dataset list for M5)
+│   └── post_hoc/
+│       ├── route_test_session.py      (controlled per-region static-routing test)
+│       ├── fetch_new_slots.py         (cache priming: slot → leader pubkey)
+│       ├── fill_missing_validators.py (cache priming: pubkey → location)
+│       ├── leader_correlation_v3.py   (per-run correlation pipeline)
+│       └── route_test_results/        (100-run per-region measurements for fig2)
+├── baseline_client/src/main.rs        (Rust client for baseline RPC)
+├── procedures/oracle_read/src/lib.rs  (Zela procedure source, batch)
+├── zela_datasets/
+│   ├── dataset_2026_05_*/             (36 M5 batch datasets)
+│   └── legacy_sequential/             (pre-M5 sequential datasets, preserved)
+└── leader_correlation_results/        (slot→leader cache, validator metadata, per-run CSV)
+```
 
 All data, code, and intermediate caches are in this repository — reproduce,
 critique, fork.

@@ -3,22 +3,20 @@
 Route test — verify whether `zela-route-by: static <label>` header
 actually changes client-side latency from Prague.
 
-Uses requests.Session() to reuse TCP/TLS connection across calls
-(same pattern as orchestrate.py), so each measurement reflects
-ONLY procedure execution, NOT TLS handshake overhead.
+Measures Prague-client end-to-end latency to a specified executor route.
+Uses a persistent `requests.Session` so the per-run TLS handshake cost is
+paid once at warm-up, not per call. Timings therefore reflect the
+steady-state round-trip cost of an established connection to the chosen
+Zela executor region, not just procedure execution.
 
 Outputs:
-  ./route_test_results/fr2_session.txt
-  ./route_test_results/auto_session.txt
-  ./route_test_results/tyo_session.txt
-  ./route_test_results/ewr_session.txt    (new: Newark)
-  ./route_test_results/dx1_session.txt    (new: Dubai)
-  ./route_test_results/slc_session.txt    (new: Salt Lake City)
+  analysis/post_hoc/route_test_results/<route>_session.txt
 
-Each file: 25 lines, one wall_clock_us per run.
-First 5 are warmup (drop in analysis).
+Each file: N lines (default 100), one wall_clock_us per run.
+First 5 are warmup (drop in analysis); use --runs to change total.
 """
 
+import argparse
 import os
 import sys
 import time
@@ -29,23 +27,23 @@ from pathlib import Path
 
 
 def load_env():
-    """Load .env file from repo root."""
-    repo_root = Path(__file__).parent.resolve()
-    env_path = repo_root / ".env"
-    if not env_path.exists():
-        print(f"ERROR: .env not found at {env_path}", file=sys.stderr)
-        sys.exit(1)
-
-    env = {}
-    with open(env_path) as f:
-        for line in f:
-            line = line.strip()
-            if not line or line.startswith("#"):
-                continue
-            if "=" in line:
-                k, _, v = line.partition("=")
-                env[k.strip()] = v.strip().strip('"').strip("'")
-    return env
+    """Load .env file, walking up from script location until found."""
+    here = Path(__file__).resolve()
+    for parent in [here.parent, *here.parents]:
+        candidate = parent / ".env"
+        if candidate.exists():
+            env = {}
+            with open(candidate) as f:
+                for line in f:
+                    line = line.strip()
+                    if not line or line.startswith("#"):
+                        continue
+                    if "=" in line:
+                        k, _, v = line.partition("=")
+                        env[k.strip()] = v.strip().strip('"').strip("'")
+            return env
+    print("ERROR: .env not found in any parent directory", file=sys.stderr)
+    sys.exit(1)
 
 
 def fetch_jwt(key_id: str, key_secret: str) -> str:
@@ -64,7 +62,7 @@ def fetch_jwt(key_id: str, key_secret: str) -> str:
 
 
 def run_test(session: requests.Session, route_label: str, procedure: str,
-             revision: str, runs: int = 25) -> list[int]:
+             revision: str, runs: int = 100) -> list[int]:
     """
     Run `runs` procedure calls with the given route header,
     using the persistent session (no per-call TLS handshake).
@@ -89,6 +87,12 @@ def run_test(session: requests.Session, route_label: str, procedure: str,
         t1 = time.perf_counter_ns()
         # Drain body but DON'T include parse in timing
         _ = resp.content
+        # TODO(M6): check resp.raise_for_status() and JSON-RPC "error"
+        # before appending timing — currently failed executor responses
+        # could be silently recorded as latency samples. The committed
+        # M5 route-test results show no anomalous high-latency outliers
+        # in the timing distribution, but the script cannot independently
+        # verify response success from timing alone.
         wall_clock_us = (t1 - t0) // 1000
         times.append(wall_clock_us)
         time.sleep(1.0)  # match cron sleep for comparable noise floor
@@ -96,6 +100,14 @@ def run_test(session: requests.Session, route_label: str, procedure: str,
 
 
 def main():
+    ap = argparse.ArgumentParser(description="Per-region static-routing latency test")
+    ap.add_argument("--route", required=True,
+                    choices=["fr2", "dx1", "ewr", "slc", "tyo", "auto"],
+                    help="Region to test (use 'auto' for default leader-aware routing)")
+    ap.add_argument("--runs", type=int, default=100,
+                    help="Number of runs (default: 100; first 5 are warmup)")
+    args = ap.parse_args()
+
     env = load_env()
     key_id = env.get("ZELA_KEY_ID")
     key_secret = env.get("ZELA_KEY_SECRET")
@@ -122,43 +134,26 @@ def main():
         "content-type": "application/json",
     })
 
-    out_dir = Path("./route_test_results")
+    repo_root = Path(__file__).resolve().parent.parent.parent
+    out_dir = repo_root / "analysis" / "post_hoc" / "route_test_results"
     out_dir.mkdir(exist_ok=True)
 
-    # auto = no route-by header (default leader-aware)
-    routes = [
-        ("auto", None),       # default leader-aware routing
-        ("fr2", "fr2"),       # Frankfurt
-        ("tyo", "tyo"),       # Tokyo
-        ("ewr", "ewr"),       # Newark NJ
-        ("dx1", "dx1"),       # Dubai
-        ("slc", "slc"),       # Salt Lake City
-    ]
-
-    print(f"\nRunning {len(routes)} tests, 25 runs each (first 5 = warmup)...")
-    print(f"Total: {len(routes) * 25} runs, ~{len(routes) * 25} seconds")
-    print()
-
-    for name, label in routes:
-        print(f"=== {name} (label={label!r}) ===")
-        times = run_test(session, label, procedure, revision, runs=25)
-        out_file = out_dir / f"{name}_session.txt"
-        with open(out_file, "w") as f:
-            for t in times:
-                f.write(f"{t}\n")
-        # Quick summary, warm = last 20
-        warm = times[5:]
-        warm_sorted = sorted(warm)
-        p50 = warm_sorted[len(warm) // 2]
-        p95_idx = max(0, int(len(warm) * 0.95) - 1)
-        p95 = warm_sorted[p95_idx]
-        print(f"  warm n={len(warm)}  p50={p50/1000:.2f}ms  p95={p95/1000:.2f}ms  "
-              f"min={min(warm)/1000:.2f}ms  max={max(warm)/1000:.2f}ms")
-        print(f"  -> {out_file}")
-        print()
-
-    print("All results saved to ./route_test_results/")
-    print("Run again or upload to chat for analysis.")
+    route_label = None if args.route == "auto" else args.route
+    print(f"\nRunning {args.route} (label={route_label!r}), {args.runs} runs (first 5 = warmup)...")
+    times = run_test(session, route_label, procedure, revision, runs=args.runs)
+    out_file = out_dir / f"{args.route}_session.txt"
+    with open(out_file, "w") as f:
+        for t in times:
+            f.write(f"{t}\n")
+    warm = times[5:]
+    warm_sorted = sorted(warm)
+    p50 = warm_sorted[len(warm) // 2]
+    p95_idx = max(0, int(len(warm) * 0.95) - 1)
+    p95 = warm_sorted[p95_idx]
+    print(f"  warm n={len(warm)}  p50={p50/1000:.2f}ms  p95={p95/1000:.2f}ms  "
+          f"min={min(warm)/1000:.2f}ms  max={max(warm)/1000:.2f}ms")
+    print(f"  -> {out_file}")
+    print("\nResult saved.")
 
 
 if __name__ == "__main__":

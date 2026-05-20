@@ -72,8 +72,8 @@ Controlled per-region latency from a Prague client using static routing:
 | `fr2` Frankfurt | 18.6 ms | 1.1 ms |
 | `dx1` Dubai | 227.7 ms | 7.5 ms |
 | `ewr` Newark NJ | 229.7 ms | 11.3 ms |
-| `slc` Salt Lake City | 321.7 ms | 37.4 ms |
-| `tyo` Tokyo | 461.7 ms | 19.3 ms |
+| `slc` Salt Lake City | 322.9 ms | 37.4 ms |
+| `tyo` Tokyo | 461.8 ms | 19.3 ms |
 
 Dubai and Newark are statistically indistinguishable from a Prague vantage point (overlapping distributions). The benchmark therefore resolves 4 latency tiers, not 5; the merged tier is labeled `mid`. Full 5-tier resolution would require 3+ vantage points (M7B).
 
@@ -83,14 +83,16 @@ Dubai and Newark are statistically indistinguishable from a Prague vantage point
 
 For each of the 3,411 Zela runs, the analysis pipeline reads `context_slot` from the response, looks up the Solana leader at that slot, geolocates the leader validator (via validators.app), maps the leader location to the expected Zela tier, and compares to the tier inferred from the run's observed client e2e latency.
 
-| Slot offset | Match rate (n=2,571 known) |
-|---|---|
-| −2 | 57.8% |
-| −1 | 66.2% |
-| 0 (raw context_slot) | 73.5% |
-| **+1** | **83.7%** ← chain-tip estimate |
-| +2 | 81.3% |
-| +3 | 73.0% |
+| Slot offset | Matched | Known leaders | Match rate |
+|---|---:|---:|---:|
+| −2 | 1,380 | 2,386 | 57.8 % |
+| −1 | 1,567 | 2,367 | 66.2 % |
+| 0 (raw context_slot) | 1,943 | 2,643 | 73.5 % |
+| **+1** | **2,151** | **2,571** | **83.7 %** ← chain-tip estimate |
+| +2 | 2,044 | 2,514 | 81.3 % |
+| +3 | 1,761 | 2,413 | 73.0 % |
+
+The denominator varies by offset because the leader/validator cache resolves a different subset of runs at each candidate slot. A fixed-subset control (runs with known leaders at every offset −2..+3) would yield a smaller but constant `n`; the per-offset table above is the canonical form used in the report.
 
 The peak at +1 is consistent with a commitment-lag correction: the orchestrator reads with `confirmed` commitment (lagging the chain tip by ~1–2 slots), while Zela's dispatcher routes based on the chain tip. A boundary-gradient analysis (match rate decreases monotonically across the four slot positions within a leader's assignment window when measured at offset 0; full breakdown in the report) independently confirms the timing model.
 
@@ -113,15 +115,18 @@ zela_oracle_read_path_benchmark/
 │   └── orchestrate.py                 (paired-run collector, cron entry point)
 ├── analysis/
 │   ├── analyze.py                     (combined-statistics pipeline, --mode batch)
+│   ├── make_m5_figures.py             (regenerate fig1–fig3 from frozen inputs)
+│   ├── m5_manifest.txt                (frozen 36-dataset list for M5)
 │   └── post_hoc/
 │       ├── route_test_session.py      (controlled per-region static-routing test)
 │       ├── fetch_new_slots.py         (cache priming: slot → leader pubkey)
 │       ├── fill_missing_validators.py (cache priming: pubkey → location)
-│       └── leader_correlation_v3.py   (per-run correlation pipeline)
+│       ├── leader_correlation_v3.py   (per-run correlation pipeline)
+│       └── route_test_results/        (100-run per-region measurements for fig2)
 ├── zela_datasets/
 │   ├── dataset_YYYYMMDD_HHMM/         (M5 paired-run datasets, 36 entries)
 │   └── legacy_sequential/             (M1–M4 sequential-mode datasets, preserved)
-├── procedure/
+├── procedures/
 │   └── oracle_read/                   (Rust WASM source, deployed to executor)
 └── leader_correlation_results/        (caches: slot→leader, validator metadata, per-run CSV)
 ```
@@ -132,31 +137,54 @@ zela_oracle_read_path_benchmark/
 
 Prerequisites:
 - Python 3.10+ with `requests`, `pandas`, `numpy`, `matplotlib`
-- Rust toolchain with `wasm32-unknown-unknown` target (for procedure rebuild)
-- Solana mainnet RPC access (Helius free tier sufficient for baseline)
-- Zela platform access (early-builder credentials; see [docs.zela.io](https://docs.zela.io/) for onboarding)
-- Environment variables: `ZELA_JWT`, `HELIUS_API_KEY`
+- Rust toolchain (for procedure rebuild only)
+- Zela platform credentials and a Solana mainnet RPC endpoint
+- A `.env` file at the repo root with the following variables:
 
-Run a single paired collection:
+```
+ZELA_KEY_ID=<your-key-id>
+ZELA_KEY_SECRET=<your-key-secret>
+ZELA_PROCEDURE=<procedure-name>
+ZELA_PROCEDURE_REVISION=<deployed-revision-hash>
+BASELINE_RPC_URL=<helius-or-other-rpc-url>
+```
+
+### A. Reproduce the frozen M5 report from committed artifacts
+
+Use the committed CSVs and the figure regeneration script. Numbers match the report exactly.
+
+**Regenerate figures:**
+```bash
+python analysis/make_m5_figures.py --out-dir docs/figures/
+```
+
+The frozen routing-accuracy result (2,151 / 2,571 ≈ 83.7 % at offset +1) is derived from `leader_correlation_results/runs_with_leaders_offset_1.csv`, committed as part of M5.
+
+**Combined-statistics analysis across all M5 datasets:**
+```bash
+python analysis/analyze.py --mode batch $(cat analysis/m5_manifest.txt | grep -v '^#' | sed 's|^|zela_datasets/|')
+```
+
+### B. Refresh upstream caches and re-derive (may drift)
+
+Re-runs the full pipeline including external RPC and validators.app lookups. Results may differ from the frozen report if upstream data (validator metadata, slot leader cache) has changed. This path is for new data collection or upstream-source refresh, not for reproducing the published M5 numbers. Use path A for exact reproduction.
+
+**Leader correlation pipeline:**
+```bash
+python analysis/post_hoc/fetch_new_slots.py --manifest analysis/m5_manifest.txt
+python analysis/post_hoc/fill_missing_validators.py
+python analysis/post_hoc/leader_correlation_v3.py --slot-offset 1
+```
+
+**Run a single paired collection:**
 ```bash
 python orchestrator/orchestrate.py --runs 100
 ```
 
-Combined-statistics analysis across all datasets:
-```bash
-python analysis/analyze.py --mode batch
-```
-
-Per-region static-routing measurement:
+**Per-region static-routing measurement (repeat for each region):**
 ```bash
 python analysis/post_hoc/route_test_session.py --route fr2 --runs 100
-```
-
-Leader correlation pipeline:
-```bash
-python analysis/post_hoc/fetch_new_slots.py
-python analysis/post_hoc/fill_missing_validators.py
-python analysis/post_hoc/leader_correlation_v3.py
+# repeat with --route dx1, ewr, slc, tyo, auto
 ```
 
 ---

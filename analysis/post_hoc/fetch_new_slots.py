@@ -3,13 +3,23 @@
 Fetch slot leaders that are NEEDED by datasets but entirely MISSING from
 leader_cache.json (not null — just absent keys).
 
-fill_missing_slot_leaders.py only refills null entries. This one finds
-slots referenced by zela runs that have no key at all in the cache, and
-fetches them.
+Reads only the datasets listed in the manifest so that post-M5 datasets
+do not contaminate the frozen M5 cache priming.
 
-Run from repo root: python3 fetch_new_slots.py
+For each run's context_slot, fetches the leader at context_slot + offset
+for each offset in --offsets (default: 0,1 — covering the report's two
+headline offsets). This ensures that a cold-cache reproduction of the
+offset-+1 analysis reaches the full 2,571 known-leader count.
+
+Run from repo root:
+  python3 analysis/post_hoc/fetch_new_slots.py
+  python3 analysis/post_hoc/fetch_new_slots.py --manifest analysis/m5_manifest.txt --offsets=-2,-1,0,1,2,3
+
+Note: use --offsets=... (with equals sign) when passing negative offsets, so
+argparse does not interpret the leading dash as a flag.
 """
 
+import argparse
 import csv
 import json
 import sys
@@ -46,6 +56,19 @@ def fetch_leader_batch(start_slot, limit, session):
 
 
 def main():
+    ap = argparse.ArgumentParser(
+        description="Prime leader_cache.json for all manifest datasets and offsets"
+    )
+    ap.add_argument("--manifest", default="analysis/m5_manifest.txt",
+                    help="Dataset manifest (default: analysis/m5_manifest.txt)")
+    ap.add_argument("--offsets", default="0,1",
+                    help="Comma-separated slot offsets to prime (default: 0,1). "
+                         "Use --offsets=... with equals sign when passing negative values, "
+                         "e.g. --offsets=-2,-1,0,1,2,3")
+    args = ap.parse_args()
+
+    offsets = [int(x.strip()) for x in args.offsets.split(",")]
+
     repo_root = Path(".").resolve()
     out_dir = repo_root / "leader_correlation_results"
     leader_cache_file = out_dir / "leader_cache.json"
@@ -54,18 +77,32 @@ def main():
     cache_slots = set(int(k) for k in leader_cache.keys())
     print(f"Leader cache: {len(cache_slots)} slots")
 
-    # Collect all slots needed by zela runs
+    manifest_path = Path(args.manifest)
+    if not manifest_path.is_absolute():
+        manifest_path = repo_root / manifest_path
+    if not manifest_path.exists():
+        print(f"ERROR: manifest not found: {manifest_path}", file=sys.stderr)
+        sys.exit(1)
+    manifest_entries = [
+        l.strip() for l in manifest_path.read_text().splitlines()
+        if l.strip() and not l.startswith("#")
+    ]
+    datasets_dir = repo_root / "zela_datasets"
+    datasets = [datasets_dir / name for name in manifest_entries
+                if (datasets_dir / name / "feeds.csv").exists()]
+    print(f"Loaded {len(datasets)}/{len(manifest_entries)} manifest datasets")
+
+    # Collect all target slots: context_slot + each offset
     needed = set()
-    datasets = sorted(repo_root.glob("zela_datasets/dataset_2026_05_*"))
     for ds in datasets:
         feeds = ds / "feeds.csv"
-        if not feeds.exists():
-            continue
         with open(feeds) as f:
             for row in csv.DictReader(f):
                 if row["side"] == "zela":
-                    needed.add(int(row["context_slot"]))
-    print(f"Needed slots: {len(needed)}")
+                    base = int(row["context_slot"])
+                    for off in offsets:
+                        needed.add(base + off)
+    print(f"Target slots across offsets {offsets}: {len(needed)}")
 
     missing = sorted(needed - cache_slots)
     print(f"Missing from cache: {len(missing)}")
@@ -73,8 +110,6 @@ def main():
         print("Nothing to fetch.")
         return
 
-    # Fetch in batches. For each missing slot, one getSlotLeaders(slot, 50)
-    # call covers it + 49 following. Skip ahead past covered slots.
     session = requests.Session()
     fetched = 0
     i = 0
@@ -102,15 +137,15 @@ def main():
     leader_cache_file.write_text(json.dumps(leader_cache))
     print(f"\nFinal: {len(leader_cache)} slots in cache (added {fetched} this run)")
 
-    # Verify coverage
     cache_slots = set(int(k) for k in leader_cache.keys())
     still_missing = sorted(needed - cache_slots)
     print(f"Still missing: {len(still_missing)}")
     if still_missing:
         print(f"  (first 10: {still_missing[:10]})")
     else:
-        print("  100% coverage — every zela run slot now has a leader.")
-    print("\nNext: re-run leader_correlation_v3.py > stdout_v5.txt 2>&1")
+        print("  100% coverage — every target slot now has a leader.")
+    print("\nNext: python3 analysis/post_hoc/fill_missing_validators.py")
+    print("Then: python3 analysis/post_hoc/leader_correlation_v3.py --slot-offset 1")
 
 
 if __name__ == "__main__":
