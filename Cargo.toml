@@ -1,5 +1,5 @@
 [workspace]
-members = ["procedures/oracle_read", "baseline_client"]
+members = ["procedures/oracle_read", "procedures/m6_sim_recheck", "baseline_client"]
 resolver = "2"
 
 [workspace.dependencies]
