@@ -1,0 +1,14 @@
+{
+  "pubkey": "H6ARHf6YXhGYeQfUzQNGk6rDNnLBQKrenN712K4AQJEG",
+  "slot": 422673093,
+  "commitment": "confirmed",
+  "captured_at": "2026-05-28T07:17:25Z",
+  "source_endpoint_host": "mainnet.helius-rpc.com",
+  "account_meta": {
+    "owner": "FsJ3A3u2vn5cTVofAjvy6y5kwABJAqYWpe4975bi2epH",
+    "lamports": 23942400,
+    "executable": false,
+    "rent_epoch": 18446744073709552000
+  },
+  "data_decoded_bytes": 3312
+}
