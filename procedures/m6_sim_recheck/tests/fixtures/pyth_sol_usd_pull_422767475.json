@@ -1,0 +1,11 @@
+{
+  "pubkey": "7UVimffxr9ow1uXYxsr4LHAcV58mLzhmwaeKvJ1pjLiE",
+  "feed_id": "ef0d8b6fda2ceba41da15d4095d1da392a0d2f8ed0c6c7bc0f4cfac8c280b56d",
+  "layout": "PriceUpdateV2 (pull oracle)",
+  "slot": 422767475,
+  "commitment": "confirmed",
+  "captured_at": "2026-05-28T17:40:20Z",
+  "source_endpoint_host": "mainnet.helius-rpc.com",
+  "owner": "rec5EKMGg6MxZYaMdyBfgwp4d5rB9T1VQH5pJv5LtFJ",
+  "data_decoded_bytes": 134
+}
