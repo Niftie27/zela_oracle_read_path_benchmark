@@ -36,6 +36,7 @@ __pycache__/
 
 # Windows attachment metadata
 *.Zone.Identifier
+*:Zone.Identifier
 
 # Post-M5-window datasets (outside the frozen M5 manifest)
 zela_datasets/dataset_2026_05_1[5-9]*/
@@ -55,3 +56,11 @@ stdout.txt
 stdout_v2.txt
 stdout_v3.txt
 stdout_v4.txt
+
+docs/skills/
+vendor/
+zela-ai-skills/
+zela-demo/
+docs/SESSION_HANDOFF_2026-06-04.md
+docs/M6_WORKFLOW_RESEARCH.md
+zela_datasets/run_*/
