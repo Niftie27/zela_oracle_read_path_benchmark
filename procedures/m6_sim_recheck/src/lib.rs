@@ -31,6 +31,19 @@ pub enum DecodeError {
     InvalidVerificationLevel { tag: u8 },
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+struct OracleGateParams {
+    max_publish_time_lag_seconds: i64,
+    max_clock_skew_seconds: i64,
+    max_confidence_ratio_bps: u64,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+struct OracleGateAbort {
+    reason: &'static str,
+    detail: Option<&'static str>,
+}
+
 impl core::fmt::Display for DecodeError {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self {
@@ -62,20 +75,38 @@ impl M6SimRecheck {
 
 pub fn run_core_sync(params: Value) -> Value {
     let executor_now_unix = chrono::Utc::now().timestamp();
+    run_core_sync_at(params, executor_now_unix)
+}
 
+fn run_core_sync_at(params: Value, executor_now_unix: i64) -> Value {
     if let Some(encoded) = params
         .get("oracle_account_data_base64")
         .and_then(Value::as_str)
     {
-        return match BASE64_STANDARD.decode(encoded) {
-            Ok(account_data) => match decode_price_update_v2(&account_data) {
-                Ok(summary) => json!({
+        let gate_params = match parse_oracle_gate_params(&params) {
+            Ok(gate_params) => gate_params,
+            Err(err) => {
+                return json!({
                     "schema_version": SCHEMA_VERSION,
                     "decision": "abort",
-                    "abort_reason": "c1_decode_only",
+                    "abort_reason": "payload_invalid",
+                    "abort_detail": err,
                     "executor_now_unix": executor_now_unix,
-                    "oracle_summary": oracle_summary_json(&summary),
-                }),
+                });
+            }
+        };
+
+        return match BASE64_STANDARD.decode(encoded) {
+            Ok(account_data) => match decode_price_update_v2(&account_data) {
+                Ok(summary) => match apply_oracle_gates(&summary, gate_params, executor_now_unix) {
+                    Ok(()) => json!({
+                        "schema_version": SCHEMA_VERSION,
+                        "decision": "execute",
+                        "executor_now_unix": executor_now_unix,
+                        "oracle_summary": oracle_summary_json(&summary),
+                    }),
+                    Err(abort) => oracle_gate_abort_json(&summary, abort, executor_now_unix),
+                },
                 Err(err) => json!({
                     "schema_version": SCHEMA_VERSION,
                     "decision": "abort",
@@ -100,6 +131,29 @@ pub fn run_core_sync(params: Value) -> Value {
         "abort_reason": "not_implemented",
         "executor_now_unix": executor_now_unix,
     })
+}
+
+fn parse_oracle_gate_params(params: &Value) -> Result<OracleGateParams, String> {
+    Ok(OracleGateParams {
+        max_publish_time_lag_seconds: read_required_i64_param(
+            params,
+            "max_publish_time_lag_seconds",
+        )?,
+        max_clock_skew_seconds: read_required_i64_param(params, "max_clock_skew_seconds")?,
+        max_confidence_ratio_bps: read_required_u64_param(params, "max_confidence_ratio_bps")?,
+    })
+}
+
+fn read_required_i64_param(params: &Value, field: &'static str) -> Result<i64, String> {
+    let raw = read_required_u64_param(params, field)?;
+    i64::try_from(raw).map_err(|_| format!("{field} is too large"))
+}
+
+fn read_required_u64_param(params: &Value, field: &'static str) -> Result<u64, String> {
+    params
+        .get(field)
+        .and_then(Value::as_u64)
+        .ok_or_else(|| format!("{field} must be a non-negative integer"))
 }
 
 pub fn decode_price_update_v2(data: &[u8]) -> Result<OracleSummary, DecodeError> {
@@ -204,6 +258,57 @@ fn oracle_summary_json(summary: &OracleSummary) -> Value {
     })
 }
 
+fn apply_oracle_gates(
+    summary: &OracleSummary,
+    params: OracleGateParams,
+    executor_now_unix: i64,
+) -> Result<(), OracleGateAbort> {
+    if summary.verification_level != VerificationLevel::Full {
+        return Err(OracleGateAbort {
+            reason: "oracle_verification_partial",
+            detail: None,
+        });
+    }
+
+    let Some(price_abs) = summary.price.checked_abs() else {
+        return Err(OracleGateAbort {
+            reason: "oracle_decode_failed",
+            detail: Some("non-positive price"),
+        });
+    };
+    if summary.price <= 0 || price_abs == 0 {
+        return Err(OracleGateAbort {
+            reason: "oracle_decode_failed",
+            detail: Some("non-positive price"),
+        });
+    }
+
+    if summary.publish_time > executor_now_unix.saturating_add(params.max_clock_skew_seconds) {
+        return Err(OracleGateAbort {
+            reason: "oracle_decode_failed",
+            detail: Some("publish_time in future"),
+        });
+    }
+
+    if executor_now_unix.saturating_sub(summary.publish_time) > params.max_publish_time_lag_seconds
+    {
+        return Err(OracleGateAbort {
+            reason: "oracle_publish_time_too_stale",
+            detail: None,
+        });
+    }
+
+    let ratio_bps = (summary.conf as u128).saturating_mul(10_000) / (price_abs as u128);
+    if ratio_bps > params.max_confidence_ratio_bps as u128 {
+        return Err(OracleGateAbort {
+            reason: "oracle_confidence_too_wide",
+            detail: None,
+        });
+    }
+
+    Ok(())
+}
+
 fn bytes_to_hex(bytes: &[u8]) -> String {
     const HEX: &[u8; 16] = b"0123456789abcdef";
     let mut out = String::with_capacity(bytes.len() * 2);
@@ -212,6 +317,26 @@ fn bytes_to_hex(bytes: &[u8]) -> String {
         out.push(HEX[(byte & 0x0f) as usize] as char);
     }
     out
+}
+
+fn oracle_gate_abort_json(
+    summary: &OracleSummary,
+    abort: OracleGateAbort,
+    executor_now_unix: i64,
+) -> Value {
+    let mut response = json!({
+        "schema_version": SCHEMA_VERSION,
+        "decision": "abort",
+        "abort_reason": abort.reason,
+        "executor_now_unix": executor_now_unix,
+        "oracle_summary": oracle_summary_json(summary),
+    });
+
+    if let Some(detail) = abort.detail {
+        response["abort_detail"] = json!(detail);
+    }
+
+    response
 }
 
 // TODO (Phase 0 step 4): full signature per design log Q8 + Q9.
@@ -276,6 +401,10 @@ mod tests {
     ];
     const FIXTURE_PRICE_LOWER_BOUND_USD: f64 = 50.0;
     const FIXTURE_PRICE_UPPER_BOUND_USD: f64 = 10_000.0;
+    const TEST_NOW_UNIX: i64 = 1_780_000_100;
+    const PRICE_OFFSET_FULL: usize = 73;
+    const CONF_OFFSET_FULL: usize = 81;
+    const PUBLISH_TIME_OFFSET_FULL: usize = 93;
 
     #[test]
     fn fixture_discriminator_matches_price_update_v2() {
@@ -330,21 +459,89 @@ mod tests {
     }
 
     #[test]
-    fn run_core_decodes_base64_account_data() {
-        let params = json!({
-            "oracle_account_data_base64": BASE64_STANDARD.encode(FIXTURE),
-        });
+    fn run_core_executes_for_fresh_full_oracle() {
+        let fixture = fixture_with_publish_time(TEST_NOW_UNIX - 10);
 
-        let result = run_core_sync(params);
+        let result = run_core_sync_at(gated_params(&fixture), TEST_NOW_UNIX);
         assert_eq!(result["schema_version"], SCHEMA_VERSION);
-        assert_eq!(result["decision"], "abort");
-        assert_eq!(result["abort_reason"], "c1_decode_only");
+        assert_eq!(result["decision"], "execute");
+        assert!(result.get("abort_reason").is_none());
         assert_eq!(result["oracle_summary"]["expo"], -8);
         assert_eq!(
             result["oracle_summary"]["feed_id"],
             bytes_to_hex(&EXPECTED_FEED_ID)
         );
-        assert!(result["executor_now_unix"].as_i64().unwrap() > 1_700_000_000);
+        assert_eq!(result["executor_now_unix"], TEST_NOW_UNIX);
+    }
+
+    #[test]
+    fn run_core_requires_oracle_gate_thresholds() {
+        let fixture = fixture_with_publish_time(TEST_NOW_UNIX);
+        let params = json!({
+            "oracle_account_data_base64": BASE64_STANDARD.encode(&fixture),
+        });
+
+        let result = run_core_sync_at(params, TEST_NOW_UNIX);
+        assert_eq!(result["decision"], "abort");
+        assert_eq!(result["abort_reason"], "payload_invalid");
+        assert!(
+            result["abort_detail"]
+                .as_str()
+                .unwrap()
+                .contains("max_publish_time_lag_seconds")
+        );
+    }
+
+    #[test]
+    fn oracle_gates_abort_on_partial_verification() {
+        let fixture = partial_fixture_with_publish_time(TEST_NOW_UNIX - 10);
+
+        let result = run_core_sync_at(gated_params(&fixture), TEST_NOW_UNIX);
+        assert_eq!(result["decision"], "abort");
+        assert_eq!(result["abort_reason"], "oracle_verification_partial");
+        assert_eq!(result["oracle_summary"]["verification_level"], "Partial(7)");
+    }
+
+    #[test]
+    fn oracle_gates_abort_on_non_positive_price() {
+        let mut fixture = fixture_with_publish_time(TEST_NOW_UNIX - 10);
+        write_i64(&mut fixture, PRICE_OFFSET_FULL, 0);
+
+        let result = run_core_sync_at(gated_params(&fixture), TEST_NOW_UNIX);
+        assert_eq!(result["decision"], "abort");
+        assert_eq!(result["abort_reason"], "oracle_decode_failed");
+        assert_eq!(result["abort_detail"], "non-positive price");
+    }
+
+    #[test]
+    fn oracle_gates_abort_on_future_publish_time() {
+        let fixture = fixture_with_publish_time(TEST_NOW_UNIX + 6);
+
+        let result = run_core_sync_at(gated_params(&fixture), TEST_NOW_UNIX);
+        assert_eq!(result["decision"], "abort");
+        assert_eq!(result["abort_reason"], "oracle_decode_failed");
+        assert_eq!(result["abort_detail"], "publish_time in future");
+    }
+
+    #[test]
+    fn oracle_gates_abort_on_stale_publish_time() {
+        let fixture = fixture_with_publish_time(TEST_NOW_UNIX - 61);
+
+        let result = run_core_sync_at(gated_params(&fixture), TEST_NOW_UNIX);
+        assert_eq!(result["decision"], "abort");
+        assert_eq!(result["abort_reason"], "oracle_publish_time_too_stale");
+    }
+
+    #[test]
+    fn oracle_gates_abort_on_wide_confidence_ratio() {
+        let mut fixture = fixture_with_publish_time(TEST_NOW_UNIX - 10);
+        write_i64(&mut fixture, PRICE_OFFSET_FULL, 100_000);
+        write_u64(&mut fixture, CONF_OFFSET_FULL, 100_000);
+
+        let params = gated_params_with_thresholds(&fixture, 60, 5, 9_999);
+        let result = run_core_sync_at(params, TEST_NOW_UNIX);
+        assert_eq!(result["decision"], "abort");
+        assert_eq!(result["abort_reason"], "oracle_confidence_too_wide");
     }
 
     #[test]
@@ -367,5 +564,47 @@ mod tests {
             decoded_legacy.message,
             VersionedMessage::Legacy(_)
         ));
+    }
+
+    fn gated_params(data: &[u8]) -> Value {
+        gated_params_with_thresholds(data, 60, 5, 10_000)
+    }
+
+    fn gated_params_with_thresholds(
+        data: &[u8],
+        max_publish_time_lag_seconds: i64,
+        max_clock_skew_seconds: i64,
+        max_confidence_ratio_bps: u64,
+    ) -> Value {
+        json!({
+            "oracle_account_data_base64": BASE64_STANDARD.encode(data),
+            "max_publish_time_lag_seconds": max_publish_time_lag_seconds,
+            "max_clock_skew_seconds": max_clock_skew_seconds,
+            "max_confidence_ratio_bps": max_confidence_ratio_bps,
+        })
+    }
+
+    fn fixture_with_publish_time(publish_time: i64) -> Vec<u8> {
+        let mut fixture = FIXTURE.to_vec();
+        write_i64(&mut fixture, PUBLISH_TIME_OFFSET_FULL, publish_time);
+        fixture
+    }
+
+    fn partial_fixture_with_publish_time(publish_time: i64) -> Vec<u8> {
+        let fresh_full = fixture_with_publish_time(publish_time);
+        let mut partial = vec![0u8; 134];
+        partial[..40].copy_from_slice(&fresh_full[..40]);
+        partial[40] = 0x00;
+        partial[41] = 7;
+        partial[42..134].copy_from_slice(&fresh_full[41..133]);
+        partial
+    }
+
+    fn write_i64(data: &mut [u8], offset: usize, value: i64) {
+        data[offset..offset + 8].copy_from_slice(&value.to_le_bytes());
+    }
+
+    fn write_u64(data: &mut [u8], offset: usize, value: u64) {
+        data[offset..offset + 8].copy_from_slice(&value.to_le_bytes());
     }
 }
