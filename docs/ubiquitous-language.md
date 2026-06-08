@@ -1,16 +1,17 @@
 # Ubiquitous language
 
-Last updated: 2026-06-04
+Last updated: 2026-06-08
 
 Scope: the `zela_oracle_read_path_benchmark` repo — the M6 simulation-recheck
 procedure, its Pyth pull-oracle decode path, abort taxonomy, and dataset.
 
-> Provenance: this v1 is grounded in `M6_DESIGN_LOG_v2.6` (read in full) and in
+> Provenance: this v1 is grounded in `M6_DESIGN_LOG_v2.6` (read in full), in
 > source-verified Pyth types (`pyth-solana-receiver-sdk` `PriceUpdateV2`,
-> `pythnet-sdk 2.3.1` `PriceFeedMessage`). It is **not** the product of a full
-> Rust source scan — treat the "Canonical spelling in code" column as
-> design-canonical and reconcile against actual source on the next codebase
-> scan. Update this file in place; do not rewrite from scratch.
+> `pythnet-sdk 2.3.1` `PriceFeedMessage`), and reconciled against the landed C1
+> source in `procedures/m6_sim_recheck/src/lib.rs`. C1 confirms the Pattern C
+> identifiers (`run_core`, `read_accounts`, `simulate_transaction`) and the
+> decode-only `oracle_summary` keys. Phase 0 and dataset artifacts are not yet
+> source-confirmed; keep open rows for surfaces that have not landed.
 
 ## Core entities
 
@@ -93,11 +94,9 @@ input/validation; non-trivial = data/RPC/decision-sourced.
 | "now" | executor wall-clock via `chrono::Utc::now().timestamp()` (used by both time checks) | Always qualify as the executor clock; it is NOT an on-chain `Clock::get()` (unavailable in the procedure). |
 | "stale" | oracle staleness (`publish_time` age) vs the deprioritized Zela read-context-slot freshness | "stale" alone = oracle staleness; Zela read freshness is a separate, currently-deprioritized concern. |
 
-## Terms I am guessing about
+## Terms still open
 
 | Term | What I think it means | Need confirmation |
 |------|-----------------------|-------------------|
-| `run_core` / `read_accounts` / `simulate_transaction` exact identifiers | The Pattern C function names as they will appear in source | Confirm against actual Rust source once C1 lands (these are design-doc names). |
-| `oracle_summary` JSON key set | `{ price, expo, publish_time, conf, verification_level, posted_slot, feed_id }` | Confirm the implemented key names match (esp. `expo` vs `exponent`). |
 | `abort_detail` field name/shape | The free-form detail string accompanying an abort value | Confirm the exact field name in the dataset row. |
 | 5-value taxonomy collapse membership | `oracle_error` aggregates the four oracle decode+gate failures | Confirm whether v1 ships the full taxonomy or the collapsed subset. |
