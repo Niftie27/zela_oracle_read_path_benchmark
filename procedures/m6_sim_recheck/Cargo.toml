@@ -19,3 +19,5 @@ bincode = "1.3"
 
 [target.'cfg(not(target_arch = "wasm32"))'.dependencies]
 solana-client = "2.2"
+solana-sdk = "2.2"
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }

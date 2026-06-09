@@ -2075,7 +2075,9 @@ dependencies = [
  "serde_json",
  "solana-client",
  "solana-message",
+ "solana-sdk",
  "solana-transaction",
+ "tokio",
  "zela-std",
 ]
 
