@@ -48,6 +48,8 @@ zela_datasets/dataset_202[7-9]*/
 /route_test_results/
 
 # Temporary result files
+probe_body.json
+probe_req.json
 fill_slots_round2.txt
 fill_stdout.txt
 fill_validators_stdout.txt
@@ -57,6 +59,7 @@ stdout_v2.txt
 stdout_v3.txt
 stdout_v4.txt
 
+zela_datasets/
 docs/skills/
 vendor/
 zela-ai-skills/
